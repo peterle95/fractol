@@ -116,13 +116,13 @@ int	key_event(int keycode, t_fractol *mlx)
 		zoom(mlx, 0.5);
 	else if (keycode == KEY_MINUS)
 		zoom(mlx, 2);
-	else if (keycode == KEY_UP || keycode == KEY_W)
+	else if (/* keycode == KEY_UP || */ keycode == KEY_W)
 		move(mlx, 0.2, 'U');
-	else if (keycode == KEY_DOWN || keycode == KEY_S)
+	else if (/* keycode == KEY_DOWN ||  */keycode == KEY_S)
 		move(mlx, 0.2, 'D');
-	else if (keycode == KEY_LEFT || keycode == KEY_A)
+	else if (/* keycode == KEY_LEFT ||  */keycode == KEY_A)
 		move(mlx, 0.2, 'L');
-	else if (keycode == KEY_RIGHT || keycode == KEY_D)
+	else if (/* keycode == KEY_RIGHT ||  */keycode == KEY_D)
 		move(mlx, 0.2, 'R');
 	else if (keycode == KEY_SPACE)
 		color_shift(mlx);
@@ -143,6 +143,7 @@ int	key_event(int keycode, t_fractol *mlx)
 *	program window with the mouse.
 *	If a valid event is detected, settings are adjusted and the fractal
 *	gets redrawn.
+
 */
 int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 {
@@ -162,11 +163,11 @@ int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(mlx, 2);
-	else if (keycode == MOUSE_BTN)
+/* 	else if (keycode == MOUSE_BTN)
 	{
 		if (mlx->set == JULIA)
 			julia_shift(x, y, mlx);
-	}
+	} */
 	else
 		return (0);
 	render(mlx);
