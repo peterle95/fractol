@@ -27,9 +27,6 @@
 /*  Fractal sets	*/
 # define MANDELBROT 1
 # define JULIA 2
-# define BURNING_SHIP 3
-# define TRICORN 4
-# define MANDELBOX 5
 
 typedef struct s_fractol
 {
@@ -65,9 +62,6 @@ void	set_color_multiple(t_fractol *f, int colors[4], int n);
 void	set_color_zebra(t_fractol *f, int color);
 void	set_color_triad(t_fractol *f, int color);
 void	set_color_tetra(t_fractol *f, int color);
-void	set_color_opposites(t_fractol *f, int color);
-void	set_color_contrasted(t_fractol *f, int color);
-void	set_color_graphic(t_fractol *f, int color);
 int		get_percent_color(int color, double percent);
 
 /*  Events   */

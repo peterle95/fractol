@@ -36,7 +36,7 @@ void	print_fractal_options(void)
 */
 void	print_color_options(void)
 {
-	ft_putendl_fd("\n+===============  Color Display ====================+", 1);
+	ft_putendl_fd("\n~~~~~ Color Display ~~~~~", 1);
 	ft_putendl_fd("Pick a display color by providing a hexadecimal code.", 1);
 	ft_putendl_fd("The hex color code must be formatted as RRGGBB:", 1);
 	ft_putendl_fd("\tWhite:\tFFFFFF\t\tBlack:\t000000", 1);
@@ -60,11 +60,11 @@ void	print_color_options(void)
 */
 void	print_controls(void)
 {
-	ft_putendl_fd("\n+===============  Controls  =========================+", 1);
+	ft_putendl_fd("\n~~~~~  Controls  ~~~~~", 1);
 	ft_putendl_fd("scroll wheel\tzoom in and out.", 1);
 	ft_putendl_fd("1, 2\t\t to switch fractals.", 1);
 	ft_putendl_fd("ESC or close window\tquit fract'ol.", 1);
-	ft_putendl_fd("+====================================================+\n", 1);
+	ft_putendl_fd("~~~~~~~~~~~~~~~~~~~~~~~~~\n", 1);
 }
 
 /* help_msg:
@@ -72,9 +72,9 @@ void	print_controls(void)
 */
 void	help_msg(t_fractol *f)
 {
-	ft_putendl_fd("\n+====================================================+", 1);
-	ft_putendl_fd("|                     FRACT'OL                       |", 1);
-	ft_putendl_fd("+====================================================+\n", 1);
+	ft_putendl_fd("\n~~~~~~~~~~~~~~", 1);
+	ft_putendl_fd("|    FRACT'OL  |", 1);
+	ft_putendl_fd("~~~~~~~~~~~~~~\n", 1);
 	print_fractal_options();
 	print_color_options();
 	clean_exit(EXIT_FAILURE, f);
