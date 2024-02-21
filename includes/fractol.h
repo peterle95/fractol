@@ -55,16 +55,12 @@ typedef struct s_fractol
 /*  Fractal Sets   */
 int		mandelbrot(double cr, double ci);
 int		julia(t_fractol *f, double zr, double zi);
-int		burning_ship(double cr, double ci);
-int		tricorn(double cr, double ci);
-int		mandelbox(t_fractol *f, double cr, double ci);
+
 
 /*  Draw Fractal	*/
 void	render(t_fractol *f);
-int		julia_shift(int x, int y, t_fractol *f);
 
 /* Colors	*/
-void	color_shift(t_fractol *f);
 void	set_color_mono(t_fractol *f, int color);
 void	set_color_multiple(t_fractol *f, int colors[4], int n);
 void	set_color_zebra(t_fractol *f, int color);

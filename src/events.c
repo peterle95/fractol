@@ -94,45 +94,6 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 	return (0);
 }
 
-/* key_event:
-*	Handles events from the keyboard keys:
-*		- + or - key: zoom
-*		- Arrow keys or WASD: move
-*		- Space: color shift
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
-*/
-int	key_event(int keycode, t_fractol *mlx)
-{
-	if (keycode == KEY_ESC)
-	{
-		end_fractol(mlx);
-		return (0);
-	}
-	else if (keycode == KEY_PLUS)
-		zoom(mlx, 0.5);
-	else if (keycode == KEY_MINUS)
-		zoom(mlx, 2);
-	else if (/* keycode == KEY_UP || */ keycode == KEY_W)
-		move(mlx, 0.2, 'U');
-	else if (/* keycode == KEY_DOWN ||  */keycode == KEY_S)
-		move(mlx, 0.2, 'D');
-	else if (/* keycode == KEY_LEFT ||  */keycode == KEY_A)
-		move(mlx, 0.2, 'L');
-	else if (/* keycode == KEY_RIGHT ||  */keycode == KEY_D)
-		move(mlx, 0.2, 'R');
-	else if (keycode == KEY_SPACE)
-		color_shift(mlx);
-	else if (!key_event_extend(keycode, mlx))
-		return (1);
-	else
-		return (1);
-	render(mlx);
-	return (0);
-}
 
 /* mouse_event:
 *	Handles events from the mouse:

@@ -39,16 +39,11 @@ SRC			=	fractol.c \
 				utils.c \
 				events.c \
 				render.c \
-				color.c \
 				parse_args.c \
 				help_msg.c \
 				fractal_sets/mandelbrot.c \
 				fractal_sets/julia.c \
-				fractal_sets/burning_ship.c \
-				fractal_sets/tricorn.c \
-				fractal_sets/mandelbox.c \
 				color_schemes/color_interpolated.c \
-				color_schemes/color_special.c \
 				color_schemes/color_striped.c
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 

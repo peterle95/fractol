@@ -14,19 +14,6 @@
 
 #include "fractol.h"
 
-/* julia_shift:
-*	Changes the Julia calculation kr and ki values to get a different Julia
-*	fractal shape. This function should be called when the user clicks on
-*	a point on the sceen.
-*/
-int	julia_shift(int x, int y, t_fractol *f)
-{
-	f->kr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-	f->ki = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
-	render(f);
-	return (0);
-}
-
 /* julia:
 *	Checks whether a complex number is part of the Julia set or not.
 *	Takes as parameters the real and imaginary coordinates of a point,
