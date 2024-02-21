@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   tricorn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 13:37:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/18 15:21:31 by mcombeau         ###   ########.fr       */
+/*   Created: 2024/02/21 01:41:29 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/02/21 01:41:29 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fractol.h"
 

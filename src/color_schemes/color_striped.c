@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   color_striped.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/17 17:05:39 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/18 14:34:45 by mcombeau         ###   ########.fr       */
+/*   Created: 2024/02/21 01:40:56 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/02/21 01:40:56 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fractol.h"
 

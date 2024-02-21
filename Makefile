@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/21 01:43:43 by pmolzer           #+#    #+#              #
+#    Updated: 2024/02/21 01:43:43 by pmolzer          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #Program name
 NAME	= fractol
 
 # Compiler
-CC		= gcc
+CC		= cc
 CFLAGS	= -Werror -Wextra -Wall
 
 # Minilibx
@@ -68,7 +80,7 @@ $(LIBFT):
 $(NAME): $(OBJS)
 	@echo "Compiling fractol..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm
-	@echo "Fractol ready."
+	@echo "Compilingfinished. Fractol ready."
 
 bonus: all
 
@@ -79,7 +91,7 @@ clean:
 	@make clean -C $(LIBFT_PATH)
 
 fclean: clean
-	@echo "Removing fractol..."
+	@echo "Removing fractol files..."
 	@rm -f $(NAME)
 	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
 
