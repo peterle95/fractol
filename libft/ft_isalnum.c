@@ -3,26 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:52:40 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:49:56 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:00:05 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:21:09 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_isalnum checks whether the value of c is alphanumeric.
-
-	RETURN VALUE :
-	Non-zero if c is alphanumeric, zero if not.
-*/
+// #include <stdio.h>
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	if (c >= '0' && c <= '9')
 		return (c);
-	return (0);
+	else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (c);
+	else
+		return (0);
 }
+
+/* int main() {
+    char c;
+
+    printf("Enter a character: ");
+    scanf("%c", &c); 
+
+    if (ft_isalnum(c)) {
+        printf("%c is an alphanumeric character.\n", c);
+    } else {
+        printf("%c is not an alphanumeric character.\n", c);
+    }
+
+    return (0);
+}*/

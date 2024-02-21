@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 17:56:03 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/08 12:14:01 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:12:33 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:33:12 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-	DESCRIPTION :
-	The function ft_split allocates and copies an array of strings by 
-	splitting the given string s using the given separator c.
+DESCRIPTION :
+The function ft_split allocates and copies an array of strings by 
+splitting the given string s using the given separator c.
 
-	RETURN VALUE :
-	An array of strings resulting from the split. NULL if the memory
-	allocation fails.
+RETURN VALUE :
+An array of strings resulting from the split. NULL if the memory
+allocation fails.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 static int	ft_count_words(const char *s, char c)
 {
@@ -134,3 +135,24 @@ char	**ft_split(char const *s, char c)
 		strs = ft_merror(strs);
 	return (strs);
 }
+
+/*int main() {
+  char str[] = "I want to split this string";
+  char delimiter = ' ';
+
+  char **split_strings = ft_split(str, delimiter);
+
+  if (split_strings) {
+    int i = 0;
+    while (split_strings[i]) {
+      printf("%s\n", split_strings[i]);
+      i++;
+    }
+
+    free(split_strings);
+  } else {
+    printf("Error splitting string\n");
+  }
+
+  return 0;
+}*/

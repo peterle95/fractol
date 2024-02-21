@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 15:14:19 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:13:28 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:01:47 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:46:48 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+DESCRIPTION :
+The function ft_strlcat appends the given string src to the end of 
+dst. It will append at most dstsize - ft_strlen(dst) - 1 and 
+nul-terminate the result.
+
+Note : space for the terminating \0 character must be included in dstsize.
+
+RETURN VALUE :
+The total length of the string that it tried to create : the initial
+length of dst + the length of src, with the goal to facilitate
+truncaction detection.
+*/
+
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_strlcat appends the given string src to the end of 
-	dst. It will append at most dstsize - ft_strlen(dst) - 1 and 
-	nul-terminate the result.
-
-	Note : space for the terminating \0 character must be included in dstsize.
-
-	RETURN VALUE :
-	The total length of the string that it tried to create : the initial
-	length of dst + the length of src, with the goal to facilitate
-	truncaction detection.
-*/
+// #include <string.h>
+// #include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -47,3 +50,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[i + j] = '\0';
 	return (d_size + s_size);
 }
+
+/*int main()
+{
+	char dst[27] = "This string +";
+	const char src[] = " this string.";
+	size_t dstsize = sizeof(dst);
+
+	size_t len = ft_strlcat(dst, src, dstsize);
+	printf("Destination string: %s\n", dst);
+	printf("Length: %zu\n", len);
+
+	return 0;
+}*/

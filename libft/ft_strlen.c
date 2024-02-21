@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:51:11 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:17:56 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:00:44 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:00:47 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,15 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
+/*#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+int main(void)
+{
+    char str[] = "12345"; // 5
+    char str2[] = "abcdefghi"; // 9
+    printf("%i\n", ft_strlen(str));
+    printf("%i", ft_strlen(str2));
+    return (0);
+}*/

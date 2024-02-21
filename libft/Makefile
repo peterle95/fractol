@@ -1,26 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/22 13:48:30 by mcombeau          #+#    #+#              #
-#    Updated: 2021/12/02 13:26:19 by mcombeau         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+
 
 NAME = libft.a
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
+CC = cc
+CFLAGS = -Wall -Werror -Wextra 
 AR = ar rcs
+RM = rm -f
 SRC = ft_isalpha \
 	ft_isdigit \
 	ft_isalnum \
 	ft_isascii \
 	ft_isprint \
-	ft_isspace \
 	ft_ishexdigit \
+	ft_isspace \
 	ft_strlen \
 	ft_memset \
 	ft_bzero \
@@ -33,6 +24,7 @@ SRC = ft_isalpha \
 	ft_strchr \
 	ft_strrchr \
 	ft_strncmp \
+	ft_split \
 	ft_memchr \
 	ft_memcmp \
 	ft_strnstr \
@@ -42,15 +34,22 @@ SRC = ft_isalpha \
 	ft_substr \
 	ft_strjoin \
 	ft_strtrim \
-	ft_split \
 	ft_itoa \
 	ft_strmapi \
 	ft_striteri \
 	ft_putchar_fd \
 	ft_putstr_fd \
 	ft_putendl_fd \
-	ft_putnbr_fd
-BONUS_SRC = ft_lstnew \
+	ft_putnbr_fd \
+	ft_printf			    \
+	ft_putchar_printf		\
+	ft_putstr_printf		\
+	ft_putnbr_printf		\
+	ft_putuint_printf		\
+	ft_puthex_printf		\
+	ft_putptr_printf		\
+	ft_aux_printf			\
+	ft_lstnew \
 	ft_lstadd_front \
 	ft_lstsize \
 	ft_lstlast \
@@ -62,30 +61,21 @@ BONUS_SRC = ft_lstnew \
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
-BONUS_SRCS = $(addsuffix .c, $(BONUS_SRC))
-BONUS_OBJS = $(addsuffix .o, $(BONUS_SRC))
 
-.c.o: $(SRCS) $(BONUS_SRCS)
-	@$(CC) $(CFLAGS) -c -o $@ $<
+.c.o: $(SRCS) 
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	@$(AR) $@ $^
-	@echo "Libft ready."
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	@$(AR) $(NAME) $^
-	@echo "Libft + bonus ready."
+	$(AR) $@ $^
 
 all: $(NAME)
 
 clean:
-	@rm -f *.o
-	@echo "Libft: removed .o object files."
+	$(RM) $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Libft: removed libft.a file."
+	$(RM) $(NAME)
 
 re: clean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: 	all clean fclean re

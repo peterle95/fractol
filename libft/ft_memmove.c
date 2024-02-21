@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 15:57:19 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:48:38 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:01:23 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:28:27 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -24,26 +22,40 @@
 	A pointer to dst.
 */
 
+#include "libft.h"
+// #include <stdio.h>
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*dp;
-	const char	*sp;
+	char		*p_dest;
+	const char	*p_src;
 
 	if (src == dst)
 		return (dst);
-	dp = (char *)dst;
-	sp = (const char *)src;
-	if (sp < dp && sp + len > dp)
+	p_dest = (char *)dst;
+	p_src = (const char *)src;
+	if (p_src < p_dest && p_src + len > p_dest)
 		while (len--)
-			*(dp + len) = *(sp + len);
+			*(p_dest + len) = *(p_src + len);
 	else
 	{
 		while (len--)
 		{
-			*dp = *sp;
-			sp++;
-			dp++;
+			*p_dest = *p_src;
+			p_src++;
+			p_dest++;
 		}
 	}
 	return (dst);
 }
+
+/* int main() {
+    char src[] = "I like programming!";
+    char dst[22];
+
+    ft_memmove(dst, src, sizeof(src));
+
+    printf("Destination string after memmove: %s\n", dst);
+
+    return 0;
+}*/

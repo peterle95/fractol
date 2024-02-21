@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 05:42:28 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:23:10 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:16:27 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:32:13 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -20,6 +18,9 @@
 	RETURN VALUE :
 	None.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -31,3 +32,13 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
+
+/*int main()
+{
+	char *str = "Hello, world!";
+	int fd = 1; // Standard output file descriptor
+
+	ft_putstr_fd(str, fd);
+
+	return 0;
+}*/

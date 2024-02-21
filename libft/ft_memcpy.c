@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   42 Header_ft_memcpy.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 15:02:13 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:26:40 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/22 11:54:21 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 11:54:29 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -23,24 +21,38 @@
 	A pointer to dst. NULL if src and dst are both NULL.
 */
 
+#include "libft.h"
+// #include <stdio.h>
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*dp;
-	const char	*sp;
+	char		*p_dest;
+	const char	*p_src;
 
 	if (!dst && !src)
 		return (0);
 	if (n == 0 || (dst == src))
 		return (dst);
-	dp = (char *)dst;
-	sp = (const char *)src;
+	p_dest = (char *)dst;
+	p_src = (const char *)src;
 	while (n != 0)
 	{
-		if (*dp != *sp)
-			*dp = *sp;
-		dp++;
-		sp++;
+		if (*p_dest != *p_src)
+			*p_dest = *p_src;
+		p_dest++;
+		p_src++;
 		n--;
 	}
 	return (dst);
 }
+
+/*int main() {
+    char src[50] = "Hello, World!";
+    char dest[50];
+
+    ft_memcpy(dest, src, 50);
+
+    printf("Copied string: %s\n", dest);
+
+    return 0;
+}*/

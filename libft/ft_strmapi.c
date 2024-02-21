@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 04:35:39 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:21:12 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:13:06 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:48:23 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESRIPTION :
@@ -22,6 +20,9 @@
 	A pointer to the newly created string. NULL if the memory allocation
 	fails.	
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -43,3 +44,21 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (str);
 }
+
+/* int main(void)
+{
+    char *str = "This project is great!";
+    char (*f)(unsigned int, char) = ft_toupper;
+
+    char *new_str = ft_strmapi(str, f);
+    if (!new_str)
+    {
+        return 1;
+    }
+
+    printf("%s\n", new_str);
+
+    free(new_str);
+
+    return 0;
+}*/

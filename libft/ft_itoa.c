@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 18:04:16 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/08 12:12:23 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:12:46 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:26:26 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-	DESCRIPTION :
-	The function ft_itoa converts the integer n into a string of characters.
+DESCRIPTION :
+The function ft_itoa converts the integer n into a string of characters.
 
-	RESULT VALUE :
-	The string of the converted integer.
+RESULT VALUE :
+The string of the converted integer.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 static size_t	ft_itoa_len(long num)
 {
@@ -76,3 +77,24 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (str);
 }
+
+/*int main()
+{
+	int n;
+	char *str;
+
+	printf("Enter an integer: ");
+	scanf("%d", &n);
+
+	str = ft_itoa(n);
+	if (!str)
+	{
+		printf("Error: Unable to convert integer to string.\n");
+		return (1);
+	}
+
+	printf("The integer %d converted to a string is: %s\n", n, str);
+	free(str);
+
+	return (0);
+}*/

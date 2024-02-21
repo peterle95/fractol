@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 17:09:14 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/06 15:15:37 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:03:32 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:03:33 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -22,6 +20,9 @@
 	n bytes of s1 is found to be less than, to match, or to be greater than 
 	s2.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -35,3 +36,22 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+/*int main()
+{
+	char s1[] = "Hello";
+	char s2[] = "World";
+	size_t n = 5;
+
+	int result = ft_strncmp(s1, s2, n);
+
+	if (result < 0) {
+		printf("s1 is less than s2\n");
+	} else if (result > 0) {
+		printf("s1 is greater than s2\n");
+	} else {
+		printf("s1 is equal to s2\n");
+	}
+
+	return 0;
+}*/

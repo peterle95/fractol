@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:54:20 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/04 13:57:17 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:05:01 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/02/21 03:30:06 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,13 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+// # include <stdio.h>
 
-/* ---------------	LISTS		--------------- */
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}		t_list;
-
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **alst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **alst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+# define HEX_UPP_BASE "0123456789ABCDEF"
+# define HEX_LOW_BASE "0123456789abcdef"
 
 /* ---------------	CHARS		--------------- */
 int		ft_isalpha(int c);
@@ -40,8 +30,8 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_isspace(int c);
 int		ft_ishexdigit(int c);
+int		ft_isspace(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
@@ -79,5 +69,33 @@ void	*ft_calloc(size_t count, size_t size);
 /* ---------------	NUMBERS		--------------- */
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+
+/* format functions */
+void	ft_putchar_printf(char c, size_t *counter);
+void	ft_putstr_printf(char *str, size_t *counter);
+void	ft_putnbr_printf(int num, size_t *counter);
+void	ft_putuint_printf(unsigned int num, size_t *counter);
+void	ft_puthex_printf(unsigned int num, size_t *counter, char *base);
+void	ft_putptr_printf(void *ptr, size_t *counter);
+
+/* ---------------	LISTS		--------------- */
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}		t_list;
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* auxiliary functions */
+char	*ft_aux_printf(unsigned long long n, char *base);
 
 #endif

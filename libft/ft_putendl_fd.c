@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 06:13:20 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:41:38 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:16:27 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:16:28 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -21,8 +19,20 @@
 	None.
 */
 
+#include "libft.h"
+// #include <stdio.h>
+
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
+
+/*int main()
+{
+  char *s = "This is just a test";
+  int fd = 1;
+
+  ft_putendl_fd(s, fd);
+  return 0;
+}*/

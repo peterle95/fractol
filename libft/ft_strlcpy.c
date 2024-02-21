@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 14:16:24 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:32:30 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:01:36 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:47:59 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -23,6 +21,10 @@
 	The total length of the string that it tried to create : the length of
 	src, with the goal to facilitate truncaction detection.
 */
+
+#include "libft.h"
+//#include <stdio.h>
+//#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -41,3 +43,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (srclen);
 }
+
+/*int main(void)
+{
+	char dst[10];
+	const char src[] = "Wawaweewa!";
+	size_t dstsize = sizeof(dst);
+
+	size_t srclen = ft_strlcpy(dst, src, dstsize);
+
+	printf("dst: %s\n", dst);
+	printf("src: %s\n", src);
+	printf("srclen: %zu\n", srclen);
+
+	return 0;
+}*/

@@ -36,7 +36,7 @@ void	print_fractal_options(void)
 */
 void	print_color_options(void)
 {
-	ft_putendl_fd("\n+===============  Color Display  ====================+", 1);
+	ft_putendl_fd("\n+===============  Color Display ====================+", 1);
 	ft_putendl_fd("Pick a display color by providing a hexadecimal code.", 1);
 	ft_putendl_fd("The hex color code must be formatted as RRGGBB:", 1);
 	ft_putendl_fd("\tWhite:\tFFFFFF\t\tBlack:\t000000", 1);

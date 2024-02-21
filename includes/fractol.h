@@ -56,7 +56,6 @@ typedef struct s_fractol
 int		mandelbrot(double cr, double ci);
 int		julia(t_fractol *f, double zr, double zi);
 
-
 /*  Draw Fractal	*/
 void	render(t_fractol *f);
 
@@ -72,7 +71,6 @@ void	set_color_graphic(t_fractol *f, int color);
 int		get_percent_color(int color, double percent);
 
 /*  Events   */
-int		key_event(int keycode, t_fractol *mlx);
 int		mouse_event(int keycode, int x, int y, t_fractol *mlx);
 
 /* Initialization */

@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 15:28:22 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:49:19 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:05:01 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:20:01 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -21,13 +19,32 @@
 	The pointer to the allocated memory. NULL if the memory allocation fails.
 */
 
+#include "libft.h"
+
+// #include <stdio.h>
+
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*r;
+	void	*x;
 
-	r = malloc(count * size);
-	if (!r)
+	x = malloc(count * size);
+	if (!x)
 		return (NULL);
-	ft_bzero(r, size * count);
-	return (r);
+	ft_bzero(x, count * size);
+	return (x);
 }
+
+/*int main(void)
+{
+	void	*ptr;
+
+	ptr = ft_calloc(10, sizeof(int));
+	if (!ptr)
+	{
+		printf("Memory allocation failed.\n");
+		return (-1);
+	}
+	free(ptr);
+	printf("Memory freed successfully.\n");
+	return (0);
+}*/

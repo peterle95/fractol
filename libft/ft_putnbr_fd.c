@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 06:22:02 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:44:08 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:16:45 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:16:46 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -20,6 +18,9 @@
 	RETURN VALUE :
 	None.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -39,3 +40,13 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(nbr + '0', fd);
 }
+
+/*int main(void)
+{
+	int n = 42;
+	int fd = 1; // 1 is the file descriptor for stdout
+
+	ft_putnbr_fd(n, fd);
+
+	return 0;
+}*/

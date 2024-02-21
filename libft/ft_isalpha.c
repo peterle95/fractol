@@ -3,24 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:50:28 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 14:36:38 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 11:59:35 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:21:39 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION :
-	The function ft_isalpha checks whether c is alphabetic or not.
-
-	RETURN VALUE :
-	Non-zero if c is alphabetic, zero if not.
+/*DEFINITION:
+checks  for  an  alphabetic  character; in the standard "C" locale, 
+it is equivalent to (isupper(c) || islower(c)).  In some locales, 
+there may be  additional  characters  for
+which isalpha() is true—letters which are neither uppercase nor lowercase.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (c);
-	return (0);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
+
+/*
+int main()
+{
+  char c;
+
+  printf("Enter a character: ");
+  scanf("%c", &c);
+
+  if (ft_isalpha(c)) {
+    printf("%c is an alphabetic character.\n", c);
+  } else {
+    printf("%c is not an alphabetic character.\n", c);
+  }
+
+  return 0;
+}*/

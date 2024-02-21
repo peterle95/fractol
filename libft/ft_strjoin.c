@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 18:18:15 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/06 15:09:40 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:12:03 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/28 11:58:44 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -21,6 +19,9 @@
 	A pointer to the new concatenated string.
 	NULL if the memory allocation fails.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -46,3 +47,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (s);
 }
+
+/*int main()
+{
+	char *s1 = "Hello";
+	char *s2 = "World";
+
+	char *joined_string = ft_strjoin(s1, s2);
+
+	if (joined_string) {
+		printf("Joined string: %s\n", joined_string);
+		free(joined_string); // Free the allocated memory when done
+	} else {
+		printf("Error: Memory allocation failed\n");
+	}
+
+	return 0;
+}*/

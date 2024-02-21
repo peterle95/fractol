@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 16:51:42 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 16:21:52 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:12:23 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:12:24 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -22,6 +20,9 @@
 	A pointer to the trimmed copy of the string.
 	NULL if the memory allocation fails.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 static int	is_set(char c, char const *set)
 {
@@ -56,3 +57,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	return (ft_substr(s1, start, end - start));
 }
+
+/* int	main(void)
+{
+	char	*s1 = "   Hello, world!   ";
+	char	*set = " ";
+	char	*trimmed;
+
+	trimmed = ft_strtrim(s1, set);
+	printf("Original string: \"%s\"\n", s1);
+	printf("Trimmed string: \"%s\"\n", trimmed);
+	free(trimmed);
+	return (0);
+}*/

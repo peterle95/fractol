@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:53:33 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/05 15:35:48 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:03:09 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:35:17 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -21,6 +19,10 @@
 	A pointer to the first occurence of c in str.
 	NULL if c is not found.
 */
+
+#include "libft.h"
+// #include <stdio.h>
+// #include <string.h>
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -42,3 +44,19 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
+
+/*int main()
+{
+	char str[] = "Hello, world!";
+	char c = 'l';
+	char *ptr = ft_strchr(str, c);
+
+	if (ptr)
+		printf("The character '%c' is found
+	       	at position %ld in the string \"%s\".\n", c, ptr - str, str);
+	else
+		printf("The character '%c' is not 
+		found in the string \"%s\".\n", c, str);
+
+	return 0;
+}*/

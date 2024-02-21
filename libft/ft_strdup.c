@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 16:03:27 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 15:58:22 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:05:13 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:39:16 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -20,6 +18,9 @@
 	RETURN VALUE :
 	A pointer to the new string. NULL if the memory allocation fails.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 char	*ft_strdup(const char *s1)
 {
@@ -33,3 +34,15 @@ char	*ft_strdup(const char *s1)
 	ft_strlcpy(s2, s1, len);
 	return (s2);
 }
+
+/*int main() {
+  char *original = "Hello, world!";
+  char *duplicate = ft_strdup(original);
+
+  printf("Original string: %s\n", original);
+  printf("Duplicate string: %s\n", duplicate);
+
+  free(duplicate); // Free the allocated memory for the duplicate string
+
+  return 0;
+}*/

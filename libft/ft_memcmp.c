@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 22:41:23 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:51:42 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:04:04 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:27:54 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -22,6 +20,9 @@
 	n bytes of s1 is found to be less than, equal to, or greater than the 
 	first n bytes of s2. Zero if n is equal to zero.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -38,3 +39,21 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }
+
+/*int main() {
+  const char s1[] = "Nice!";
+  const char s2[] = "Nice!";
+  size_t n = strelen(s1);
+
+  int result = ft_memcmp(s1, s2, n);
+
+  if (result == 0) {
+    printf("The strings are equal.\n");
+  } else if (result < 0) {
+    printf("The first string is less than the second string.\n");
+  } else {
+    printf("The first string is greater than the second string.\n");
+  }
+
+  return 0;
+}*/

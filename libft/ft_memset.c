@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:48:14 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/03 12:05:11 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:00:57 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:00:59 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-	DESCRIPTION :
-	The function ft_memset fills the first len bytes of the memory area
-	pointed	to by b with the byte c. Both b and c are interpreted as 
-	unsigned char.
+DESCRIPTION
+     The memset() function writes len bytes of value c (converted to an
+     unsigned char) to the string b.
 
-	RETURN VALUE :
-	A pointer to memory area s.
+RETURN VALUES
+     The memset() function returns its first argument.
 */
+
+#include "libft.h"
+// #include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -36,3 +36,12 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+/*int main()
+{
+	char str[50] = "Hello 42 School!";
+	printf("Before memset: %s\n", str);
+	ft_memset(str, '*', 20);
+	printf("After memset: %s\n", str);
+	return 0;
+}*/

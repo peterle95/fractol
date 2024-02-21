@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 16:50:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/02 16:53:34 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:11:51 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/13 12:11:52 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION :
@@ -23,24 +21,48 @@
 	NULL if the memory allocation fails.
 */
 
+#include "libft.h"
+// #include <stdio.h>
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*res;
-	char	*src;
-	size_t	reslen;
+	char	*p_sub;
+	char	*p_start_sub;
+	size_t	sublen;
 
 	if (!s)
 		return (NULL);
 	if (ft_strlen(s) < (size_t)start)
 		return (ft_strdup(""));
-	src = (char *)s + start;
-	if (ft_strlen(src) < len)
-		reslen = ft_strlen(src) + 1;
+	p_start_sub = (char *)s + start;
+	if (ft_strlen(p_start_sub) < len)
+		sublen = ft_strlen(p_start_sub) + 1;
 	else
-		reslen = len + 1;
-	res = malloc(reslen * sizeof(char));
-	if (!res)
+		sublen = len + 1;
+	p_sub = malloc(sublen * sizeof(char));
+	if (!p_sub)
 		return (NULL);
-	ft_strlcpy(res, src, reslen);
-	return (res);
+	ft_strlcpy(p_sub, p_start_sub, sublen);
+	return (p_sub);
 }
+
+/*int main(void)
+{
+	char *original = "Hello, world!";
+	unsigned int start = 5;
+	size_t len = 5;
+
+	char *substring = ft_substr(original, start, len);
+	if (!substring)
+	{
+		fprintf(stderr, "Error: Failed to allocate memory for substring.\n");
+		return 1;
+	}
+
+	printf("Original string: %s\n", original);
+	printf("Substring: %s\n", substring);
+
+	free(substring);
+
+	return 0;
+}*/

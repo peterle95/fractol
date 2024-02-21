@@ -3,28 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 13:52:04 by mcombeau          #+#    #+#             */
-/*   Updated: 2021/12/06 15:42:20 by mcombeau         ###   ########.fr       */
+/*   Created: 2023/11/13 12:02:57 by pmolzer           #+#    #+#             */
+/*   Updated: 2023/11/22 12:52:32 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-	DESCRIPTION :
-	The function ft_tolower converts a given uppercase letter c to its
-	lowercase equivalent.
-
-	RETURN VALUE :
-	The lowercase equivalent letter.
-	The original character c if c is not an uppercase letter.	
-*/
+// #include <stdio.h>
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (c >= 65 && c <= 90)
 		c += 32;
 	return (c);
 }
+
+/*int main()
+{
+  char c;
+
+  printf("Enter an uppercase character: ");
+  scanf("%c", &c);
+
+  if (ft_tolower(c)) {
+    printf("%c is a uppercase character.\n", c);
+  } else {
+    printf("%c (input is not uppercase character).\n", c);
+  }
+
+  return 0;
+}*/

@@ -66,39 +66,9 @@ static void	move(t_fractol *f, double distance, char direction)
 	}
 }
 
-/* key_event_extend:
-*	Handles events from the keyboard keys:
-*		- 1, 2, 3, 4, 5: switch fractals
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
-*/
-static int	key_event_extend(int keycode, t_fractol *mlx)
-{
-	if (keycode == KEY_ONE && mlx->set != MANDELBROT)
-		mlx->set = MANDELBROT;
-	else if (keycode == KEY_TWO && mlx->set != JULIA)
-		mlx->set = JULIA;
-	else if (keycode == KEY_THREE && mlx->set != BURNING_SHIP)
-		mlx->set = BURNING_SHIP;
-	else if (keycode == KEY_FOUR && mlx->set != TRICORN)
-		mlx->set = TRICORN;
-	else if (keycode == KEY_FIVE && mlx->set != MANDELBOX)
-		mlx->set = MANDELBOX;
-	else
-		return (1);
-	get_complex_layout(mlx);
-	render(mlx);
-	return (0);
-}
-
-
 /* mouse_event:
 *	Handles events from the mouse:
 *		- Mouse wheel: zoom
-*		- Left click: Julia shift
 *	This function is registered to an MLX hook and will
 *	automatically be called when the user does anything inside the
 *	program window with the mouse.
@@ -124,11 +94,6 @@ int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(mlx, 2);
-/* 	else if (keycode == MOUSE_BTN)
-	{
-		if (mlx->set == JULIA)
-			julia_shift(x, y, mlx);
-	} */
 	else
 		return (0);
 	render(mlx);
