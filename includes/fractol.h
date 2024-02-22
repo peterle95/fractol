@@ -28,7 +28,7 @@
 # define MANDELBROT 1
 # define JULIA 2
 
-typedef struct s_fractol
+typedef struct t_fractol // changed from s_fractol
 {
 	void	*mlx;
 	void	*win;
