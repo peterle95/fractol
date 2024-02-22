@@ -18,6 +18,7 @@
 */
 void	clean_init(t_fractol *f)
 {
+	// why they all have different values?
 	f->mlx = NULL;
 	f->win = NULL;
 	f->img = NULL;
@@ -64,7 +65,7 @@ void	get_complex_layout(t_fractol *f)
 		f->min_i = -2.0;
 		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
-	else
+	else // do I need the else statement?
 	{
 		f->min_r = -2.0;
 		f->max_r = 1.0;
@@ -127,5 +128,4 @@ void	init(t_fractol *f)
 	f->rx = 0.5;
 	f->fx = 1.0;
 	get_complex_layout(f);
-	color_shift(f);
 }

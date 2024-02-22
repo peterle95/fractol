@@ -43,10 +43,10 @@ void	clean_exit(int exit_code, t_fractol *f)
 */
 int	msg(char *str1, char *str2, int errno)
 {
-	ft_putstr_fd("Fractol: ", 2);
-	ft_putstr_fd(str1, 2);
-	ft_putendl_fd(str2, 2);
-	return (errno);
+	ft_printf("Fractol: ");
+	ft_printf(str1);
+	ft_printf(str2);
+	return (errno); // what is errno?
 }
 
 /* end_fractol:

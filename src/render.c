@@ -65,7 +65,7 @@ void	render(t_fractol *f)
 	int		nb_iter;
 
 	mlx_clear_window(f->mlx, f->win);
-	y = -1;
+	y = -1; // why do we need this, and it's set as a -1, should it be constant?
 	while (++y < HEIGHT)
 	{
 		x = -1;

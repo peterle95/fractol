@@ -75,7 +75,7 @@ static void	get_julia_starting_values(t_fractol *f, int ac, char **av)
 	f->ki = ft_atof(av[3]);
 	if (f->kr > 2.0 || f->kr < -2.0)
 		help_msg(f);
-	if (f->ki >= 2.0 || f->ki <= -2.0)
+	if (f->ki >= 2.0 || f->ki <= -2.0) // can I delete one of the if statements? Wouldn't it be enough >= & <=?
 		help_msg(f);
 }
 
