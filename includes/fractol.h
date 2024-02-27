@@ -39,8 +39,8 @@ typedef struct t_fractol // changed from s_fractol
 	double	max_r;
 	double	min_i;
 	double	max_i;
-	double	kr;
-	double	ki;
+	double	kr; // real numbers
+	double	ki; // imaginary numbers
 	double	sx;
 	double	rx;
 	double	fx;
