@@ -55,6 +55,9 @@ int		julia(t_fractol *f, double zr, double zi);
 
 /*  Draw Fractal	*/
 void	render(t_fractol *f);
+static void	set_pixel_color(t_fractol *f, int x, int y, int color);// ?????
+static int	calculate_fractal(t_fractol *f, double pr, double pi); // ?????
+
 
 /* Colors	*/
 void	set_color_mono(t_fractol *f, int color);
@@ -63,17 +66,23 @@ void	set_color_zebra(t_fractol *f, int color);
 void	set_color_triad(t_fractol *f, int color);
 void	set_color_tetra(t_fractol *f, int color);
 int		get_percent_color(int color, double percent);
+static int	interpolate(int startcolor, int endcolor, double fraction); // ??????
+static void	fill_color_stripe(t_fractol *f, int color, int stripe); // ??????
+
 
 /*  Events   */
 int		mouse_event(int keycode, int x, int y, t_fractol *mlx);
+static void	move(t_fractol *f, double distance, char direction); // ?????????
+static void	zoom(t_fractol *f, double zoom); // ??????
+
+
 
 /* Initialization */
 void	clean_init(t_fractol *f);
+static void	init_img(t_fractol *f);
 void	reinit_img(t_fractol *f);
 void	init(t_fractol *f);
 void	get_complex_layout(t_fractol *f);
-void	get_color(t_fractol *f, int ac, char **av);
-double	ft_atof(char *str);
 
 /*  Utils   */
 int		end_fractol(t_fractol *mlx);
@@ -81,5 +90,29 @@ void	clean_exit(int error_code, t_fractol *f);
 int		msg(char *str1, char *str2, int errno);
 void	help_msg(t_fractol *f);
 void	print_controls(void);
+
+/*Parsing ???????*/
+
+static int	skip_space_sign_0x(char *color);
+static int	ft_atox_color(t_fractol *f, char *color);
+void	get_color(t_fractol *f, int ac, char **av);
+static int	skip_space_sign(char *str, int *is_neg);
+double	ft_atof(char *str);
+
+/*Help message ???????*/
+
+void	print_fractal_options(void);
+void	print_color_options(void);
+void	print_controls(void);
+void	help_msg(t_fractol *f);
+
+
+/*Main code ???????*/
+
+static int	type_cmp(char *av, char *str, char c, char n);
+static void	get_set(t_fractol *f, char **av);
+static void	get_julia_starting_values(t_fractol *f, int ac, char **av);
+static void	handle_args(t_fractol *f, int ac, char **av);
+
 
 #endif
