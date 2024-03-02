@@ -16,26 +16,26 @@
 *	Initializes the fractol data structure with default
 *	values to be replaced later. Used for error detection.
 */
-void	clean_init(t_fractol *f)
+void	clean_init(t_fractol *fractal_data)
 {
 	// why they all have different values?
-	f->mlx = NULL;
-	f->win = NULL;
-	f->img = NULL;
-	f->buf = NULL;
-	f->set = -1;
-	f->min_r = 0;
-	f->max_r = 0;
-	f->min_i = 0;
-	f->max_i = 0;
-	f->kr = 0;
-	f->ki = 0;
-	f->sx = 0;
-	f->rx = 0;
-	f->fx = 0;
-	f->palette = NULL;
-	f->color_pattern = -1;
-	f->color = 0;
+	fractal_data->mlx = NULL;
+	fractal_data->win = NULL;
+	fractal_data->img = NULL;
+	fractal_data->buf = NULL;
+	fractal_data->set = -1;
+	fractal_data->min_r = 0;
+	fractal_data->max_r = 0;
+	fractal_data->min_i = 0;
+	fractal_data->max_i = 0;
+	fractal_data->kr = 0;
+	fractal_data->ki = 0;
+	fractal_data->sx = 0;
+	fractal_data->rx = 0;
+	fractal_data->fx = 0;
+	fractal_data->palette = NULL;
+	fractal_data->color_pattern = -1;
+	fractal_data->color = 0;
 }
 
 /* get_complex_layout:
@@ -49,28 +49,28 @@ void	clean_init(t_fractol *f)
 *	Also, one of the edges is always calculated according to the other edges
 *	to avoid fractal distortion if the window proportions change.
 */
-void	get_complex_layout(t_fractol *f)
+void	get_complex_layout(t_fractol *fractal_data)
 {
-	if (f->set == MANDELBOX)
+	if (fractal_data->set == MANDELBOX)
 	{
-		f->min_r = -4.0;
-		f->max_r = 4.0;
-		f->min_i = -4.0;
-		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+		fractal_data->min_r = -4.0;
+		fractal_data->max_r = 4.0;
+		fractal_data->min_i = -4.0;
+		fractal_data->max_i = fractal_data->min_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
 	}
-	else if (f->set == JULIA)
+	else if (fractal_data->set == JULIA)
 	{
-		f->min_r = -2.0;
-		f->max_r = 2.0;
-		f->min_i = -2.0;
-		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+		fractal_data->min_r = -2.0;
+		fractal_data->max_r = 2.0;
+		fractal_data->min_i = -2.0;
+		fractal_data->max_i = fractal_data->min_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
 	}
 	else // do I need the else statement?
 	{
-		f->min_r = -2.0;
-		f->max_r = 1.0;
-		f->max_i = -1.5;
-		f->min_i = f->max_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+		fractal_data->min_r = -2.0;
+		fractal_data->max_r = 1.0;
+		fractal_data->max_i = -1.5;
+		fractal_data->min_i = fractal_data->max_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
 	}
 }
 
@@ -80,35 +80,35 @@ void	get_complex_layout(t_fractol *f)
 *	and the color of each pixel will be stored in the image, which will
 *	then be displayed in the program window.
 */
-static void	init_img(t_fractol *f)
+static void	init_img(t_fractol *fractal_data)
 {
 	int		pixel_bits;
 	int		line_bytes;
 	int		endian;
 	char	*buf;
 
-	f->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
-	if (!(f->palette))
+	fractal_data->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
+	if (!(fractal_data->palette))
 		clean_exit(msg("error initializing color scheme.", "", 1), f);
-	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-	if (!(f->img))
+	fractal_data->img = mlx_new_image(fractal_data->mlx, WIDTH, HEIGHT);
+	if (!(fractal_data->img))
 		clean_exit(msg("image creation error.", "", 1), f);
-	buf = mlx_get_data_addr(f->img, &pixel_bits, &line_bytes, &endian);
-	f->buf = buf;
+	buf = mlx_get_data_addr(fractal_data->img, &pixel_bits, &line_bytes, &endian);
+	fractal_data->buf = buf;
 }
 
 /* reinit_image:
 *	Cleanly reinitializes the MLX image if the color palette or 
 *	fractal type is modified at runtime.
 */
-void	reinit_img(t_fractol *f)
+void	reinit_img(t_fractol *fractal_data)
 {
-	if (f->mlx && f->img)
-		mlx_destroy_image(f->mlx, f->img);
-	if (f->palette)
-		free(f->palette);
-	if (f->buf)
-		f->buf = NULL;
+	if (fractal_data->mlx && fractal_data->img)
+		mlx_destroy_image(fractal_data->mlx, fractal_data->img);
+	if (fractal_data->palette)
+		free(fractal_data->palette);
+	if (fractal_data->buf)
+		fractal_data->buf = NULL;
 	init_img(f);
 }
 
@@ -116,16 +116,16 @@ void	reinit_img(t_fractol *f)
 *	Creates a new MLX instance, a new window and populates
 *	the fractol data structure with default values.
 */
-void	init(t_fractol *f)
+void	init(t_fractol *fractal_data)
 {
-	f->mlx = mlx_init();
-	if (!f->mlx)
+	fractal_data->mlx = mlx_init();
+	if (!fractal_data->mlx)
 		clean_exit(msg("MLX: error connecting to mlx.", "", 1), f);
-	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fractol");
-	if (!f->win)
+	fractal_data->win = mlx_new_window(fractal_data->mlx, WIDTH, HEIGHT, "Fractol");
+	if (!fractal_data->win)
 		clean_exit(msg("MLX: error creating window.", "", 1), f);
-	f->sx = 2.0;
-	f->rx = 0.5;
-	f->fx = 1.0;
+	fractal_data->sx = 2.0;
+	fractal_data->rx = 0.5;
+	fractal_data->fx = 1.0;
 	get_complex_layout(f);
 }

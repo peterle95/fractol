@@ -26,10 +26,10 @@
 */
 static void	set_pixel_color(t_fractol *f, int x, int y, int color)
 {
-	f->buf[x * 4 + y * WIDTH * 4] = color;
-	f->buf[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
-	f->buf[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
-	f->buf[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
+	fractal_data->buf[x * 4 + y * WIDTH * 4] = color;
+	fractal_data->buf[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
+	fractal_data->buf[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
+	fractal_data->buf[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
 }
 
 /* calculate_fractal:
@@ -40,9 +40,9 @@ static int	calculate_fractal(t_fractol *f, double pr, double pi)
 {
 	int	nb_iter;
 
-	if (f->set == MANDELBROT)
+	if (fractal_data->set == MANDELBROT)
 		nb_iter = mandelbrot(pr, pi);
-	else if (f->set == JULIA)
+	else if (fractal_data->set == JULIA)
 		nb_iter = julia(f, pr, pi);
 	return (nb_iter);
 }
@@ -56,7 +56,7 @@ static int	calculate_fractal(t_fractol *f, double pr, double pi)
 *	Once all pixels have been assessed and added to the MLX image,
 *	this function displays the MLX image to the window.
 */
-void	render(t_fractol *f)
+void	render(t_fractol *fractal_data)
 {
 	int		x;
 	int		y;
@@ -64,18 +64,18 @@ void	render(t_fractol *f)
 	double	pi;
 	int		nb_iter;
 
-	mlx_clear_window(f->mlx, f->win);
+	mlx_clear_window(fractal_data->mlx, fractal_data->win);
 	y = -1; // why do we need this, and it's set as a -1, should it be constant?
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 		{
-			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-			pi = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
+			pr = fractal_data->min_r + (double)x * (fractal_data->max_r - fractal_data->min_r) / WIDTH;
+			pi = fractal_data->max_i + (double)y * (fractal_data->min_i - fractal_data->max_i) / HEIGHT;
 			nb_iter = calculate_fractal(f, pr, pi);
-			set_pixel_color(f, x, y, f->palette[nb_iter]);
+			set_pixel_color(f, x, y, fractal_data->palette[nb_iter]);
 		}
 	}
-	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	mlx_put_image_to_window(fractal_data->mlx, fractal_data->win, fractal_data->img, 0, 0);
 }

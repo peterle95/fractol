@@ -73,7 +73,7 @@ void	print_controls(void)
 /* help_msg:
 *	Prints a help message to the standard output to explain the program options.
 */
-void	help_msg(t_fractol *f)
+void	help_msg(t_fractol *fractal_data)
 {
 	print_fractal_options();
 	print_color_options();

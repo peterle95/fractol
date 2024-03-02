@@ -38,7 +38,7 @@ static int	skip_space_sign_0x(char *color)
 *	If the string is not a valid hex color code, an error is displayed.
 *	Returns the converted int. -1 if an error occured.
 */
-static int	ft_atox_color(t_fractol *f, char *color)
+static int	ft_atox_color(t_fractol *fractal_data, char *color)
 {
 	int	i;
 	int	x;
@@ -68,14 +68,14 @@ static int	ft_atox_color(t_fractol *f, char *color)
 *	Gets the color option provided as argument at program launch.
 *	If no color was specified, sets a default value to be used.
 */
-void	get_color(t_fractol *f, int ac, char **av)
+void	get_color(t_fractol *fractal_data, int ac, char **av)
 {
-	if (f->set == JULIA && ac == 5)
-		f->color = ft_atox_color(f, av[4]);
-	else if (f->set != JULIA && ac == 3)
-		f->color = ft_atox_color(f, av[2]);
-	if (ac == 2 || (f->set == JULIA && ac == 4))
-		f->color = 0x9966FF;
+	if (fractal_data->set == JULIA && ac == 5)
+		fractal_data->color = ft_atox_color(f, av[4]);
+	else if (fractal_data->set != JULIA && ac == 3)
+		fractal_data->color = ft_atox_color(f, av[2]);
+	if (ac == 2 || (fractal_data->set == JULIA && ac == 4))
+		fractal_data->color = 0x9966FF;
 }
 
 /* skip_space_sign:

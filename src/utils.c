@@ -18,21 +18,21 @@
 *	and destroying the display. Exits the process with the provided
 *	exit code.
 */
-void	clean_exit(int exit_code, t_fractol *f)
+void	clean_exit(int exit_code, t_fractol *fractal_data)
 {
 	if (!f)
 		exit(exit_code);
-	if (f->palette)
-		free(f->palette);
-	if (f->img)
-		mlx_destroy_image(f->mlx, f->img);
-	if (f->win && f->mlx)
-		mlx_destroy_window(f->mlx, f->win);
-	if (f->mlx)
+	if (fractal_data->palette)
+		free(fractal_data->palette);
+	if (fractal_data->img)
+		mlx_destroy_image(fractal_data->mlx, fractal_data->img);
+	if (fractal_data->win && fractal_data->mlx)
+		mlx_destroy_window(fractal_data->mlx, fractal_data->win);
+	if (fractal_data->mlx)
 	{
-		mlx_loop_end(f->mlx);
-		mlx_destroy_display(f->mlx);
-		free(f->mlx);
+		mlx_loop_end(fractal_data->mlx);
+		mlx_destroy_display(fractal_data->mlx);
+		free(fractal_data->mlx);
 	}
 	exit(exit_code);
 }
