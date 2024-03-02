@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:05:01 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/02/21 03:30:06 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/02 19:15:13 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*fractal_data)(void *));
+t_list	fractal_datat_lstmap(t_list *lst, void *(*fractal_data)(void *), void (*del)(void *));
 
 /* auxiliary functions */
 char	*ft_aux_printf(unsigned long long n, char *base);

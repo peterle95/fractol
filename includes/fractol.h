@@ -51,51 +51,51 @@ typedef struct t_fractol // changed from s_fractol
 
 /*  Fractal Sets   */
 int		mandelbrot(double cr, double ci);
-int		julia(t_fractol *f, double zr, double zi);
+int		julia(t_fractol *fractal_data, double zr, double zi);
 
 /*  Draw Fractal	*/
-void	render(t_fractol *f);
-static void	set_pixel_color(t_fractol *f, int x, int y, int color);// ?????
-static int	calculate_fractal(t_fractol *f, double pr, double pi); // ?????
+void	render(t_fractol *fractal_data);
+static void	set_pixel_color(t_fractol *fractal_data, int x, int y, int color);// ?????
+static int	calculate_fractal(t_fractol *fractal_data, double pr, double pi); // ?????
 
 
 /* Colors	*/
-void	set_color_mono(t_fractol *f, int color);
-void	set_color_multiple(t_fractol *f, int colors[4], int n);
-void	set_color_zebra(t_fractol *f, int color);
-void	set_color_triad(t_fractol *f, int color);
-void	set_color_tetra(t_fractol *f, int color);
+void	set_color_mono(t_fractol *fractal_data, int color);
+void	set_color_multiple(t_fractol *fractal_data, int colors[4], int n);
+void	set_color_zebra(t_fractol *fractal_data, int color);
+void	set_color_triad(t_fractol *fractal_data, int color);
+void	set_color_tetra(t_fractol *fractal_data, int color);
 int		get_percent_color(int color, double percent);
 static int	interpolate(int startcolor, int endcolor, double fraction); // ??????
-static void	fill_color_stripe(t_fractol *f, int color, int stripe); // ??????
+static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe); // ??????
 
 
 /*  Events   */
 int		mouse_event(int keycode, int x, int y, t_fractol *mlx);
-static void	move(t_fractol *f, double distance, char direction); // ?????????
-static void	zoom(t_fractol *f, double zoom); // ??????
+static void	move(t_fractol *fractal_data, double distance, char direction); // ?????????
+static void	zoom(t_fractol *fractal_data, double zoom); // ??????
 
 
 
 /* Initialization */
-void	clean_init(t_fractol *f);
-static void	init_img(t_fractol *f);
-void	reinit_img(t_fractol *f);
-void	init(t_fractol *f);
-void	get_complex_layout(t_fractol *f);
+void	clean_init(t_fractol *fractal_data);
+static void	init_img(t_fractol *fractal_data);
+void	reinit_img(t_fractol *fractal_data);
+void	init(t_fractol *fractal_data);
+void	get_complex_layout(t_fractol *fractal_data);
 
 /*  Utils   */
 int		end_fractol(t_fractol *mlx);
-void	clean_exit(int error_code, t_fractol *f);
+void	clean_exit(int error_code, t_fractol *fractal_data);
 int		msg(char *str1, char *str2, int errno);
-void	help_msg(t_fractol *f);
+void	help_msg(t_fractol *fractal_data);
 void	print_controls(void);
 
 /*Parsing ???????*/
 
 static int	skip_space_sign_0x(char *color);
-static int	ft_atox_color(t_fractol *f, char *color);
-void	get_color(t_fractol *f, int ac, char **av);
+static int	ft_atox_color(t_fractol *fractal_data, char *color);
+void	get_color(t_fractol *fractal_data, int ac, char **av);
 static int	skip_space_sign(char *str, int *is_neg);
 double	ft_atof(char *str);
 
@@ -104,15 +104,15 @@ double	ft_atof(char *str);
 void	print_fractal_options(void);
 void	print_color_options(void);
 void	print_controls(void);
-void	help_msg(t_fractol *f);
+void	help_msg(t_fractol *fractal_data);
 
 
 /*Main code ???????*/
 
 static int	type_cmp(char *av, char *str, char c, char n);
-static void	get_set(t_fractol *f, char **av);
-static void	get_julia_starting_values(t_fractol *f, int ac, char **av);
-static void	handle_args(t_fractol *f, int ac, char **av);
+static void	get_set(t_fractol *fractal_data, char **av);
+static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av);
+static void	handle_args(t_fractol *fractal_data, int ac, char **av);
 
 
 #endif

@@ -19,7 +19,7 @@
 *	Returns the number of iterations before the number escapes 
 *	the Julia set, which can then be used to determine coloring.
 */
-int	julia(t_fractol *f, double zr, double zi)
+int	julia(t_fractol *fractal_data, double zr, double zi)
 {
 	int		n;
 	double	tmp;
@@ -29,8 +29,8 @@ int	julia(t_fractol *f, double zr, double zi)
 	{
 		if ((zi * zi + zr * zr) > 4.0)
 			break ;
-		tmp = 2 * zr * zi + f->ki;
-		zr = zr * zr - zi * zi + f->kr;
+		tmp = 2 * zr * zi + fractal_data->ki;
+		zr = zr * zr - zi * zi + fractal_data->kr;
 		zi = tmp;
 		n++;
 	}
