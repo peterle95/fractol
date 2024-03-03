@@ -12,14 +12,14 @@
 
 #include "fractol.h"
 
-/* type_cmp:
+/* type_comparison:
 *	Parses the given fractal type argument and checks against
 *	the name (i.e. "mandelbrot"), the associated letter (i.e. "M")
 *	and the associated number (i.e. "1").
 *	Returns true if the argument matches one of these requirements,
 *	false if not.
 */
-static int	type_cmp(char *av, char *str, char c, char n)
+static int	type_comparison(char *av, char *str, char c, char n)
 {
 	int	i;
 
@@ -43,9 +43,9 @@ static int	type_cmp(char *av, char *str, char c, char n)
 */
 static void	get_set(t_fractol *fractal_data, char **av)
 {
-	if (type_cmp(av[1], "mandelbrot", 'm', '1'))
+	if (type_comparison(av[1], "mandelbrot", 'm', '1'))
 		fractal_data->set = MANDELBROT;
-	else if (type_cmp(av[1], "julia", 'j', '2'))
+	else if (type_comparison(av[1], "julia", 'j', '2'))
 		fractal_data->set = JULIA;
 	else
 		help_msg(fractal_data);

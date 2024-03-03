@@ -97,7 +97,7 @@ void	help_msg(t_fractol *fractal_data);
 
 /*Main code ???????*/
 
-static int	type_cmp(char *av, char *str, char c, char n);
+static int	type_comparison(char *av, char *str, char c, char n);
 static void	get_set(t_fractol *fractal_data, char **av);
 static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av);
 static void	handle_args(t_fractol *fractal_data, int ac, char **av);
@@ -455,7 +455,7 @@ void	help_msg(t_fractol *fractal_data)
 
 #include "fractol.h"
 
-static int	type_cmp(char *av, char *str, char c, char n)
+static int	type_comparison(char *av, char *str, char c, char n)
 {
 	int	i;
 
@@ -474,9 +474,9 @@ static int	type_cmp(char *av, char *str, char c, char n)
 
 static void	get_set(t_fractol *fractal_data, char **av)
 {
-	if (type_cmp(av[1], "mandelbrot", 'm', '1'))
+	if (type_comparison(av[1], "mandelbrot", 'm', '1'))
 		fractal_data->set = MANDELBROT;
-	else if (type_cmp(av[1], "julia", 'j', '2'))
+	else if (type_comparison(av[1], "julia", 'j', '2'))
 		fractal_data->set = JULIA;
 	else
 		help_msg(f);
