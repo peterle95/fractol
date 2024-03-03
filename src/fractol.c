@@ -118,10 +118,50 @@ int	main(int ac, char **av)
 	/*Reads command-line arguments and sets values in the f structure based on user input 
 	(e.g., chosen fractal type, starting values).*/
 	init(&fractal_data);
+	/*Initializes graphics resources and libraries, potentially using 
+	parameters from the fractal_dats structure.*/
 	render(&fractal_data);
+	/*Calculates and draws the fractal image, using data like 
+	set, min_r, max_r, etc. stored in f*/
 	print_controls();
 	mlx_hook(fractal_data.win, EVENT_CLOSE_BTN, 0, end_fractol, &fractal_data);
+	/*This line registers a hook for the window close button event.
+	f.win is the pointer to the main window object created by MiniLibX.
+	EVENT_CLOSE_BTN is a constant defined earlier in the code, likely 
+	representing the specific code for the window close button event
+	 within MiniLibX.
+	0 is an optional parameter often used to specify specific data 
+	about the event (not used here).
+	end_fractol is the function pointer that will be called when the 
+	window close button is clicked. This function likely performs 
+	necessary cleanup tasks like deallocating memory and exiting 
+	the program gracefully.
+	&f passes the address of the t_fractol structure (f) to the 
+	end_fractol function. This allows the function to access and 
+	potentially modify data related to the fractal calculation and 
+	rendering.*/
 	mlx_key_hook(fractal_data.win, key_event, &fractal_data);
+	/*This line registers a hook for keyboard events on the window.
+Similar to the first line, it specifies the window object, event type 
+(key_event), and passes the end_fractol function pointer with the f 
+structure address.
+The key_event function (not shown) will be called every time a key is 
+pressed or released on the keyboard. It likely checks the pressed key 
+and performs actions based on predefined key mappings to interact with 
+the fractal, change settings, or trigger other functionalities.*/
 	mlx_mouse_hook(fractal_data.win, mouse_event, &fractal_data);
+	/*This line registers a hook for mouse events on the window.
+It follows the same structure as the previous lines, using the 
+mouse_event function (not shown) to handle various mouse interactions 
+like clicks, scrolls, and dragging. These events can be used to zoom, 
+pan, change colors, or implement other user interactions within the 
+program.*/
 	mlx_loop(fractal_data.mlx);
+	/*This line initiates the main event loop of the MiniLibX library.
+It starts listening for events like window close, key presses, mouse 
+interactions, and others based on the registered hooks.
+When an event occurs, the corresponding function (end_fractol, 
+key_event, or mouse_event) will be called to handle it.
+The loop continues indefinitely until an event triggers program 
+termination or specific conditions are met.*/
 }
