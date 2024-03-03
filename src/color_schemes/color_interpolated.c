@@ -20,7 +20,7 @@
 *	as fraction parameter of this function.
 *	Note: rgb[3] : [0] = red, [1] = green, [2] = blue
 */
-static int	interpolate(int startcolor, int endcolor, double fraction)
+int	interpolate(int startcolor, int endcolor, double fraction)
 {
 	int	start_rgb[3];
 	int	end_rgb[3];

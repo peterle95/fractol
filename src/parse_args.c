@@ -16,7 +16,7 @@
 *	Skips spaces, '+' sign character and '0x' or '0X'
 *	to parse hexadecimal color code strings.
 */
-static int	skip_space_sign_0x(char *color)
+int	skip_space_sign_0x(char *color)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ static int	skip_space_sign_0x(char *color)
 *	If the string is not a valid hex color code, an error is displayed.
 *	Returns the converted int. -1 if an error occured.
 */
-static int	ft_atox_color(t_fractol *fractal_data, char *color)
+int	ft_atox_color(t_fractol *fractal_data, char *color)
 {
 	int	i;
 	int	x;
@@ -83,7 +83,7 @@ void	get_color(t_fractol *fractal_data, int ac, char **av)
 *	is_neg variable if a '-' sign is detected.
 *	Used to parse strings representing float values for Julia.
 */
-static int	skip_space_sign(char *str, int *is_neg)
+int	skip_space_sign(char *str, int *is_neg)
 {
 	int	i;
 

@@ -17,7 +17,7 @@
 *	If stripes = 2, the coloring will skip a palette iteration,
 *	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
 */
-static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
+void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
 {
 	int	i;
 

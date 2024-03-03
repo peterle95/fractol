@@ -24,7 +24,7 @@
 		- RR >> 16  (0x00RR0000)
 		- AA >> 24  (0xAA000000)
 */
-static void	set_pixel_color(t_fractol *f, int x, int y, int color)
+void	set_pixel_color(t_fractol *f, int x, int y, int color)
 {
 	fractal_data->buf[x * 4 + y * WIDTH * 4] = color;
 	fractal_data->buf[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
@@ -36,7 +36,7 @@ static void	set_pixel_color(t_fractol *f, int x, int y, int color)
 *	Picks the correct fractal calculation function depending
 *	on the current fractal set.
 */
-static int	calculate_fractal(t_fractol *f, double pr, double pi)
+int	calculate_fractal(t_fractol *f, double pr, double pi)
 {
 	int	nb_iter;
 

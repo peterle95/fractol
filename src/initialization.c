@@ -80,7 +80,7 @@ void	get_complex_layout(t_fractol *fractal_data)
 *	and the color of each pixel will be stored in the image, which will
 *	then be displayed in the program window.
 */
-static void	init_img(t_fractol *fractal_data)
+void	init_img(t_fractol *fractal_data)
 {
 	int		pixel_bits;
 	int		line_bytes;

@@ -19,7 +19,7 @@
 *	Returns true if the argument matches one of these requirements,
 *	false if not.
 */
-static int	type_comparison(char *av, char *str, char c, char n)
+int	type_comparison(char *av, char *str, char c, char n)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ static int	type_comparison(char *av, char *str, char c, char n)
 *	If no valid set was provided, it displays a help
 *	message and quits the program.
 */
-static void	get_set(t_fractol *fractal_data, char **av)
+void	get_set(t_fractol *fractal_data, char **av)
 {
 	if (type_comparison(av[1], "mandelbrot", 'm', '1'))
 		fractal_data->set = MANDELBROT;
@@ -57,7 +57,7 @@ static void	get_set(t_fractol *fractal_data, char **av)
 *	If values were provided, parses them, returning an error message
 *	if the values are not valid.
 */
-static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av)
+void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av)
 {
 	if (fractal_data->set != JULIA || ac == 2)
 	{
@@ -83,7 +83,7 @@ static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av
 *	Retrieves the set, the julia starting values and the color from
 *	the arguments passed at program launch.
 */
-static void	handle_args(t_fractol *fractal_data, int ac, char **av)
+void	handle_args(t_fractol *fractal_data, int ac, char **av)
 {
 	get_set(fractal_data, av);
 	if (fractal_data->set != JULIA && ac > 3)

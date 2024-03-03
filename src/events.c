@@ -20,7 +20,7 @@
 *	If the zoom multiplier is small, like 0.5, the view will
 *	zoom in, if it is big, like 2.0, it will zoom out.
 */
-static void	zoom(t_fractol *fractal_data, double zoom)
+void	zoom(t_fractol *fractal_data, double zoom)
 {
 	double	center_r;
 	double	center_i;
@@ -37,7 +37,7 @@ static void	zoom(t_fractol *fractal_data, double zoom)
 *	Moves the view of the fractal by adjusting the complex
 *	number edge values a certain distance in a certain direction.
 */
-static void	move(t_fractol *fractal_data, double distance, char direction)
+void	move(t_fractol *fractal_data, double distance, char direction)
 {
 	double	center_r;
 	double	center_i;
