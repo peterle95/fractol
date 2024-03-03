@@ -31,8 +31,32 @@ int	type_comparison(char *av, char *str, char c, char n)
 	}
 	if (!ft_strncmp(av, str, ft_strlen(str) + 1))
 		return (1);
+	/*FULL NAME COMPARISON:
+	This conditional statement checks if the entire av argument matches 
+	the str string (full name of the fractal type).
+		!ft_strncmp: This function compares the beginning of two strings 
+		(av and str) for a certain number of characters (ft_strlen(str)). 
+		The + 1 might be for including the null 
+		terminator in the comparison.
+		ft_strlen(str): This function calculates the length of the 
+		str string.
+		If ft_strncmp returns 0 (meaning the beginning of the 
+		strings match), and the entire av argument is not empty 
+		(ft_strlen(av) > 0), then the condition is true, 
+		indicating a full name match. In this case, the function 
+		returns 1 (match found).*/
 	else if (av[1] == '\0' && (av[0] == c || av[0] == n))
 		return (1);
+	/*SINGLE CHARACTER COMPARISON:
+	This else if block checks for a single-character argument.
+		av[1] == '\0': This ensures the argument string has only one 
+		character (second character is null terminator).
+		(av[0] == c || av[0] == n): This checks if the first 
+		character of the argument (av[0]) matches either the provided 
+		short code character c or n.
+		If both conditions are met (single character argument and matching 
+		short code), then the function returns 1 (match found).
+	*/
 	return (0);
 }
 
