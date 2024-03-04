@@ -4,3 +4,5 @@ library and in the main in fractol.c
 2. Change to printf 
 
 3. Modify comments over the functions (rm ***)
+
+4. Remove fractals and its components
