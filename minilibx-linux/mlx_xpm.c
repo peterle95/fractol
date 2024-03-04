@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_xpm.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/04 15:32:50 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/03/04 15:35:51 by pmolzer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
  ** xpm-read.c for MinilibX in 
  ** 
@@ -8,20 +20,15 @@
  ** Last update Sat Oct  1 14:56:13 2005 Olivier Crouzet
  */
 
-
 #include	"mlx_int.h"
 
-extern struct s_col_name mlx_col_name[];
+extern struct s_col_name	mlx_col_name[];
 
-
-#define	RETURN	{ if (colors) free(colors); if (tab) free(tab); \
+#define RETURN	{ if (colors) free(colors); if (tab) free(tab); \
 		tab = (void *)0; if (colors_direct) free(colors_direct); \
 		if (img) {XDestroyImage(img->image); \
 				XFreePixmap(xvar->display,img->pix);free(img);} \
 		return ((void *)0);}
-
-
-
 
 char	*mlx_int_get_line(char *ptr,int *pos,int size)
 {
@@ -39,7 +46,6 @@ char	*mlx_int_get_line(char *ptr,int *pos,int size)
 	*pos += pos2+pos3+2;
 	return (ptr+pos4);
 }
-
 
 unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)
 {
@@ -80,7 +86,6 @@ char	*mlx_int_static_line(char **xpm_data,int *pos,int size)
 	return (copy);
 }
 
-
 int	mlx_int_get_col_name(char *str,int size)
 {
 	int	result;
@@ -114,7 +119,6 @@ int	mlx_int_get_text_rgb(char *name, char *end)
 	return (0);
 }
 
-
 int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)
 {
 	int	dec;
@@ -129,7 +133,6 @@ int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)
       	col >>= 8;
     }
 }
-
 
 void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())
 {
@@ -286,7 +289,6 @@ void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())
 		return (img);
 }
 
-
 int	mlx_int_file_get_rid_comment(char *ptr, int size)
 {
 		int	com_begin;
@@ -303,7 +305,6 @@ int	mlx_int_file_get_rid_comment(char *ptr, int size)
 				memset(ptr+com_begin,' ',com_end+3);
 		}
 }
-
 
 void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)
 {
