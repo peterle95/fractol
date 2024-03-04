@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbox.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 11:48:30 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/18 14:59:56 by mcombeau         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:39:42 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static double	ball_fold(double r, double m)
 *	Returns the number of iterations before the number escapes 
 *	the Mandelbox set, which can then be used to determine coloring.
 */
-int	mandelbox(t_fractol *f, double cr, double ci)
+int	mandelbox(t_fractol *fractal_data, double cr, double ci)
 {
 	int		n;
 	double	vr;
@@ -50,11 +50,11 @@ int	mandelbox(t_fractol *f, double cr, double ci)
 	n = 0;
 	while (n < MAX_ITERATIONS)
 	{		
-		vr = f->fx * box_fold(vr);
-		vi = f->fx * box_fold(vi);
+		vr = fractal_data->fx * box_fold(vr);
+		vi = fractal_data->fx * box_fold(vi);
 		mag = sqrt(vr * vr + vi * vi);
-		vr = vr * f->sx * ball_fold(f->rx, mag) + cr;
-		vi = vi * f->sx * ball_fold(f->rx, mag) + ci;
+		vr = vr * fractal_data->sx * ball_fold(fractal_data->rx, mag) + cr;
+		vi = vi * fractal_data->sx * ball_fold(fractal_data->rx, mag) + ci;
 		if (sqrt(mag) > 2)
 			break ;
 		n++;

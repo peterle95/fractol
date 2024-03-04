@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:53:17 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 13:53:20 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:42:20 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	interpolate(int startcolor, int endcolor, double fraction)
 *	black to the provided color, to white near the fractal
 *	border.
 */
-void	set_color_mono(t_fractol *f, int color)
+void	set_color_mono(t_fractol *fractal_data, int color)
 {
 	int		i;
 	int		j;
@@ -59,14 +59,14 @@ void	set_color_mono(t_fractol *f, int color)
 		while (j < MAX_ITERATIONS / 2)
 		{
 			fraction = (double)j / (MAX_ITERATIONS / 2);
-			f->palette[i + j] = interpolate(color1, color2, fraction);
+			fractal_data->palette[i + j] = interpolate(color1, color2, fraction);
 			j++;
 		}
 		color1 = color2;
 		color2 = 0xFFFFFF;
 		i += j;
 	}
-	f->palette[MAX_ITERATIONS -1] = 0;
+	fractal_data->palette[MAX_ITERATIONS -1] = 0;
 }
 
 /* set_color_multiple:
@@ -76,7 +76,7 @@ void	set_color_mono(t_fractol *f, int color)
 *	to provide more than 4 colors by casting a larger array and specifying
 *	how many colors are included.
 */
-void	set_color_multiple(t_fractol *f, int colors[4], int n)
+void	set_color_multiple(t_fractol *fractal_data, int colors[4], int n)
 {
 	int		i;
 	int		j;
@@ -91,11 +91,11 @@ void	set_color_multiple(t_fractol *f, int colors[4], int n)
 		while ((i + j) < MAX_ITERATIONS && j < (MAX_ITERATIONS / (n - 1)))
 		{
 			fraction = (double)j / (MAX_ITERATIONS / (n - 1));
-			f->palette[i + j] = interpolate(colors[x], colors[x + 1], fraction);
+			fractal_data->palette[i + j] = interpolate(colors[x], colors[x + 1], fraction);
 			j++;
 		}
 		x++;
 		i += j;
 	}
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
 }

@@ -28,7 +28,7 @@ SRC			=	fractol.c \
 				events.c \
 				render.c \
 				color.c \
-				parse_args.c \
+				parse_arguments.c \
 				help_msg.c \
 				fractal_sets/mandelbrot.c \
 				fractal_sets/julia.c \

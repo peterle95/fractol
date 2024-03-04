@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:37:34 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/20 14:20:23 by mcombeau         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:38:00 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 *	fractal shape. This function should be called when the user clicks on
 *	a point on the sceen.
 */
-int	julia_shift(int x, int y, t_fractol *f)
+int	julia_shift(int x, int y, t_fractol *fractal_data)
 {
-	f->kr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-	f->ki = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
+	fractal_data->kr = fractal_data->min_r + (double)x * (fractal_data->max_r - fractal_data->min_r) / WIDTH;
+	fractal_data->ki = fractal_data->max_i + (double)y * (fractal_data->min_i - fractal_data->max_i) / HEIGHT;
 	render(f);
 	return (0);
 }
@@ -32,7 +32,7 @@ int	julia_shift(int x, int y, t_fractol *f)
 *	Returns the number of iterations before the number escapes 
 *	the Julia set, which can then be used to determine coloring.
 */
-int	julia(t_fractol *f, double zr, double zi)
+int	julia(t_fractol *fractal_data, double zr, double zi)
 {
 	int		n;
 	double	tmp;
@@ -42,8 +42,8 @@ int	julia(t_fractol *f, double zr, double zi)
 	{
 		if ((zi * zi + zr * zr) > 4.0)
 			break ;
-		tmp = 2 * zr * zi + f->ki;
-		zr = zr * zr - zi * zi + f->kr;
+		tmp = 2 * zr * zi + fractal_data->ki;
+		zr = zr * zr - zi * zi + fractal_data->kr;
 		zi = tmp;
 		n++;
 	}

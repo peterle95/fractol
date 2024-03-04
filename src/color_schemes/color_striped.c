@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:04 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 13:50:06 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:41:26 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 *	If stripes = 2, the coloring will skip a palette iteration,
 *	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
 */
-static void	fill_color_stripe(t_fractol *f, int color, int stripe)
+static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
 {
 	int	i;
 
 	i = 0;
 	while (i < MAX_ITERATIONS)
 	{
-		f->palette[i] = color;
+		fractal_data->palette[i] = color;
 		i += stripe;
 	}
 }
@@ -59,14 +59,14 @@ int	get_percent_color(int color, double percent)
 *	the given color and a complimentary color 50% away from the
 *	first.
 */
-void	set_color_zebra(t_fractol *f, int color)
+void	set_color_zebra(t_fractol *fractal_data, int color)
 {
 	int	color2;
 
 	color2 = get_percent_color(color, 50);
-	fill_color_stripe(f, color, 1);
-	fill_color_stripe(f, color2, 2);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	fill_color_stripe(fractal_data, color, 1);
+	fill_color_stripe(fractal_data, color2, 2);
+	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
 }
 
 /* set_color_triad:
@@ -74,16 +74,16 @@ void	set_color_zebra(t_fractol *f, int color)
 *	three colors: the given color, a color 33% away from the first
 *	and a color 66% away from the first.
 */
-void	set_color_triad(t_fractol *f, int color)
+void	set_color_triad(t_fractol *fractal_data, int color)
 {
 	int		triad[2];
 
 	triad[0] = get_percent_color(color, 33);
 	triad[1] = get_percent_color(color, 66);
-	fill_color_stripe(f, color, 1);
-	fill_color_stripe(f, triad[0], 2);
-	fill_color_stripe(f, triad[1], 3);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	fill_color_stripe(fractal_data, color, 1);
+	fill_color_stripe(fractal_data, triad[0], 2);
+	fill_color_stripe(fractal_data, triad[1], 3);
+	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
 }
 
 /* set_color_tetra:
@@ -92,16 +92,16 @@ void	set_color_triad(t_fractol *f, int color)
 *	a color 50% away from the first, and a color 75% away from
 *	the first.
 */
-void	set_color_tetra(t_fractol *f, int color)
+void	set_color_tetra(t_fractol *fractal_data, int color)
 {
 	int	tetra[3];
 
 	tetra[0] = get_percent_color(color, 25);
 	tetra[1] = get_percent_color(color, 50);
 	tetra[2] = get_percent_color(color, 75);
-	fill_color_stripe(f, color, 1);
-	fill_color_stripe(f, tetra[0], 2);
-	fill_color_stripe(f, tetra[1], 3);
-	fill_color_stripe(f, tetra[2], 4);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	fill_color_stripe(fractal_data, color, 1);
+	fill_color_stripe(fractal_data, tetra[0], 2);
+	fill_color_stripe(fractal_data, tetra[1], 3);
+	fill_color_stripe(fractal_data, tetra[2], 4);
+	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
 }
