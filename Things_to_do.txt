@@ -1,0 +1,4 @@
+1.  Change the name of the struct to t_fractol in the 
+library and in the main in fractol.c
+
+2. Change to printf 
