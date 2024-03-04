@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:32:50 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 15:35:51 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 00:13:26 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*mlx_int_get_line(char *ptr,int *pos,int size)
 	int			pos3;
 	int			pos4;
 
-	if ((pos2 = mlx_int_str_str(ptr+*pos,"\"",size-*pos))==-1)
+	if ((p
+	 os2 = mlx_int_str_str(ptr+*pos,"\"",size-*pos))==-1)
 		return ((char *)0);
 	if ((pos3 = mlx_int_str_str(ptr+*pos+pos2+1,"\"",size-*pos-pos2-1))==-1)
 		return ((char *)0);
