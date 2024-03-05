@@ -6,15 +6,15 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:53:34 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 13:53:36 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 14:34:22 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
 # define KEYS_H
 
-# define EVENT_CLOSE_BTN 17
-# define KEY_ESC 65307
+# define EVENT_CLOSE_BTN 17 // Event generated when the close button is clicked
+# define KEY_ESC 65307 // Escape key
 # define KEY_W 119
 # define KEY_A 97
 # define KEY_S 115
@@ -34,8 +34,8 @@
 # define MOUSE_WHEEL_UP 4
 # define MOUSE_WHEEL_DOWN 5
 # define MOUSE_WHEEL_BTN 3
-# define MOUSE_BTN 1
-# define MOUSE_BTN_2 3
-# define KEY_K 107
+# define MOUSE_BTN 1 // left mouse button
+# define MOUSE_BTN_2 3 // right mouse button
+# define KEY_K 107 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:38 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:05:31 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 14:38:35 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ void	print_fractal_options(void)
 {
 	ft_putendl_fd("+===============  Available Fractals  ===============+", 1);
 	ft_putendl_fd("Which fractal would you like to view?", 1);
+	sleep(2);
 	ft_putendl_fd("\tM - Mandelbrot", 1);
+	sleep(2);
 	ft_putendl_fd("\tJ - Julia", 1);
-	ft_putendl_fd("\tB - Burning Ship", 1);
-	ft_putendl_fd("\tT - Tricorn", 1);
-	ft_putendl_fd("\tX - Mandelbox", 1);
+	// ft_putendl_fd("\tB - Burning Ship", 1);
+	// ft_putendl_fd("\tT - Tricorn", 1);
+	// ft_putendl_fd("\tX - Mandelbox", 1);
+	sleep(2);
 	ft_putendl_fd("\e[36mUsage example:\t./fractol <type>\n\t\t./fractol M\e[0m", 1);
 	ft_putstr_fd("\nFor Julia, you may specify starting values for the\n", 1);
 	ft_putstr_fd("initial fractal shape. Values must be between\n", 1);
@@ -67,8 +70,8 @@ void	print_controls(void)
 	ft_putendl_fd("WASD or arrow keys\tmove view.", 1);
 	ft_putendl_fd("+/- or scroll wheel\tzoom in and out.", 1);
 	ft_putendl_fd("Spacebar\t\tchange color schemes.", 1);
-	ft_putendl_fd("Left click\t\tshift Julia set [Julia only].", 1);
-	ft_putendl_fd("1, 2, 3, 4, 5\t\tswitch fractals.", 1);
+	ft_putendl_fd("Left click\t\tshift Julia set [Julia only].", 1); // change this
+	ft_putendl_fd("1, 2, 3, 4, 5\t\tswitch fractals.", 1); // change this
 	ft_putendl_fd("ESC or close window\tquit fract'ol.", 1);
 	ft_putendl_fd("+====================================================+\n", 1);
 }

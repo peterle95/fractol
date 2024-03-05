@@ -6,3 +6,11 @@ library and in the main in fractol.c
 3. Modify comments over the functions (rm ***)
 
 4. Remove fractals and its components
+
+5. Remove all comments
+
+6. Check all 42 Headers
+
+7. Remove functionality left and right mouse clicks. Also in help_msg
+
+8. Change content of help_messages \t, \e....
