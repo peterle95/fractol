@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:22:26 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 16:03:32 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,29 @@ static int	type_cmp(char *av, char *str, char c, char n)
 	while (av[i])
 	{
 		av[i] = ft_tolower(av[i]);
+		/*converts the current character (av[i]) in the argument string to lowercase 
+		using a function assumed to be called ft_tolower. This ensures case-insensitive 
+		comparison (e.g., "Mandelbrot" and "mAnDeLbRoT" would both be considered matches).*/
 		i++;
 	}
 	if (!ft_strncmp(av, str, ft_strlen(str) + 1))
+	 	/*his function call (likely from an external library) compares the first 
+		ft_strlen(str) (length of the reference name) characters of av and str. 
+		The + 1 argument might be to include the null terminator in the comparison 
+		for an exact match.*/
 		return (1);
+		/*If the comparison returns 0 (indicating a match), the function returns 1 (true) 
+		directly, signifying a successful FULL NAME MATCH*/
 	else if (av[1] == '\0' && (av[0] == c || av[0] == n))
+		/*av[1] == '\0': 
+		This condition ensures the argument string (av) has only one 
+		character (length 1) after conversion to lowercase (ft_tolower).
+		(av[0] == c || av[0] == n): 
+		This condition checks if the single character in av matches either the short 
+		name letter (c) or the associated number (n) of the reference fractal.*/
 		return (1);
+		/*If both conditions are met, the function returns 1 (true), indicating a 
+		successful SINGLE CHARACTER MATCH*/
 	return (0);
 }
 
@@ -88,16 +105,50 @@ static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av
 /* handle_args:
 *	Retrieves the set, the julia starting values and the color from
 *	the arguments passed at program launch.
+	Extract information about the fractal type (set), 
+	Julia set starting values (if applicable), and base color from the command-line arguments.
+	Validate the number of arguments provided based on the chosen set type.
+
+	WHY ONLY JULIA?
+	The code checks for extra arguments specifically for the Julia set because it requires 
+	two additional values (the real and imaginary parts) to define the starting point for 
+	the Julia set calculation. The Mandelbrot set and potentially other fractal types might 
+	not require any additional configuration beyond the set type itself (which defines the 
+	calculation formula). Providing extra arguments for these sets would be unexpected and 
+	might lead to errors, hence the validation.
 */
 static void	handle_args(t_fractol *fractal_data, int ac, char **av)
 {
 	get_set(f, av);
+	/*It parses the arguments (av) to determine the chosen fractal type (set) and 
+	stores it in the fractal_data->set member of the structure.*/
 	if (fractal_data->set != JULIA && ac > 3)
+	/*This conditional statement checks if:
+	The chosen set is not JULIA (i.e., Mandelbrot or another type).
+	The number of arguments (ac) is greater than 3 (expecting only program name, set type, 
+	and color).
+	If both conditions are true, it calls a function named help_msg, 
+	likely to display an error message or usage instructions because unexpected 
+	arguments were provided for a non-Julia set.*/
 		help_msg(fractal_data);
 	else if (fractal_data->set == JULIA && ac > 5)
+	/*This else-if statement checks if:
+	The chosen set is JULIA.
+	The number of arguments (ac) is greater than 5 
+	(expecting program name, set type, Julia starting values (2 numbers), and color).
+	If both conditions are true, it calls help_msg again, 
+	likely indicating extra arguments were provided for the Julia set
+	Only 5 arguemts are required for the JULIA set.*/
 		help_msg(fractal_data);
 	get_julia_starting_values(f, ac, av);
+	/*This line calls a function named get_julia_starting_values that parses the arguments 
+	(av) to extract the starting values for the Julia set calculation (if it was chosen) 
+	and stores them in the appropriate members of the t_fractol structure 
+	(possibly fractal_data->kr and fractal_data->ki).*/
 	get_color(f, ac, av);
+	/*This line calls a function named get_color that likely parses the arguments (av) 
+	to extract the base color information and stores it in the fractal_data->color member 
+	of the structure.*/
 }
 
 /* main:
