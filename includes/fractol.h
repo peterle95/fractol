@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:53:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 13:56:35 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 15:14:09 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,25 @@ typedef struct s_fractol
 	sx might be used for zooming in or out on the complex plane.*/
 	double	rx;
 	double	fx;
-	/*Purpose:
-	rx: This variable's purpose is less clear without more context. 
-	It might be another scaling factor or a rotation value for the complex 
-	plane view.
-	fx: This variable might represent an offset value for the complex plane 
-	view, shifting the displayed area.
-	Function: These variables potentially influence the specific region of 
-	the complex plane that is visualized in the fractal.*/
+	/*rx (escape radius): 
+	This parameter defines a threshold value used in the Mandelbrot set 
+	iteration process. It helps determine if a point in the complex plane belongs to the set.
+
+	The Mandelbrot set iteration formula involves squaring the complex number z repeatedly. 
+	If the absolute value of z (represented by |z|) stays below rx after a certain number 
+	of iterations (MAX_ITERATIONS), the point is considered to belong to the Mandelbrot set. 
+	Conversely, if |z| exceeds rx before reaching the maximum iterations, 
+	the point is not in the set.
+
+	A higher rx value typically leads to a larger and more complex Mandelbrot set displayed 
+	on the screen.
+
+	fx (folding parameter): 
+	This parameter is not used in the classic Mandelbrot set calculation. 
+	It's likely related to variations or more complex fractal sets derived from the 
+	Mandelbrot set, such as the Mandelbox set. Some Mandelbrot variations might 
+	introduce folding techniques to manipulate the complex number z during the iterations. 
+	The specific behavior of fx would depend on the implementation of these variations.*/
 	int		*palette;
 	/*Purpose: This pointer likely points to an array of integers that 
 	represent a color palette used for coloring the pixels in the fractal 
