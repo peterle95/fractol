@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   parse_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:19 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:07:14 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:46:06 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,19 @@ static int	skip_space_sign_0x(char *color)
 
 	i = 0;
 	while (ft_isspace(color[i]))
+	/*iterates as long as the character at color[i] is a space using ft_isspace. 
+	It increments i to skip leading spaces.*/
 		i++;
 	if (color[i] == '+')
+	/*If the character at i is a +, 
+	it's skipped by incrementing i again (positive signs are allowed but ignored).*/
 		i++;
 	if (color[i] == '0' && (color[i + 1]
 			&& (color[i + 1] == 'x' || color[i] == 'X')))
 		i = i + 2;
+		/*inally, it checks if the character at i is 0 and the next character (color[i + 1]) 
+		is either x or X (case-insensitive). If so, it skips both characters 
+		by setting i to i + 2.*/
 	return (i);
 }
 
@@ -65,8 +72,12 @@ static int	ft_atox_color(t_fractol *fractal_data, char *color)
 }
 
 /* get_color:
-*	Gets the color option provided as argument at program launch.
-*	If no color was specified, sets a default value to be used.
+	The function aims to:
+
+	Get the color option provided as an argument: 
+	It checks if the user specified a color when running the program.
+	Set a default color if none is provided: 
+	If no color is specified, the function sets a default value.
 */
 void	get_color(t_fractol *fractal_data, int ac, char **av)
 {
@@ -108,10 +119,14 @@ static int	skip_space_sign(char *str, int *is_neg)
 double	ft_atof(char *str)
 {
 	int		i;
+	/*Loop counter (initialized to the first non-whitespace character after handling sign)*/
 	double	nb;
+	/* Stores the converted number (initialized to 0)*/
 	int		is_neg;
+	/*Tracks whether the number is negative (initialized to 1, assuming positive initially)*/
 	double	div;
-
+	/*Stores a decimal divisor (initialized to 0.1, used for handling decimal places)*/
+	
 	nb = 0;
 	div = 0.1;
 	is_neg = 1;
@@ -120,16 +135,39 @@ double	ft_atof(char *str)
 	{
 		nb = (nb * 10.0) + (str[i] - '0');
 		i++;
+	/*The loop iterates while str[i] is a valid digit and not a decimal point.
+	  Inside the loop:
+	  nb is multiplied by 10 to accommodate the next digit.
+	  The character str[i] is converted to its numerical value by subtracting '0'.
+	  The result is added to nb..*/
 	}
 	if (str[i] == '.')
 		i++;
+	/*If the current character is a decimal point (.), i is incremented again*/
 	while (str[i] && ft_isdigit(str[i]))
 	{
 		nb = nb + ((str[i] - '0') * div);
 		div *= 0.1;
 		i++;
+	/*Another loop iterates while str[i] is a valid digit.
+	  Inside the loop:
+	  nb is incremented by adding the difference between the current digit and 
+	  '0' multiplied by the current div value (representing the decimal place).
+	  div is further divided by 10 (adjusting the decimal place for the next digit).*/
 	}
 	if (str[i] && !ft_isdigit(str[i]))
 		return (-42);
+		/*If str[i] is not a digit after the decimal point, it indicates an invalid format, 
+		and the function returns -42 to signal an error.
+		
+		The choice of -42 is arbitrary and serves as a unique error code to indicate that the conversion failed. 
+		This value isn't a valid Julia set parameter and can be easily distinguished from a successful conversion result.
+		Any other non-valid Julia set parameter could technically be used. However, it's crucial to choose a value that:
+		Doesn't fall within the valid range of Julia set parameters (-2.0 to 2.0) 
+		to avoid confusion with a successful conversion.
+		Preferably, isn't a special value already used for other purposes within the program to maintain clarity and 
+		avoid potential conflicts.
+		Therefore, while other non-valid values could work, -42 offers a clear and readily distinguishable error 
+		code without introducing ambiguity in the context of Julia set parameter validation.*/
 	return (nb * is_neg);
 }

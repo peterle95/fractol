@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/05 16:08:58 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:17:40 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,18 @@ static void	get_set(t_fractol *fractal_data, char **av)
 static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av)
 {
 	if (fractal_data->set != JULIA || ac == 2)
+	/*This checks two conditions:
+	fractal_data->set != JULIA: This checks if the currently selected fractal set isn't the Julia set.
+	ac == 2: This checks if exactly two command-line arguments were provided (excluding the program name).
+	If either condition is true, it means the user didn't provide starting values for the Julia set,
+	or they provided an incorrect number of arguments.
+	In this case, the next line assigns default values.*/
 	{
 		fractal_data->kr = -0.766667;
 		fractal_data->ki = -0.090000;
+		/*If the previous condition is true, this line assigns the default values for ù
+		the Julia set parameters (kr and ki) to the t_fractol structure.
+		These values are commonly used starting points for exploring the Julia set.*/
 		return ;
 	}
 	if (ac == 3)
@@ -96,6 +105,9 @@ static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av
 		help_msg(fractal_data);
 	fractal_data->kr = ft_atof(av[2]);
 	fractal_data->ki = ft_atof(av[3]);
+	/*After checking for basic validity (number of arguments and presence of a decimal point), 
+	these lines attempt to convert the user-provided arguments (av[2] and av[3]) into 
+	floating-point numbers using the ft_atof function*/
 	if (fractal_data->kr > 2.0 || fractal_data->kr < -2.0)
 		help_msg(fractal_data);
 	if (fractal_data->ki >= 2.0 || fractal_data->ki <= -2.0)
