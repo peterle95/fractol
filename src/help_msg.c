@@ -6,15 +6,15 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:38 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/05 14:38:35 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:13:08 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* print_fractal_options:
-*	Prints an explanation of the fractal options that can be specified
-*	at program launch.
+	Prints an explanation of the fractal options that can be specified
+	at program launch.
 */
 void	print_fractal_options(void)
 {
@@ -37,8 +37,8 @@ void	print_fractal_options(void)
 }
 
 /* print_color_options:
-*	Prints an explanation of the color options that can be specified
-*	at program launch.
+	Prints an explanation of the color options that can be specified
+	at program launch.
 */
 void	print_color_options(void)
 {
@@ -61,8 +61,8 @@ void	print_color_options(void)
 }
 
 /* print_controls:
-*	Prints a list of program controls to the standard output when the program
-*	launches successfully.
+	Prints a list of program controls to the standard output when the program
+	launches successfully.
 */
 void	print_controls(void)
 {
@@ -77,7 +77,7 @@ void	print_controls(void)
 }
 
 /* help_msg:
-*	Prints a help message to the standard output to explain the program options.
+	Prints a help message to the standard output to explain the program options.
 */
 void	help_msg(t_fractol *fractal_data)
 {

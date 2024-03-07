@@ -6,16 +6,16 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:57 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:04:44 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:12:14 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* color_shift_special:
-*	Extension of the color_shift function. Changes the color pattern.
-*	The fractal can then be rendered again with different color
-*	effects.
+	Extension of the color_shift function. Changes the color pattern.
+	The fractal can then be rendered again with different color
+	effects.
 */
 static void	color_shift_special(t_fractol *fractal_data)
 {
@@ -37,9 +37,9 @@ static void	color_shift_special(t_fractol *fractal_data)
 }
 
 /* color_shift_striped:
-*	Extension of the color_shift function. Changes the color pattern.
-*	The fractal can then be rendered again with different color
-*	effects.
+	Extension of the color_shift function. Changes the color pattern.
+	The fractal can then be rendered again with different color
+	effects.
 */
 static void	color_shift_striped(t_fractol *fractal_data)
 {
@@ -54,9 +54,9 @@ static void	color_shift_striped(t_fractol *fractal_data)
 }
 
 /* color_shift:
-*	Reinitializes the MLX image and changes the color pattern.
-*	The fractal can then be rendered again with different color
-*	effects.
+	Reinitializes the MLX image and changes the color pattern.
+	The fractal can then be rendered again with different color
+	effects.
 */
 void	color_shift(t_fractol *fractal_data)
 {

@@ -6,16 +6,16 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:04 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:41:26 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:11:57 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* fill_color:
-*	Sets a color for particular stripes intervals.
-*	If stripes = 2, the coloring will skip a palette iteration,
-*	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
+	Sets a color for particular stripes intervals.
+	If stripes = 2, the coloring will skip a palette iteration,
+	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
 */
 static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
 {
@@ -30,13 +30,13 @@ static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
 }
 
 /* get_percent_color:
-*	Calculates a color that is a certain percentage away
-*	from the provided color. Each color channel must be calculated
-*	separately. Intended to find somewhat complimentary colors.
-*	(For true complimentary colors picked from the color wheel,
-*	this function would need to be radically modified to use
-*	HSL colors rather than RGB...)
-*	Note: rgb[3] : rgb[0] = red, rgb[1] = green, rgb[2] = blue
+	Calculates a color that is a certain percentage away
+	from the provided color. Each color channel must be calculated
+	separately. Intended to find somewhat complimentary colors.
+	(For true complimentary colors picked from the color wheel,
+	this function would need to be radically modified to use
+	HSL colors rather than RGB...)
+	Note: rgb[3] : rgb[0] = red, rgb[1] = green, rgb[2] = blue
 */
 int	get_percent_color(int color, double percent)
 {
@@ -55,9 +55,9 @@ int	get_percent_color(int color, double percent)
 }
 
 /* set_color_zebra:
-*	Sets a zebra-striped color scheme. Colors alternate between
-*	the given color and a complimentary color 50% away from the
-*	first.
+	Sets a zebra-striped color scheme. Colors alternate between
+	the given color and a complimentary color 50% away from the
+	first.
 */
 void	set_color_zebra(t_fractol *fractal_data, int color)
 {
@@ -70,9 +70,9 @@ void	set_color_zebra(t_fractol *fractal_data, int color)
 }
 
 /* set_color_triad:
-*	Sets a striped color scheme. Colors alternate between
-*	three colors: the given color, a color 33% away from the first
-*	and a color 66% away from the first.
+	Sets a striped color scheme. Colors alternate between
+	three colors: the given color, a color 33% away from the first
+	and a color 66% away from the first.
 */
 void	set_color_triad(t_fractol *fractal_data, int color)
 {
@@ -87,10 +87,10 @@ void	set_color_triad(t_fractol *fractal_data, int color)
 }
 
 /* set_color_tetra:
-*	Sets a striped color scheme. Colors alternate between
-*	four colors: the given color, a color 25% away from it,
-*	a color 50% away from the first, and a color 75% away from
-*	the first.
+	Sets a striped color scheme. Colors alternate between
+	four colors: the given color, a color 25% away from it,
+	a color 50% away from the first, and a color 75% away from
+	the first.
 */
 void	set_color_tetra(t_fractol *fractal_data, int color)
 {

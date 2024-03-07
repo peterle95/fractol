@@ -6,19 +6,19 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:53:17 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:42:20 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:11:12 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* interpolate:
-*	Interpolates between two hex colors. Each color channel must be
-*	calculated separately according to the formula:
-*		(endValue - startValue) * stepNumber / lastStepNumber + startValue
-*	The fractional component (stepNumber / lastStepNumber) must be provided
-*	as fraction parameter of this function.
-*	Note: rgb[3] : [0] = red, [1] = green, [2] = blue
+	Interpolates between two hex colors. Each color channel must be
+	calculated separately according to the formula:
+		(endValue - startValue) * stepNumber / lastStepNumber + startValue
+	The fractional component (stepNumber / lastStepNumber) must be provided
+	as fraction parameter of this function.
+	Note: rgb[3] : [0] = red, [1] = green, [2] = blue
 */
 static int	interpolate(int startcolor, int endcolor, double fraction)
 {
@@ -38,9 +38,9 @@ static int	interpolate(int startcolor, int endcolor, double fraction)
 }
 
 /* set_color_mono:
-*	Sets a monochromatic color scheme. Colors range from
-*	black to the provided color, to white near the fractal
-*	border.
+	Sets a monochromatic color scheme. Colors range from
+	black to the provided color, to white near the fractal
+	border.
 */
 void	set_color_mono(t_fractol *fractal_data, int color)
 {
@@ -70,11 +70,11 @@ void	set_color_mono(t_fractol *fractal_data, int color)
 }
 
 /* set_color_multiple:
-*	Sets a multicolor color scheme. Colors range from the
-*	first color provided in the array to the last. The colors are
-*	interpolated for a smooth transition between each. It is possible
-*	to provide more than 4 colors by casting a larger array and specifying
-*	how many colors are included.
+	Sets a multicolor color scheme. Colors range from the
+	first color provided in the array to the last. The colors are
+	interpolated for a smooth transition between each. It is possible
+	to provide more than 4 colors by casting a larger array and specifying
+	how many colors are included.
 */
 void	set_color_multiple(t_fractol *fractal_data, int colors[4], int n)
 {

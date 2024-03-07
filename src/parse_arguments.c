@@ -6,15 +6,15 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:19 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 15:56:11 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:14:06 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* skip_space_sign_0x:
-*	Skips spaces, '+' sign character and '0x' or '0X'
-*	to parse hexadecimal color code strings.
+	Skips spaces, '+' sign character and '0x' or '0X'
+	to parse hexadecimal color code strings.
 */
 static int	skip_space_sign_0x(char *color)
 {
@@ -114,9 +114,9 @@ void	get_color(t_fractol *fractal_data, int ac, char **av)
 }
 
 /* skip_space_sign:
-*	Skips spaces, '+' and '-' sign characters and sets the
-*	is_neg variable if a '-' sign is detected.
-*	Used to parse strings representing float values for Julia.
+	Skips spaces, '+' and '-' sign characters and sets the
+	is_neg variable if a '-' sign is detected.
+	Used to parse strings representing float values for Julia.
 */
 static int	skip_space_sign(char *str, int *is_neg)
 {
@@ -135,10 +135,10 @@ static int	skip_space_sign(char *str, int *is_neg)
 }
 
 /* ft_atof:
-*	Converts a string into a float (decimal number). Used to parse
-*	Julia starting values given as program arguments.
-*	Returns the converted double, or -42 in case of error (Julia accepts
-*	values between 2.0 and -2.0 only)
+	Converts a string into a float (decimal number). Used to parse
+	Julia starting values given as program arguments.
+	Returns the converted double, or -42 in case of error (Julia accepts
+	values between 2.0 and -2.0 only)
 */
 double	ft_atof(char *str)
 {

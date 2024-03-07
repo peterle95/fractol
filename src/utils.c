@@ -6,17 +6,17 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:46:43 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:39:11 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:14:53 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* clean_exit:
-*	Destroys the window, the MLX image and the MLX instance,
-*	and frees the color palette, before ending the MLX loop
-*	and destroying the display. Exits the process with the provided
-*	exit code.
+	Destroys the window, the MLX image and the MLX instance,
+	and frees the color palette, before ending the MLX loop
+	and destroying the display. Exits the process with the provided
+	exit code.
 */
 void	clean_exit(int exit_code, t_fractol *fractal_data)
 {
@@ -38,8 +38,8 @@ void	clean_exit(int exit_code, t_fractol *fractal_data)
 }
 
 /* msg:
-*	Displays an error message to the standard error.
-*	Returns the provided error number.
+	Displays an error message to the standard error.
+	Returns the provided error number.
 */
 int	msg(char *str1, char *str2, int errno)
 {
@@ -50,10 +50,10 @@ int	msg(char *str1, char *str2, int errno)
 }
 
 /* end_fractol:
-*	Exits cleanly from the program.
-*	This function is registered to an MLX hook: whenever the
-*	user hits the right button, this function will be called
-*	automatically.
+	Exits cleanly from the program.
+	This function is registered to an MLX hook: whenever the
+	user hits the right button, this function will be called
+	automatically.
 */
 int	end_fractol(t_fractol *mlx)
 {

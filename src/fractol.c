@@ -6,18 +6,18 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 22:09:05 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:10:32 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* type_cmp:
-*	Parses the given fractal type argument and checks against
-*	the name (i.e. "mandelbrot"), the associated letter (i.e. "M")
-*	and the associated number (i.e. "1").
-*	Returns true if the argument matches one of these requirements,
-*	false if not.
+	Parses the given fractal type argument and checks against
+	the name (i.e. "mandelbrot"), the associated letter (i.e. "M")
+	and the associated number (i.e. "1").
+	Returns true if the argument matches one of these requirements,
+	false if not.
 */
 static int	type_cmp(char *av, char *str, char c, char n)
 {
@@ -54,9 +54,9 @@ static int	type_cmp(char *av, char *str, char c, char n)
 }
 
 /* get_set:
-*	Retrieves the set specified in program arguments.
-*	If no valid set was provided, it displays a help
-*	message and quits the program.
+	Retrieves the set specified in program arguments.
+	If no valid set was provided, it displays a help
+	message and quits the program.
 */
 static void	get_set(t_fractol *fractal_data, char **av)
 {
@@ -75,10 +75,10 @@ static void	get_set(t_fractol *fractal_data, char **av)
 }
 
 /* get_julia_starting_values:
-*	Checks whether starting values were provided at program launch
-*	for the Julia set. If not, default Julia values are assigned.
-*	If values were provided, parses them, returning an error message
-*	if the values are not valid.
+	Checks whether starting values were provided at program launch
+	for the Julia set. If not, default Julia values are assigned.
+	If values were provided, parses them, returning an error message
+	if the values are not valid.
 */
 static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av)
 {
@@ -115,8 +115,8 @@ static void	get_julia_starting_values(t_fractol *fractal_data, int ac, char **av
 }
 
 /* handle_args:
-*	Retrieves the set, the julia starting values and the color from
-*	the arguments passed at program launch.
+	Retrieves the set, the julia starting values and the color from
+	the arguments passed at program launch.
 	Extract information about the fractal type (set), 
 	Julia set starting values (if applicable), and base color from the command-line arguments.
 	Validate the number of arguments provided based on the chosen set type.
@@ -164,9 +164,9 @@ static void	handle_args(t_fractol *fractal_data, int ac, char **av)
 }
 
 /* main:
-*	Initializes the fractol data structure, prints the program controls,
-*	opens a new window and registers hooks to detect user interactions.
-*	Loops infinitely until the user quits the process.
+	Initializes the fractol data structure, prints the program controls,
+	opens a new window and registers hooks to detect user interactions.
+	Loops infinitely until the user quits the process.
 */
 int	main(int ac, char **av)
 {

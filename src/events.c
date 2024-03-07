@@ -6,19 +6,19 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:51 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/04 14:05:06 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:12:46 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /* zoom:
-*	Zooms the view of the fractal in or out by adjusting
-*	the complex number edge values by a zoom multiplier.
-*	The fractal can then be generated again at a different resolution,
-*	giving the appearance of zooming in or out.
-*	If the zoom multiplier is small, like 0.5, the view will
-*	zoom in, if it is big, like 2.0, it will zoom out.
+	Zooms the view of the fractal in or out by adjusting
+	the complex number edge values by a zoom multiplier.
+	The fractal can then be generated again at a different resolution,
+	giving the appearance of zooming in or out.
+	If the zoom multiplier is small, like 0.5, the view will
+	zoom in, if it is big, like 2.0, it will zoom out.
 */
 static void	zoom(t_fractol *fractal_data, double zoom)
 {
@@ -34,8 +34,8 @@ static void	zoom(t_fractol *fractal_data, double zoom)
 }
 
 /* move:
-*	Moves the view of the fractal by adjusting the complex
-*	number edge values a certain distance in a certain direction.
+	Moves the view of the fractal by adjusting the complex
+	number edge values a certain distance in a certain direction.
 */
 static void	move(t_fractol *fractal_data, double distance, char direction)
 {
@@ -67,13 +67,13 @@ static void	move(t_fractol *fractal_data, double distance, char direction)
 }
 
 /* key_event_extend:
-*	Handles events from the keyboard keys:
-*		- 1, 2, 3, 4, 5: switch fractals
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
+	Handles events from the keyboard keys:
+		- 1, 2, 3, 4, 5: switch fractals
+	This function is registered to an MLX hook and will
+	automatically be called when the user does anything inside the
+	program window with the keyboard.
+	If a valid event is detected, settings are adjusted and the fractal
+	gets redrawn.
 */
 static int	key_event_extend(int keycode, t_fractol *mlx)
 {
@@ -95,15 +95,15 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 }
 
 /* key_event:
-*	Handles events from the keyboard keys:
-*		- + or - key: zoom
-*		- Arrow keys or WASD: move
-*		- Space: color shift
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
+	Handles events from the keyboard keys:
+		- + or - key: zoom
+		- Arrow keys or WASD: move
+		- Space: color shift
+	This function is registered to an MLX hook and will
+	automatically be called when the user does anything inside the
+	program window with the keyboard.
+	If a valid event is detected, settings are adjusted and the fractal
+	gets redrawn.
 */
 int	key_event(int keycode, t_fractol *mlx)
 {
@@ -135,14 +135,14 @@ int	key_event(int keycode, t_fractol *mlx)
 }
 
 /* mouse_event:
-*	Handles events from the mouse:
-*		- Mouse wheel: zoom
-*		- Left click: Julia shift
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the mouse.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
+	Handles events from the mouse:
+		- Mouse wheel: zoom
+		- Left click: Julia shift
+	This function is registered to an MLX hook and will
+	automatically be called when the user does anything inside the
+	program window with the mouse.
+	If a valid event is detected, settings are adjusted and the fractal
+	gets redrawn.
 */
 int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 {
