@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:19 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 15:46:06 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:56:11 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,36 @@ static int	skip_space_sign_0x(char *color)
 }
 
 /* ft_atox_color:
-*	Translates a hexadecimal color code string into an integer.
-*	Valid: "RRGGBB", "0XRRGGBB", "rrggbb", "   +rrggbb"
-*	Invalid: "-RRGGBB" "RRGGBB-", "RR GG BB"
-*	If the string is not a valid hex color code, an error is displayed.
-*	Returns the converted int. -1 if an error occured.
+	---> Translates a hexadecimal color code string into an integer.
+	Valid: "RRGGBB", "0XRRGGBB", "rrggbb", "   +rrggbb"
+	Invalid: "-RRGGBB" "RRGGBB-", "RR GG BB"
+	If the string is not a valid hex color code, an error is displayed.
+	Returns the converted int. -1 if an error occured.
 */
 static int	ft_atox_color(t_fractol *fractal_data, char *color)
 {
 	int	i;
+	/*Initialized by calling skip_space_sign_0x to handle leading spaces, signs,
+	 and the optional 0x prefix.*/
 	int	x;
+	/*The variable x keeps track of the number of characters processed within the 
+	actual color code part of the string.
+	Validation: 
+	After the loop, the function checks if x is exactly equal to 6. 
+	A valid hexadecimal color code should have 6 digits (representing the 
+	red, green, and blue components). If x is not 6, it implies an invalid color code format, 
+	and the function raises an error.*/
 	int	n;
+	/*n is initialized to 0 to store the final color value.
+*/
 
 	n = 0;
-	i = 0;
+	// i = 0;
 	i = skip_space_sign_0x(color);
 	x = 0;
 	while (color[i] && ft_ishexdigit(color[i]))
+	/*loop iterates while the character at i is not null and is a valid hexadecimal 
+	digit using ft_ishexdigit.*/
 	{
 		if (ft_isdigit(color[i]))
 			n = (n * 16) + (color[i] - '0');
@@ -63,9 +76,20 @@ static int	ft_atox_color(t_fractol *fractal_data, char *color)
 			n = (n * 16) + (ft_toupper(color[i]) - 'A' + 10);
 		i++;
 		x++;
+	/*If the character is a digit (0-9), it's converted to the corresponding 
+	numerical value (0-9) and added to n after shifting n left by 4 bits 
+	(equivalent to multiplying by 16) using bitwise operations.
+	Otherwise, it's assumed to be an uppercase letter (A-F) and converted to 
+	its numerical value (10-15) by subtracting 'A' and adding 10, then added to n 
+	with the same left shift.
+	i is incremented to move to the next character.
+	x is incremented to keep track of the number of characters processed.*/
 	}
 	if (x == 6 && !color[i])
 		return (n);
+	/*After the loop, if x is exactly 6 (representing 6 hexadecimal digits) and the next 
+	character is null (meaning the string ends after the color code), the function returns 
+	the converted integer n.*/
 	else
 		help_msg(f);
 	return (-1);
