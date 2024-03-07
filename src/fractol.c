@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/05 16:03:32 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/05 16:08:58 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ static void	handle_args(t_fractol *fractal_data, int ac, char **av)
 	get_color(f, ac, av);
 	/*This line calls a function named get_color that likely parses the arguments (av) 
 	to extract the base color information and stores it in the fractal_data->color member 
-	of the structure.*/
+		of the structure.*/
 }
 
 /* main:
