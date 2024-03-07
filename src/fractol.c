@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 15:17:40 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:09:05 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,26 +213,26 @@ int	main(int ac, char **av)
 	rendering.*/
 	mlx_key_hook(fractal_data.win, key_event, &fractal_data);
 	/*This line registers a hook for keyboard events on the window.
-Similar to the first line, it specifies the window object, event type 
-(key_event), and passes the end_fractol function pointer with the f 
-structure address.
-The key_event function (not shown) will be called every time a key is 
-pressed or released on the keyboard. It likely checks the pressed key 
-and performs actions based on predefined key mappings to interact with 
-the fractal, change settings, or trigger other functionalities.*/
+	Similar to the first line, it specifies the window object, event type 
+	(key_event), and passes the end_fractol function pointer with the f 
+	structure address.
+	The key_event function (not shown) will be called every time a key is 
+	pressed or released on the keyboard. It likely checks the pressed key 
+	and performs actions based on predefined key mappings to interact with 
+	the fractal, change settings, or trigger other functionalities.*/
 	mlx_mouse_hook(fractal_data.win, mouse_event, &fractal_data);
 	/*This line registers a hook for mouse events on the window.
-It follows the same structure as the previous lines, using the 
-mouse_event function (not shown) to handle various mouse interactions 
-like clicks, scrolls, and dragging. These events can be used to zoom, 
-pan, change colors, or implement other user interactions within the 
-program.*/ 
+	It follows the same structure as the previous lines, using the 
+	mouse_event function (not shown) to handle various mouse interactions 
+	like clicks, scrolls, and dragging. These events can be used to zoom, 
+	pan, change colors, or implement other user interactions within the 
+	program.*/ 
 	mlx_loop(f.mlx);
 	/*This line initiates the main event loop of the MiniLibX library.
-It starts listening for events like window close, key presses, mouse 
-interactions, and others based on the registered hooks.
-When an event occurs, the corresponding function (end_fractol, 
-key_event, or mouse_event) will be called to handle it.
-The loop continues indefinitely until an event triggers program 
-termination or specific conditions are met.*/
+	It starts listening for events like window close, key presses, mouse 
+	interactions, and others based on the registered hooks.
+	When an event occurs, the corresponding function (end_fractol, 
+	key_event, or mouse_event) will be called to handle it.
+	The loop continues indefinitely until an event triggers program 
+	termination or specific conditions are met.*/
 }
