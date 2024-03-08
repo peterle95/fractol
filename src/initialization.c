@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:28 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/08 15:40:30 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/08 18:03:07 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,12 @@ void	clean_init(t_fractol *fractal_data)
 	In some cases, the code might involve calculations or 
 	comparisons with the color_pattern value. Using a 
 	negative value like -1 can make it easier to distinguish 
-	it from non-negative pattern indices during such operations.*/
+	it from non-negative pattern indices during such operations.
+	
+	fractal_data->color_pattern = (fractal_data->color_pattern + 1) % 9;
+	--> this defines the color_pattern to 0
+	
+	*/
 	fractal_data->color = 0;
 	/*In many computer graphics systems, color values are often represented 
 	as integers where each byte represents a color channel 
@@ -124,6 +129,11 @@ void	clean_init(t_fractol *fractal_data)
 		Burning Ship, so the mapping must also be shifted slightly.
 	Also, one of the edges is always calculated according to the other edges
 	to avoid fractal distortion if the window proportions change.
+
+	Purpose:
+
+	This function establishes a mapping between pixels on the screen and complex numbers in the complex plane. 
+	This mapping determines which complex number corresponds to each pixel when rendering the fractal.
 */
 void	get_complex_layout(t_fractol *fractal_data)
 {
@@ -131,23 +141,56 @@ void	get_complex_layout(t_fractol *fractal_data)
 	{
 		fractal_data->min_r = -4.0;
 		fractal_data->max_r = 4.0;
+		/*Sets min_r and max_r to -4.0 and 4.0, respectively, to cover 
+		the standard viewing area for the Mandelbox set.*/
 		fractal_data->min_i = -4.0;
 		fractal_data->max_i = fractal_data->min_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
+		/*Sets min_i based on max_i. The calculation ensures that the imaginary axis (i) 
+		scales proportionally to the real axis (r) based on the window's width and height 
+		(WIDTH and HEIGHT). 
+		This keeps the aspect ratio consistent even if the window is resized.*/
 	}
 	else if (fractal_data->set == JULIA)
 	{
 		fractal_data->min_r = -2.0;
 		fractal_data->max_r = 2.0;
+		/*Sets min_r and max_r to -2.0 and 2.0, respectively, for a slightly 
+		wider viewing area compared to Mandelbox or Burning Ship 
+		(potentially to accommodate the Julia set's characteristics).*/
 		fractal_data->min_i = -2.0;
 		fractal_data->max_i = fractal_data->min_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
 	}
-	else
+	else // (default)
 	{
 		fractal_data->min_r = -2.0;
 		fractal_data->max_r = 1.0;
 		fractal_data->max_i = -1.5;
 		fractal_data->min_i = fractal_data->max_i + (fractal_data->max_r - fractal_data->min_r) * HEIGHT / WIDTH;
+		/*Sets min_r, max_r, min_i, and max_i to values suitable for a generic fractal 
+		display (likely centered around the origin). 
+		The calculation for min_i again ensures proper aspect ratio.*/
 	}
+	/*This approach ensures that the displayed fractal covers a consistent and appropriate 
+	region of the complex plane based on the chosen fractal type and the window dimensions.
+	
+	min_r (minimum real part): 
+	This defines the leftmost edge of the visible area on the real number (x-axis) plane of the complex plane.
+
+	max_r (maximum real part):
+	This defines the rightmost edge of the visible area on the real number plane.
+	
+	min_i (minimum imaginary part):
+	This defines the bottommost edge of the visible area on the imaginary number (y-axis) 
+	plane of the complex plane.
+	
+	max_i (maximum imaginary part):
+	This defines the topmost edge of the visible area on the imaginary number plane.
+	
+	By setting these values, the function essentially creates a rectangular 
+	viewport within the complex plane that will be used for calculations 
+	during fractal rendering. The specific values chosen depend on the selected 
+	fractal type (fractal_data->set).
+	*/
 }
 
 /* init_img:
@@ -155,6 +198,17 @@ void	get_complex_layout(t_fractol *fractal_data)
 	be used to store every shade of color for every iteration number,
 	and the color of each pixel will be stored in the image, which will
 	then be displayed in the program window.
+
+	This function initializes two crucial elements for rendering fractals:
+
+	Color Palette:
+	It creates a color palette to store color information for each iteration step
+	(up to MAX_ITERATIONS). Each entry in the palette will likely hold an integer 
+	representing a specific color.
+	MLX Image:
+	It creates an MLX image using the provided mlx instance (fractal_data->mlx). 
+	This image will be used as a canvas to store the calculated colors for each pixel, 
+	ultimately representing the rendered fractal on the screen.
 */
 static void	init_img(t_fractol *fractal_data)
 {
@@ -164,13 +218,47 @@ static void	init_img(t_fractol *fractal_data)
 	char	*buf;
 
 	fractal_data->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
+	/*This line allocates memory for the color palette using ft_calloc. 
+	ft_calloc is likely a custom function that allocates memory and initializes 
+	it to zero, ensuring a clean starting state for the palette.
+	The size of the allocated memory is calculated as (MAX_ITERATIONS + 1) * sizeof(int). 
+	This allocates enough space to store an integer value (representing color) for 
+	each iteration step (from 0 to MAX_ITERATIONS) plus one extra element (possibly 
+	for a special case or default color).*/
 	if (!(fractal_data->palette))
 		clean_exit(msg("error initializing color scheme.", "", 1), fractal_data);
 	fractal_data->img = mlx_new_image(fractal_data->mlx, WIDTH, HEIGHT);
+	/*This line creates a new MLX image using mlx_new_image. It takes three arguments:
+	fractal_data->mlx: 
+	This is a pointer to the MLX instance, likely created earlier 
+	during program initialization. MLX is a library for creating graphical user interfaces.
+	WIDTH: This is a pre-defined constant representing the width of the image in pixels.
+	HEIGHT: This is another pre-defined constant representing the height of the image in pixels.
+	The return value of mlx_new_image is stored in fractal_data->img. 
+	If image creation fails, fractal_data->img will be NULL.*/
 	if (!(fractal_data->img))
 		clean_exit(msg("image creation error.", "", 1), fractal_data);
 	buf = mlx_get_data_addr(fractal_data->img, &pixel_bits, &line_bytes, &endian);
+	/*This line retrieves information about the created MLX image using mlx_get_data_addr. It takes four arguments and stores the results in variables:
+	fractal_data->img: 
+	This is the image we just created.
+	&pixel_bits: 
+	This is a pointer to an integer variable where mlx_get_data_addr will store 
+	the number of bits per pixel in the image.
+	&line_bytes: 
+	This is a pointer to an integer variable where mlx_get_data_addr will store 
+	the number of bytes required to represent a single line of pixels in the image. 
+	This is relevant for efficient memory access.
+	&endian: 
+	This is a pointer to an integer variable where mlx_get_data_addr will store the 
+	endianness of the image (whether it's little-endian or big-endian). 
+	Endianness determines the order of bytes within a multi-byte value.
+	The return value of mlx_get_data_addr is stored in a variable named buf. This buf variable points to the raw data buffer of the image where we can directly manipulate pixel colors.*/
 	fractal_data->buf = buf;
+	/*This line stores the retrieved image data buffer pointer (buf) in the 
+	fractal_data structure. This pointer will be crucial for later functions 
+	that manipulate pixel colors within the image during the fractal calculation 
+	and rendering process.*/
 }
 
 /* reinit_image:
@@ -198,8 +286,24 @@ void	init(t_fractol *fracta l_data)
 	if (!fractal_data->mlx)
 		clean_exit(msg("MLX: error connecting to mlx.", "", 1), fractal_data);
 		/*If there's an error, the function calls clean_exit with an appropriate error message 
-		using the msg function (presumably defined elsewhere). The clean_exit function likely handles error 
-		cleanup and exits the program.*/
+		using the msg function. The clean_exit function handles error 
+		cleanup and exits the program.
+		Breakdown:
+		clean_exit: 
+		Function to clean up resources and exit with a specific code.
+		msg(...): 
+		Function call (explained below) to construct an error message.
+		"MLX: error creating window.":
+		 Error message to be displayed.
+		"": 
+		----> Empty string, likely serving as a placeholder or separator.
+		Including an empty string ("") as an argument is a way to handle optional 
+		arguments within a function. Even though it doesn't provide any additional 
+		information, it keeps the function call consistent with its definition, 
+		which might expect three arguments.
+		1: 
+		Error code representing the specific error type (window creation failure).
+		fractal_data: Pointer to the t_fractol structure, containing data for cleanup.*/
 	fractal_data->win = mlx_new_window(fractal_data->mlx, WIDTH, HEIGHT, "Fractol - 42 Project");
 	/*It calls the mlx_new_window function to create a new window using the previously 
 	initialized MLX instance (fractal_data->mlx). It sets the window width, height, 

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:46:43 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/08 15:53:32 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:28:52 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,49 @@ void	clean_exit(int exit_code, t_fractol *fractal_data)
 */
 int	msg(char *str1, char *str2, int errno)
 {
-	ft_putstr_fd("Fractol: ", 2);
+	/*Standard output (file descriptor 1): 
+	This is where most program output is sent by default. 
+	In a terminal environment, what you see printed on the screen typically comes from 
+	the standard output.
+	Standard error (file descriptor 2): 
+	This is used for error messages and diagnostic information. 
+	It's often directed to the same place as standard output (terminal), 
+	but it can be redirected to a separate file for logging purposes.*/
+	ft_putstr_fd("ERROR: ", 2);
 	ft_putstr_fd(str1, 2);
+	/*Prints str1 (the main error message) using ft_putstr_fd.*/
 	ft_putendl_fd(str2, 2);
+	/*
+	Prints str2 (details or a newline) using ft_putendl_fd.
+	void	ft_putendl_fd(char *s, int fd)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
+	}*/
 	return (errno);
+	/*errno: Error code to be returned.
+	
+	The value 1 is passed as errno in the call to msg and clean_exit to indicate a non-zero exit code, 
+	signaling an error during program execution. Here's a breakdown of the reasoning:
+	- Convention for Exit Codes:
+	In most programming environments, a 0 exit code typically signifies a successful program termination, 
+	while non-zero codes represent various errors or abnormal terminations.
+	This convention allows scripts or other programs that invoke this fractal renderer to detect whether 
+	it ran successfully or encountered issues.
+	- Significance of 1:
+	While the specific meaning of non-zero exit codes can vary, 1 is often used as a general 
+	catch-all error code when a more specific error code isn't available or necessary. 
+	It simply conveys that an error occurred, but doesn't delve into detailed 
+	error codes for different failure scenarios.
+	- Handling Distinct Errors:
+	If the developers wanted to differentiate between different types of errors 
+	(e.g., MLX initialization failure vs. window creation failure), they could have used distinct 
+	non-zero exit codes for each type. However, in this case, it seems they opted for a simple binary 
+	indication of "success (0)" or "error (non-zero)".
+	- Importance in Error Handling:
+	By using a non-zero exit code (like 1) in this error message and termination scenario, 
+	the code ensures that any external scripts or processes that call this fractal renderer 
+	can detect the error and potentially take corrective actions or provide informative feedback to the user.*/
 }
 
 /* end_fractol:
