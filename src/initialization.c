@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:28 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 22:23:14 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/08 15:40:30 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,12 +197,26 @@ void	init(t_fractol *fracta l_data)
 	fractal_data->mlx = mlx_init();
 	if (!fractal_data->mlx)
 		clean_exit(msg("MLX: error connecting to mlx.", "", 1), fractal_data);
-	fractal_data->win = mlx_new_window(fractal_data->mlx, WIDTH, HEIGHT, "Fractol");
+		/*If there's an error, the function calls clean_exit with an appropriate error message 
+		using the msg function (presumably defined elsewhere). The clean_exit function likely handles error 
+		cleanup and exits the program.*/
+	fractal_data->win = mlx_new_window(fractal_data->mlx, WIDTH, HEIGHT, "Fractol - 42 Project");
+	/*It calls the mlx_new_window function to create a new window using the previously 
+	initialized MLX instance (fractal_data->mlx). It sets the window width, height, 
+	and title ("Fractol").
+	The return value is stored in fractal_data->win.*/
 	if (!fractal_data->win)
 		clean_exit(msg("MLX: error creating window.", "", 1), fractal_data);
 	fractal_data->sx = 2.0;
+	/*This line sets the initial scaling factor for the viewing area (fractal_data->sx) to 2.0. 
+	This value controls how much of the complex plane is displayed in the window.*/
 	fractal_data->rx = 0.5;
+	/*This line sets the initial escape radius for the Mandelbrot calculation 
+	(fractal_data->rx) to 0.5. This parameter is used in determining 
+	if a point belongs to the Mandelbrot set.*/
 	fractal_data->fx = 1.0;
+	/*This line sets the initial fold parameter for the Mandelbox calculation 
+	(fractal_data->fx) to 1.0. This parameter is specific to the Mandelbox set.*/
 	get_complex_layout(fractal_data);
 	color_shift(fractal_data);
 }
