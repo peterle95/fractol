@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:28 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 22:13:48 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/07 22:23:14 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ void	reinit_img(t_fractol *fractal_data)
 	Creates a new MLX instance, a new window and populates
 	the fractol data structure with default values.
 */
-void	init(t_fractol *fractal_data)
+void	init(t_fractol *fracta l_data)
 {
 	fractal_data->mlx = mlx_init();
 	if (!fractal_data->mlx)
