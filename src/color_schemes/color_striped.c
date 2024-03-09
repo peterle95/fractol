@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:04 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 22:11:57 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/09 22:19:22 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,32 @@
 	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
 */
 static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
-{
+{	/*stripe: This is an integer representing 
+	the spacing between stripes. It defines how many entries in the 
+	palette will be skipped between applying the provided color.*/
 	int	i;
 
 	i = 0;
 	while (i < MAX_ITERATIONS)
 	{
 		fractal_data->palette[i] = color;
+		/*Inside the loop, the line fractal_data->palette[i] = color; 
+		assigns the provided color value to the current palette entry 
+		pointed to by i. This effectively sets the color for that specific 
+		iteration step in the fractal calculation.*/
 		i += stripe;
+		/*The line i += stripe; increments the counter i by the value of stripe. 
+		This effectively skips stripe - 1 entries in the palette before assigning 
+		the color in the next iteration. This creates the striped pattern.*/
 	}
+	/*Let's say MAX_ITERATIONS is 256 (meaning the palette has 256 entries) and stripe is 2.
+	The loop will iterate 256 times, filling the palette entries.
+	In the first iteration (i = 0), fractal_data->palette[0] is assigned the color value.
+	In the second iteration (i = 1), i is incremented by stripe 
+	(2), making i equal to 3. So, fractal_data->palette[3] is assigned 
+	the color (skipping entries 0, 1, and 2).
+	This process continues, filling every other entry (0, 3, 6, ...) 
+	with the provided color, creating a striped pattern with alternating colors.*/
 }
 
 /* get_percent_color:

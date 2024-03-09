@@ -19,4 +19,8 @@ library and in the main in fractol.c
 
 10. Change name of handle_args to handle_arguments
 
-11. Check if the title of the window is called "Fractol - 42 project": void	init(t_fractol *fracta l_data)
+11. Check if the title of the window is called "Fractol - 42 project": 
+            void	init(t_fractol *fracta l_data)
+
+12. Play around with the colors: 
+            void	color_shift(t_fractol *fractal_data)

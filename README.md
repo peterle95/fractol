@@ -102,4 +102,4 @@ While Fractol is running, the following set of controls are available:
 ![Fract-ol brown tribal Mandelbox by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbox.png)
 
 ---
-Made by mcombeau: mcombeau@student.42.fr | LinkedIn: [mcombeau](https://www.linkedin.com/in/mia-combeau-86653420b/) | Website: [codequoi.com](https://www.codequoi.com)
+Made by pmolzer: pmolzer@student.42.fr | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
