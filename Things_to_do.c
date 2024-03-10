@@ -24,3 +24,6 @@ library and in the main in fractol.c
 
 12. Play around with the colors: 
             void	color_shift(t_fractol *fractal_data)
+
+13. Change trgb to target_rbg.
+            int	get_percent_color(int color, double percent)

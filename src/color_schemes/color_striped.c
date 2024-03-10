@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:04 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/09 22:19:22 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/10 13:25:30 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static void	fill_color_stripe(t_fractol *fractal_data, int color, int stripe)
 /* get_percent_color:
 	Calculates a color that is a certain percentage away
 	from the provided color. Each color channel must be calculated
-	separately. Intended to find somewhat complimentary colors.
+	separately. It does this for each color channel (red, green, and blue) independently.
+	Intended to find somewhat complimentary colors.
 	(For true complimentary colors picked from the color wheel,
 	this function would need to be radically modified to use
 	HSL colors rather than RGB...)
@@ -62,13 +63,39 @@ int	get_percent_color(int color, double percent)
 	double	percentage;
 
 	rgb[0] = (color >> 16) & 0xFF;
+	/*This line extracts the red component from the provided color integer.
+	Bitwise shifting (>> 16) moves the bits containing the red value 
+	(usually the leftmost 8 bits) to the least significant position.
+	The & 0xFF operation performs a bitwise AND with 255 
+	(represented by 0xFF in hexadecimal). 
+	This effectively isolates the red component by clearing all 
+	bits except for the ones representing the red value.*/
 	rgb[1] = (color >> 8) & 0xFF;
 	rgb[2] = (color >> 0) & 0xFF;
 	percentage = (percent / 100) * 256;
+	/*This line calculates the offset value based on the provided percent.
+	It divides the percent by 100 to get a value between 0 and 1.
+	It then multiplies this value by 256 to get the offset amount 
+	within the 0-255 range used for color channels.*/
 	trgb[0] = (rgb[0] + percentage) - 256;
+	/*This line calculates a new red value for the target color (trgb[0]).
+	It adds the percentage offset to the original red value (rgb[0]).
+	The - 256 is necessary because the offset could potentially 
+	push the value outside the valid 0-255 range for color channels. 
+	Subtracting 256 ensures the result stays within the valid range. 
+	Similar calculations are done for green (trgb[1]) and blue (trgb[2]) channels.*/
 	trgb[1] = (rgb[1] + percentage) - 256;
 	trgb[2] = (rgb[2] + percentage) - 256;
 	return (0xFF << 24 | trgb[0] << 16 | trgb[1] << 8 | trgb[2]);
+	/*This line combines the adjusted red, green, and blue components 
+	(trgb[0], trgb[1], trgb[2]) back into a single integer representing the new color.
+	Bitwise shifting and OR operations are used to position 
+	each component in its corresponding place within the 32-bit integer.
+	0xFF << 24 sets the alpha channel (transparency) to fully opaque (255).
+	trgb[0] << 16 shifts the adjusted red value 16 bits to the 
+	left, positioning it in the red channel section of the integer.
+	Similar shifts are done for green (<< 8) and blue (<< 0) 
+	components to place them in their respective positions.*/
 }
 
 /* set_color_zebra:
