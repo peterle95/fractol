@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:04 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/10 13:25:30 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/10 13:47:42 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,21 @@ int	get_percent_color(int color, double percent)
 	components to place them in their respective positions.*/
 }
 
+
+
+/*PURPOSE OF ZEBRA, TRIAD, TETRA:
+
+	These functions create different striped color schemes for the fractal renderer. 
+	They take a base color and generate variations of it to create distinct patterns 
+	within the color palette.
+	
+  KEY POINTS:	
+	All functions rely on the fill_color_stripe function (explained in a previous response) to create the striped patterns.
+	The get_percent_color function is used to create secondary colors that are somewhat complementary to the base color.
+	The last entry of the palette is often set to black, potentially for visual emphasis or to mark a specific iteration value in the fractal calculations.
+*/
+
+
 /* set_color_zebra:
 	Sets a zebra-striped color scheme. Colors alternate between
 	the given color and a complimentary color 50% away from the
@@ -108,9 +123,14 @@ void	set_color_zebra(t_fractol *fractal_data, int color)
 	int	color2;
 
 	color2 = get_percent_color(color, 50);
+	/*Calculates a second color (color2) that's 50% 
+	away from the provided color using get_percent_color.*/
 	fill_color_stripe(fractal_data, color, 1);
 	fill_color_stripe(fractal_data, color2, 2);
+	/*Fills alternating stripes in the palette with color and color2 
+	using fill_color_stripe.*/
 	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
+	/*Sets the last entry of the palette (MAX_ITERATIONS - 1) to black, for visual clarity.*/
 }
 
 /* set_color_triad:
@@ -124,10 +144,14 @@ void	set_color_triad(t_fractol *fractal_data, int color)
 
 	triad[0] = get_percent_color(color, 33);
 	triad[1] = get_percent_color(color, 66);
+	/*Calculates two additional colors (triad[0] and triad[1]) 
+	that are 33% and 66% away from the provided color.*/
 	fill_color_stripe(fractal_data, color, 1);
 	fill_color_stripe(fractal_data, triad[0], 2);
 	fill_color_stripe(fractal_data, triad[1], 3);
+	/*Fills stripes with color, triad[0], and triad[1] using fill_color_stripe.*/
 	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
+	/*Sets the last entry of the palette to black.*/
 }
 
 /* set_color_tetra:
@@ -135,6 +159,8 @@ void	set_color_triad(t_fractol *fractal_data, int color)
 	four colors: the given color, a color 25% away from it,
 	a color 50% away from the first, and a color 75% away from
 	the first.
+
+	TETRA = FOUR COLORS!!!
 */
 void	set_color_tetra(t_fractol *fractal_data, int color)
 {
@@ -143,9 +169,13 @@ void	set_color_tetra(t_fractol *fractal_data, int color)
 	tetra[0] = get_percent_color(color, 25);
 	tetra[1] = get_percent_color(color, 50);
 	tetra[2] = get_percent_color(color, 75);
+	/*Calculates three additional colors (tetra[0], tetra[1], and tetra[2]) 
+	that are 25%, 50%, and 75% away from the provided color.*/
 	fill_color_stripe(fractal_data, color, 1);
 	fill_color_stripe(fractal_data, tetra[0], 2);
 	fill_color_stripe(fractal_data, tetra[1], 3);
 	fill_color_stripe(fractal_data, tetra[2], 4);
+	/*Fills stripes with color, tetra[0], tetra[1], and tetra[2] using fill_color_stripe.*/
 	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
+	/*Sets öast entry of the palette to black*/
 }
