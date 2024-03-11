@@ -32,3 +32,18 @@ library and in the main in fractol.c
             void	set_color_tetra(t_fractol *fractal_data, int color)
             void	set_color_triad(t_fractol *fractal_data, int color)
             void	set_color_zebra(t_fractol *fractal_data, int color)
+
+15. Handle negative vaules resulting out of the modulo operation
+            void	set_color_graphic(t_fractol *fractal_data, int color)
+            /*Uncertainties and Potential Issues:
+
+            The comment acknowledges that this function might not always work well.
+            The optional darkening step at the beginning could be further investigated 
+            to understand its impact on the final colors.
+            Subtracting the modulo from color components can lead to negative values 
+            and unexpected color behavior. Handling negative values or clamping 
+            them to the valid range (0-255) could improve stability.
+            Overall, this function provides an experimental approach to color 
+            scheme generation. While it might create interesting effects in 
+            some cases, its limitations and potential for unpredictable results 
+            due to overflows and underflows should be considered.*/

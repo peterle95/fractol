@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:50:15 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/10 14:11:13 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/11 15:45:05 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void	set_color_contrasted(t_fractol *fractal_data, int color)
 	or to avoid unexpected behavior at the end of the color gradient.*/
 }
 
+
+
 void	set_color_graphic(t_fractol *fractal_data, int color)
 {
 	int	i;
@@ -139,8 +141,12 @@ void	set_color_graphic(t_fractol *fractal_data, int color)
 	rgb[0] = (color >> 16) & 0xFF;
 	rgb[1] = (color >> 8) & 0xFF;
 	rgb[2] = (color >> 0) & 0xFF;
+	/*extracting red, green and blue*/
 	i = -1;
 	while (rgb[0] < 0x33 || rgb[1] < 0x33 || rgb[2] < 0x33)
+	/*The code then enters a loop that continues as long as any of the red, green, 
+	or blue components in rgb are below a certain threshold 
+	(0x33, which is roughly equivalent to a dark shade of gray).*/
 	{
 		if (rgb[0] != 0xFF)
 			rgb[0]++;
@@ -148,14 +154,62 @@ void	set_color_graphic(t_fractol *fractal_data, int color)
 			rgb[1]++;
 		if (rgb[2] != 0xFF)
 			rgb[2]++;
+			/*Inside the loop, it checks each color component.
+			If a component (rgb[0], rgb[1], or rgb[2]) is not already 
+			at its maximum (0xFF), it increments that component by 1.*/
+	/*This initial loop essentially darkens the starting colors if they 
+	are not already dark enough. This step might not always be necessary 
+	and could be commented out to see the effect without this pre-darkening.*/
 	}
 	while (++i < MAX_ITERATIONS)
+	/*After the optional darkening step, the main loop iterates through the 
+	color palette (fractal_data->palette) up to MAX_ITERATIONS.*/
 	{
 		fractal_data->palette[i] = 0;
+		/*It sets the current palette entry to black (0).*/
 		rgb[0] -= i % 0xFF;
 		rgb[1] -= i % 0xFF;
 		rgb[2] -= i % 0xFF;
+		/*It subtracts the modulo (%) of the iteration number (i) from each color component in rgb.
+		This subtraction can lead to negative values outside the valid 0-255 color range. 
+		The code doesn't handle this explicitly, potentially resulting in unexpected colors.*/
 		fractal_data->palette[i] = 0xFF << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
+		/*It combines the adjusted color components back into a 
+		single integer representing a new color.*/
 	}
 	fractal_data->palette[MAX_ITERATIONS - 1] = 0;
+	/*Similar to other color scheme functions, the last entry of the
+	 palette (MAX_ITERATIONS - 1) is explicitly set to black (0).*/
 }
+
+
+/*There are two possible reasons why the set_color_graphic function uses an 
+int rgb[3] array to store the color components, while other functions 
+use separate int r, int g, and int b variables:
+
+Conciseness and Code Readability (for small color sets):
+
+For functions that only deal with a single color value, 
+using separate r, g, and b variables can make the code more readable. 
+It explicitly separates the red, green, and blue components with clear 
+variable names. This approach might be preferred when dealing with a 
+small number of colors and clarity is a priority.
+Potential Performance Optimization (for large color sets):
+
+In scenarios where you're working with many colors or 
+manipulating colors frequently, using an array like rgb[3] could 
+offer slight performance benefits. This is because accessing elements 
+within an array can be slightly faster than accessing individual variables, 
+especially when dealing with large datasets.
+However, the performance difference between these approaches is usually 
+negligible for small color sets. In the context of these fractal 
+renderer color scheme functions, where the number of colors being 
+processed is likely limited, the choice between using an array or 
+separate variables is more about readability and programmer preference.
+
+Here's a table summarizing the potential advantages of each approach:
+
+Approach			Advantages
+Separate r, g, b	Improved code readability, especially for small sets
+int rgb[3] array	Potentially faster for large color sets (micro-optimization)
+*/
