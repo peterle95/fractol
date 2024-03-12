@@ -1,11 +1,11 @@
-Select the pedagogically sound piece(s) of advice for structuring a reading lesson around a one-page newspaper article.
-1. a, b, c, d X
+
 
 Select all the correct sentence(s) Fossilized language errors are always:
 --> b
 
 Select the pedagogically sound piece(s) of advice for structuring a reading lesson around a one-page newspaper article.
-1. a b c d X
+1. a b c d 
+2. a b c
 
 What kind of language lesson can you use a text-based presentation framework for?
 (select all the correct answers)
@@ -13,13 +13,17 @@ What kind of language lesson can you use a text-based presentation framework for
 
 A tutor gave the following instructions to their B1 student, but unfortunately, the student didn’t understand what they had to do. How could the tutor improve the instructions? (select all the correct answers) 'We are going to play. Place your counter on 'start’. If you roll 6, roll again. If you land on a question, talk about it for 2 minutes. If I land on a question, make me talk for 2 minutes by asking questions about the topic. If you land on a bomb, go back to square 1.'
 1. a b c X
+2. d
+3. a b
 
 Which of these tasks follows the principles of communicative language teaching?
 1. c X
+2. a b c
 
 What method/approach/framework is this tutor using? The tutor sends a video that explains the use of the ‘plus-que-parfait’ (a past tense in French) to the student, using examples of a story. Then, in the live lesson with the tutor, the student does gap-fill activities to practise this tense and then creates a past-tense story together with their tutor.
 1.d X
-
+2. a b c d
+3. a b c
 
 What’s wrong with this explanation of the term ‘mortgage’ for an A2 learner? 
 
@@ -32,7 +36,9 @@ You are setting up a task in a lesson with a B2 student. This is the first quest
 
 
 What would be pedagogically sound to do?
-1. b X
+1. b 
+2. c
+---> a
 
 What’s the ‘flipped classroom’ approach?
 --> b
@@ -40,14 +46,33 @@ What’s the ‘flipped classroom’ approach?
 
 After explaining the difference between ‘library’ and ‘bookshop’, asking “So to which one do you have to bring the books back?”  is an example of:
 
-1. a b c X
+1. a b c 
+1. d
+3. a b
+5. a c
+4. b
+
+Select all the good, communicative freer practice activities focusing on future forms:
+1. a b c d
+2. a
+3. b
+4. c
 
 
 Imagine that you are planning a task-based lesson to teach your A2-level student functional language to talk to their hairdresser. Which task would be the best main focus of the lesson?
 1. a b c d
+2. a b 
+3. a
 
 PPP and TTT are examples of:
-1. a b X
+1. a b 
+2. a b c 
+3. d
+4. a c
+5. b C
+----> A
+----> b 
+----> c
 
 
 Select ALL the pedagogically sound pieces of advice when it comes to giving students feedback
@@ -55,7 +80,15 @@ Select ALL the pedagogically sound pieces of advice when it comes to giving stud
 
 
 Select THREE pieces of advice that are pedagogically sound when it comes to teaching vocabulary:
-1. a c e
+1. a b c
+3. a b d
+4. a b e
+5. a c d
+2. a c e
+6. a d e
+7. b c d
+
+
 
 Which technique is NOT effective when working on pronunciation errors?
 --> a
@@ -63,6 +96,11 @@ Which technique is NOT effective when working on pronunciation errors?
 
 Why is it important to focus on the FORM of new vocabulary?
 1. a b c d
+2. a b c
+3. a b d
+5. a c
+4. b c
+6. a d
 
 
 Which of the following are potential sources of student errors?
@@ -75,6 +113,8 @@ Choose the TWO errors that should be prioritised for feedback after a speaking a
 
 Select the pedagogically sound piece(s) of advice from the list below:
 1. a b c
+2. a b c d
+3. a b
 
 
 What’s problem(s) can you find with this explanation of the word “embarrassed” given to a B1 student? 
@@ -84,3 +124,219 @@ Which teaching framework is this teacher describing?
 
 'Last week in class, I asked my student to design an advertisement for a new type of chocolate bar. During the lesson, we also looked at some real advertisements together, and my student practised writing slogans.'
 1. c d
+2. a
+3. a b c d
+---> b
+
+
+Imagine that you give a multiple-choice listening task to your learner who would really like to improve their detailed listening skill. You get them to listen to the recording and answer this question. They select C, but the correct answer is A.
+--> c
+
+Imagine that you are setting up a reading task in which the students have to read a magazine article about the life of a celebrity couple and find the best title for it. What would you do first?
+1. a b c
+2. b c d
+3. c
+4. a c
+5. b c
+
+It helps students to learn complex words and grammar when the tutor uses these when giving instructions for tasks.
+--> b
+
+
+What’s the main aim of a task like this one?
+1. a b c
+2. a b
+3. b c
+4. a c
+
+
+Select all the good lead-in activities for a lesson on extreme sports:
+1. a b c d
+2. b d
+----> a c
+
+
+Which of the following tasks are good 'reading for detail' tasks for a film review?
+1. b c d
+2. b c
+3. c
+4. c d
+5. a
+6. b
+7. d
+8. a b c d
+
+Which one of these is NOT a way to convey the meaning of new vocabulary?
+1. b c d
+2. a e
+3. a
+4. a d
+5. a b d e
+
+
+What’s wrong with this TTT lesson plan? 
+
+The tutor shows a list of sports-related nouns and verbs to the student and they have to match them (e.g. PLAY hockey, GO skiing, etc)
+ 
+While they are doing the task, the tutor elicits relevant aspects of MFP of the target language
+ 
+The tutor and the student role-play a conversation between a parent and a teenager, in which the parent is trying to convince the teenager to choose a sport
+
+The student does a gap-fill activity with a text about sports. They have to insert the missing verbs (e.g. GO skiing)
+Choose ALL answers that app
+--> a b c
+
+
+TRUE OR FALSE? 
+
+It helps students to learn complex words and grammar when the tutor uses these when giving instructions for tasks.
+---> FALSE
+
+What are some useful techniques and ideas to implement in order to deal with ‘Zoom fatigue’ in online classes (students getting more tired in video calls than in face-to-face lessons)? (select all the correct answers)
+1. b c d
+2. a b c d
+3. a b c
+4. b
+
+
+Following a lesson focusing on pronunciation, the teacher brings a game to class in which the student has to categorise words based on which syllable they would emphasize in them (first syllable, second syllable, etc.) 
+
+What is the aim of this activity?
+1. b c d
+1. a b c d
+3. b c
+
+Select the pedagogically sound piece of advice below:
+1. a b c
+2. b c
+
+
+You give your student a reading text about the life of a famous person.
+
+Which task is most appropriate for the FIRST reading?
+1. a b d e
+2. a b c d e
+3. a b c d
+4. a c
+5. c d
+
+
+Select all the pedagogically sound pieces of advice below regarding authentic materials:
+1. a b c
+2. a b
+3. a
+4. b
+
+What conclusions can we draw about the beliefs of this student’s tutor? (select all the correct ones)
+
+'We often do speaking activities in class. When I’m speaking and I can see my tutor taking notes, I know that I have said something incorrectly, and I try to correct myself immediately. My tutor often brings authentic materials to class (news articles, magazines), and we use them to study new vocabulary.'
+
+The tutor believes that…
+1. a b C
+2. a b c d
+3. b c
+4. a b
+5. a c
+
+
+What is the main advantage of using text-based presentations in language teaching?
+1. a b c d
+2. a b c
+3. b d
+
+
+
+What THREE problems are there with this explanation for an A2 learner? 
+
+
+
+'Ok, so we use the past simple to talk about finished actions in the past, often together with a time adverb like ‘yesterday’ or ‘last year’. To formulate it, we take the stem of the verb in the verb phrase and, depending on whether it’s a regular or irregular verb, we either add a ‘-d’ or ‘-ed’ suffix to the stem, or completely change the verb. For example, ‘I decided to buy a new house’ or ‘Yesterday, I went for a drink’.'
+1. a b c
+
+Select ALL the revision activities that encourage ‘deep processing’.
+1. d
+----> a b c
+
+Bob is a A1 student of Spanish, who is planning to move to Spain and work as a waiter in a restaurant. He takes a trial lesson with you. What would you teach him in that lesson?
+1. a b c 
+2. a b
+3. b c
+4. a c
+----> b
+
+What is the advantage of using TTT instead of PPP in a grammar lesson?
+1. a b c d
+2. a c
+3. b d
+-----> a
+
+Authentic listening materials (e.g. radio interviews, podcasts, etc.) should be used…
+1. b c d
+2. a b c
+
+Read the following quotes from tutors talking about their lesson procedures. Which one followed a pedagogically sound approach?
+1. a b c
+2. a b
+3. b c
+4. a c 
+5. A
+
+
+
+When is it a good idea to use delayed error correction as opposed to on-the-spot error correction?
+1. a b c d
+2. a b
+
+
+
+What’s problem(s) can you find with this explanation of the word “embarrassed” given to a B1 student? 
+
+
+
+👩‍🏫 Tutor: ‘Embarrassed’ is an adjective. It means feeling uncomfortable because of shame or receiving too much attention from others. For example, I was embarrassed last week because I was giving a presentation, and when I went to the toilet after it, I realised I had spinach in my teeth the whole time! Is this a positive or a negative feeling? 
+
+👨‍🎓Student: Negative. 
+
+👩‍🏫Tutor: What colour do people’s faces tend to turn when they are embarrassed? 
+
+👨‍🎓Student: Red? 
+
+👩‍🏫Tutor: Yes, exactly! Be careful not to confuse it with the Spanish ‘embarazada’, though! That’s ‘pregnant’ in English, which means that a woman is carrying a baby in her belly! When was the last time you felt embarrassed?
+
+👨‍🎓Student: When I said something silly in a meeting at work. 
+
+👩‍🏫Tutor: That’s a good example! What verb would you use with 'embarrassed'? 
+
+👨‍🎓Student: Be? 
+
+👩‍🏫Tutor: Yes, you can 'be embarrassed' or 'feel embarrassed, too! What preposition would you use with ‘embarrassed’? ‘I was embarrassed _____ my silly question.’ 
+
+👨‍🎓Student: for? 
+
+👩‍🏫Tutor: It’ ‘about’. I was embarrassed ABOUT my silly question. Where’s the stress in this word: ‘emBArrassed’. 
+
+👨‍🎓Student: On the second syllable? 👩‍🏫Tutor: Very good!
+1. a b c
+------> d
+
+
+
+
+
+Imagine that you are an English tutor and you are teaching the grammatical structure ‘used to’ (to talk about actions we did regularly in the past, but we don’t do anymore). You use a story about your years at university to put the target language in context, and use this sentence to give an example of the target language: 
+
+'When I was at university, I used to go to parties all the time, but I don’t have the time and energy anymore.'
+
+What would be a good CCQ to check your student’s understanding of the structure ‘used to’?
+1. a b c d
+2. b
+----> c
+
+What is the main aim of an activity like this one?
+
+Amy graduated from a ....... business 
+---> d
+
+Which ONE of the following is the most pedagogically sound order of the stages of a writing lesson?
+1. a
+--> b
