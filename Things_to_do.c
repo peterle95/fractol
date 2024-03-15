@@ -15,6 +15,8 @@ library and in the main in fractol.c
 
 8. Change content of help_messages \t, \e....
 
+8.1 Change ft_putendl_fd to ft_printf, e se non funzionare usa ft_putstr
+
 9. Change typ_cpm name, also change c to character, and n to number
 
 10. Change name of handle_args to handle_arguments
