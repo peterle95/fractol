@@ -6,6 +6,8 @@ library and in the main in fractol.c
 // 3. Modify comments over the functions (rm ***)
 
 4. Remove fractals and its components
+            static int	key_event_extend(int keycode, t_fractol *mlx)
+
 
 5. Remove all comments
 
@@ -48,3 +50,7 @@ library and in the main in fractol.c
             fractol.h
 
 18. Change all doubles to float
+
+19. Change center_i and center_r to center_imaginary and center_real
+            static void	zoom(t_fractol *fractal_data, double zoom)
+            static void	move(t_fractol *fractal_data, double distance, char direction)
