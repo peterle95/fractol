@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 13:53:45 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/13 17:11:04 by pmolzer          ###   ########.fr       */
+/*   Created: 2024/03/22 10:41:38 by pmolzer           #+#    #+#             */
+/*   Updated: 2024/03/22 10:41:41 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "libft.h"
 # include "keys.h"
 # include <stdio.h>
-# include <math.h>
+# include <math.h> // accept double type as an argument and return double as a result
 
 /*  Dimensions	*/
 # define WIDTH 900

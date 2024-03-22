@@ -40,3 +40,11 @@ library and in the main in fractol.c
 
 16. Why some specific functions are static, so confined to the "file", and do not need to
     be included into the header file, and other are included in the header file?
+
+17. Remove functionality of Julia_shift
+            int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
+            int	julia_shift(int x, int y, t_fractol *fractal_data)
+            keys.h
+            fractol.h
+
+18. Change all doubles to float

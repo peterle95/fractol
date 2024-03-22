@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:49:51 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/03/07 22:12:46 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/03/18 18:09:45 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,17 +148,35 @@ int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 {
 	if (keycode == MOUSE_WHEEL_UP)
 	{
-		zoom(mlx, 0.5);
+		zoom(mlx, 0.5); // Calls zoom(mlx, 0.5) to zoom in the fractal by a factor of 0.5.
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
+		/*Calculates the relative mouse position by subtracting the 
+		window's center coordinates (WIDTH / 2 and HEIGHT / 2):
+			x represents the horizontal offset from the center.
+			y represents the vertical offset from the center.
+			This relative position helps maintain the clicked point as the center during zoom.*/
 		if (x < 0)
+		/*Checks if x is negative (mouse click was to the left of the center).*/
 			move(mlx, (double)x * -1 / WIDTH, 'L');
+			/*The calculation (double)x * -1 / WIDTH converts 
+			the pixel offset (x) to a proportional value based 
+			on the window width (WIDTH). The negative sign ensures a leftward movement.
+			The 'L' character specifies a leftward movement for the move function.*/
 		else if (x > 0)
 			move(mlx, (double)x / WIDTH, 'R');
+			/*Similarly, checks if x is positive 
+			(mouse click was to the right of the center) and 
+			calls move with a rightward movement ('R').*/
 		if (y < 0)
 			move(mlx, (double)y * -1 / HEIGHT, 'U');
 		else if (y > 0)
 			move (mlx, (double)y / HEIGHT, 'D');
+		/*Similar logic is applied for the y coordinate.
+			Checks if y is negative (mouse click was above the center) 
+			and calls move with an upward movement ('U').
+			Checks if y is positive (mouse click was below the center) 
+			and calls move with a downward movement ('D').*/
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(mlx, 2);
