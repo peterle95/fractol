@@ -3,16 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmolzer <pmolzer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/02 15:02:45 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:04:18 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 #include <string.h>
+
+void draw_fractal(t_data *data)
+{
+    if (data->fractal_type == MANDELBROT)
+        draw_mandelbrot(data);
+    else if (data->fractal_type == JULIA)
+        draw_julia(data);
+    // Add more fractal types here if needed
+}
+int close_window(t_data *data)
+{
+    mlx_destroy_image(data->mlx, data->img);
+    mlx_destroy_window(data->mlx, data->win);
+    mlx_destroy_display(data->mlx);
+    free(data->mlx);
+    exit(0);
+}
+
+int key_hook(int keycode, t_data *data)
+{
+    if (keycode == 65307)  // ESC key
+        close_window(data);
+    else if (keycode == 49) // '1' key
+        data->fractal_type = MANDELBROT;
+    else if (keycode == 50) // '2' key
+        data->fractal_type = JULIA;
+    else
+        return (0);
+    draw_fractal(data);
+    return (0);
+} 
 
 /*We create an is_valid_float function to check if a string represents a 
 valid floating-point number. This function:
@@ -52,9 +83,6 @@ We validate each parameter using is_valid_float.
 We convert the parameters to doubles using atof.
 We check if the parameters are within the range -2 to 2, which is a common range for interesting Julia sets.
 
-
-
-
 We return 0 from parse_args if:
 
 The fractal type is not recognized.
@@ -80,19 +108,13 @@ int parse_args(int argc, char **argv, t_data *data)
             if (data->julia_x == -42.0 || data->julia_y == -42.0 ||
                 data->julia_x < -2.0 || data->julia_x > 2.0 ||
                 data->julia_y < -2.0 || data->julia_y > 2.0)
-            {
                 return (0);
-            }
         }
         else if (argc != 2)
-        {
             return (0);
-        }
     }
     else
-    {
         return (0);
-    }
     
     return (1);
 }
@@ -107,9 +129,26 @@ int main(int argc, char **argv)
         printf("Julia set parameters must be between -2 and 2\n");
         return (1);
     }
-    init_data(data);
-    // Initialize and run your program
-    // ...
+    init_data(&data);
+    data.mlx = mlx_init();
+    if (!data.mlx)
+        return (1);
 
+    data.win = mlx_new_window(data.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
+    if (!data.win)
+    {
+        mlx_destroy_display(data.mlx);
+        free(data.mlx);
+        return (1);
+    }
+
+    data.img = mlx_new_image(data.mlx, WIN_WIDTH, WIN_HEIGHT);
+    data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
+    draw_fractal(&data);
+
+    mlx_hook(data.win, 17, 0, (int (*)())close_window, &data);
+    mlx_key_hook(data.win, key_hook, &data);
+
+    mlx_loop(data.mlx);
     return (0);
 } 
