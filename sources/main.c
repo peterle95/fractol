@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:13:40 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:30:24 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,6 @@ void draw_fractal(t_data *data)
     else if (data->fractal_type == JULIA)
         draw_julia(data);
     // Add more fractal types here if needed
-}
-int close_window(t_data *data)
-{
-    mlx_destroy_image(data->mlx, data->img);
-    mlx_destroy_window(data->mlx, data->win);
-    mlx_destroy_display(data->mlx);
-    free(data->mlx);
-    exit(0);
 }
 
 // think about assigning 0.1 to MOVE_STEP. And the keys as well

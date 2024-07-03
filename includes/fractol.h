@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/02 19:04:55 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:30:51 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int mandelbrot(double cr, double ci, int max_iterations);
 void draw_mandelbrot(t_data *data);
 void draw_julia(t_data *data);
 
+// exit program
+int close_window(t_data *data);
 
 
 
