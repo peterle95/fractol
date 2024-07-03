@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:30:51 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:54:15 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@
 
 enum e_fractal_type {
   MANDELBROT,
-  JULIA,  
+  MANDELBROT2,
+  MANDELBROT3,
+  MANDELBROT4,
+  JULIA,
+  JULIA2,
+  JULIA3,
+  JULIA4,
 };
 
 typedef struct s_data {
@@ -51,8 +57,8 @@ typedef struct s_data {
     // Add any other necessary variables
 } t_data;
 
-#define WIN_WIDTH 800
-#define WIN_HEIGHT 600
+#define WIN_WIDTH 1800
+#define WIN_HEIGHT 1800
 #define MAX_ITERATIONS 500
 
 // main
@@ -78,7 +84,13 @@ double    ft_atof(char *str);
 // fractals
 int mandelbrot(double cr, double ci, int max_iterations);
 void draw_mandelbrot(t_data *data);
+void draw_mandelbrot2(t_data *data);
+void draw_mandelbrot3(t_data *data);
+void draw_mandelbrot4(t_data *data);
 void draw_julia(t_data *data);
+void draw_julia2(t_data *data);
+void draw_julia3(t_data *data);
+void draw_julia4(t_data *data);
 
 // exit program
 int close_window(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:30:24 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:53:30 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,20 @@ void draw_fractal(t_data *data)
 {
     if (data->fractal_type == MANDELBROT)
         draw_mandelbrot(data);
+    else if (data->fractal_type == MANDELBROT2)
+        draw_mandelbrot2(data);
+    else if (data->fractal_type == MANDELBROT3)
+        draw_mandelbrot3(data);
+    else if (data->fractal_type == MANDELBROT4)
+        draw_mandelbrot4(data);
     else if (data->fractal_type == JULIA)
         draw_julia(data);
+    else if (data->fractal_type == JULIA2)
+        draw_julia2(data);
+    else if (data->fractal_type == JULIA3)
+        draw_julia3(data);
+    else if (data->fractal_type == JULIA4)
+        draw_julia4(data);
     // Add more fractal types here if needed
 }
 
@@ -76,7 +88,19 @@ int key_hook(int keycode, t_data *data)
     else if (keycode == 49) // '1' key
         data->fractal_type = MANDELBROT;
     else if (keycode == 50) // '2' key
+        data->fractal_type = MANDELBROT2;
+    else if (keycode == 51) // '3' key
+        data->fractal_type = MANDELBROT3;
+    else if (keycode == 52) // '4' key
+        data->fractal_type = MANDELBROT4;
+    else if (keycode == 53) // '5' key
         data->fractal_type = JULIA;
+    else if (keycode == 54) // '6' key
+        data->fractal_type = JULIA2;
+    else if (keycode == 55) // '7' key
+        data->fractal_type = JULIA3;
+    else if (keycode == 56) // '8' key
+        data->fractal_type = JULIA4;  
     else
         return (0);
 
