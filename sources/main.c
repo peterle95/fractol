@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 11:50:47 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 14:13:40 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 #include <string.h>
 
-int mouse_event(int button, t_data *data)
+int mouse_event(int button, int x, int y, t_data *data)
 {
     double zoom_factor = 1.1;
     double center_re, center_im;
+    (void)x;  // Unused parameter
+    (void)y;  // Unused parameter
 
     // Calculate the center of the current view
     center_re = (data->min_re + data->max_re) / 2.0;
@@ -63,19 +65,43 @@ int close_window(t_data *data)
     exit(0);
 }
 
+// think about assigning 0.1 to MOVE_STEP. And the keys as well
 int key_hook(int keycode, t_data *data)
 {
-    if (keycode == 65307)  // ESC key
+    double move_x = 0;
+    double move_y = 0;
+
+    if (keycode == 65307) // ESC key
         close_window(data);
+    else if (keycode == 65361) // Key Left
+        move_x = -0.1;
+    else if (keycode == 65363) // Key Right
+        move_x = 0.1;
+    else if (keycode == 65362) // Key UP
+        move_y = -0.1;
+    else if (keycode == 65364) // Key Down
+        move_y = 0.1;
     else if (keycode == 49) // '1' key
         data->fractal_type = MANDELBROT;
     else if (keycode == 50) // '2' key
         data->fractal_type = JULIA;
     else
         return (0);
+
+    // Apply movement
+    if (move_x != 0 || move_y != 0)
+    {
+        double range_re = data->max_re - data->min_re;
+        double range_im = data->max_im - data->min_im;
+        data->min_re += move_x * range_re;
+        data->max_re += move_x * range_re;
+        data->min_im += move_y * range_im;
+        data->max_im += move_y * range_im;
+    }
+
     draw_fractal(data);
     return (0);
-} 
+}
 
 /*We create an is_valid_float function to check if a string represents a 
 valid floating-point number. This function:
