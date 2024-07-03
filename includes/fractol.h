@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 18:34:54 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 22:11:17 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ typedef struct s_data {
 #define WIN_HEIGHT 800
 #define MAX_ITERATIONS 500
 
-// main
-int     main(int argc, char **argv);
 
 // initialization
 int    init_data(t_data *data);
@@ -68,12 +66,11 @@ void    init_fractal(t_data *data);
 
 
 // rendering
-int     render(t_data *data);
 void    draw_fractal(t_data *data);
 
 // events
 int     key_hook(int keycode, t_data *data);
-int     mouse_hook(int button, int x, int y, t_data *data);
+int mouse_event(int button, int x, int y, t_data *data);
 
 // Utils
 int	ft_strcmp(const char *s1, const char *s2);
