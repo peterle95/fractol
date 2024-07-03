@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:27 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 21:24:32 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 21:47:09 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Performance and Optimization:
 
 Like the Mandelbrot set, this basic implementation can be slow for high resolutions or iteration counts.
 The same optimization techniques (lookup tables, multi-threading, GPU acceleration) can be applied.*/
-int julia(double zr, double zi, double cr, double ci, int max_iterations)
+/* int julia(double zr, double zi, double cr, double ci, int max_iterations)
 {
     int n = 0;
     double zr_new;
@@ -66,6 +66,23 @@ int julia(double zr, double zi, double cr, double ci, int max_iterations)
         n++;
     }
     return max_iterations;
+} */
+
+int julia(double zr, double zi, double cr, double ci, int max_iterations)
+{
+    double zr2 = zr * zr;
+    double zi2 = zi * zi;
+    int n = 0;
+
+    while (zr2 + zi2 <= 4.0 && n < max_iterations)
+    {
+        zi = 2 * zr * zi + ci;
+        zr = zr2 - zi2 + cr;
+        zr2 = zr * zr;
+        zi2 = zi * zi;
+        n++;
+    }
+    return n;
 }
 
 /* void my_mlx_pixel_put(t_data *data, int x, int y, int color)

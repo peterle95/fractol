@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:32 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:47:12 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 21:40:44 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Performance considerations:
 This basic implementation can be slow for high resolutions or high iteration counts.
 Optimizations could include using a lookup table for the squared terms, multi-threading, or even GPU acceleration.*/
 
-int mandelbrot(double cr, double ci, int max_iterations)
+/* int mandelbrot(double cr, double ci, int max_iterations)
 {
     double zr = 0.0;
     double zi = 0.0;
@@ -64,6 +64,25 @@ int mandelbrot(double cr, double ci, int max_iterations)
         n++;
     }
     return max_iterations;
+} */
+
+int mandelbrot(double cr, double ci, int max_iterations)
+{
+    double zr = 0.0;
+    double zi = 0.0;
+    double zr2 = 0.0;
+    double zi2 = 0.0;
+    int n = 0;
+
+    while (zr2 + zi2 <= 4.0 && n < max_iterations)
+    {
+        zi = 2 * zr * zi + ci;
+        zr = zr2 - zi2 + cr;
+        zr2 = zr * zr;
+        zi2 = zi * zi;
+        n++;
+    }
+    return n;
 }
 
 void draw_mandelbrot(t_data *data)
