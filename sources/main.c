@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:53:30 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 18:35:18 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,34 +119,6 @@ int key_hook(int keycode, t_data *data)
     return (0);
 }
 
-/*We create an is_valid_float function to check if a string represents a 
-valid floating-point number. This function:
-
-Allows an optional leading '+' or '-' sign.
-Ensures there's at most one decimal point.
-Checks that all other characters are digits.
-Ensures the string is not empty.*/
-int is_valid_float(const char *str)
-{
-    int i = 0;
-    int dot_count = 0;
-
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    while (str[i])
-    {
-        if (str[i] == '.')
-        {
-            dot_count++;
-            if (dot_count > 1)
-                return (0);
-        }
-        else if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (i > 0);
-}
 
 /*We create a separate parse_args function to handle the argument parsing. This keeps the main function clean and makes the code more modular.
 We check if there's at least one argument (the program name is argc[0], so we need argc >= 2).
@@ -177,11 +149,11 @@ int parse_args(int argc, char **argv, t_data *data)
         data->fractal_type = JULIA;
         if (argc == 4)
         {
-            data->julia_x = ft_atof(argv[2]);
-            data->julia_y = ft_atof(argv[3]);
-            if (data->julia_x == -42.0 || data->julia_y == -42.0 ||
-                data->julia_x < -2.0 || data->julia_x > 2.0 ||
-                data->julia_y < -2.0 || data->julia_y > 2.0)
+            data->julia_ci = convert_float(argv[2]);
+            data->julia_cr = convert_float(argv[3]);
+            if (data->julia_ci == -42.0 || data->julia_cr == -42.0 ||
+                data->julia_ci < -2.0 || data->julia_ci > 2.0 ||
+                data->julia_cr < -2.0 || data->julia_cr > 2.0)
                 return (0);
         }
         else if (argc != 2)
@@ -197,15 +169,14 @@ int main(int argc, char **argv)
 {
     t_data data;
 
+    init_data(&data);
     if (!parse_args(argc, argv, &data))
     {
         printf("Usage: %s [mandelbrot | julia <real> <imaginary>]\n", argv[0]);
-        printf("Julia set parameters must be between -2 and 2\n");
+        printf("Julia set parameters must be between -2.0 and 2.0\n");
         return (1);
     }
-    init_data(&data);
-    draw_fractal(&data);
-
+    draw_fractal(&data);  
     mlx_hook(data.win, 17, 0, (int (*)())close_window, &data);
     mlx_key_hook(data.win, key_hook, &data);
     mlx_mouse_hook(data.win, mouse_event, &data);

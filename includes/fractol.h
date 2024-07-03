@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:54:15 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 18:34:54 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct s_data {
     double  zoom;
     double  move_x;
     double  move_y;
-    double  julia_x;
-    double  julia_y;
     double  min_re;
     double  max_re;
     double  min_im;
@@ -57,8 +55,8 @@ typedef struct s_data {
     // Add any other necessary variables
 } t_data;
 
-#define WIN_WIDTH 1800
-#define WIN_HEIGHT 1800
+#define WIN_WIDTH 800
+#define WIN_HEIGHT 800
 #define MAX_ITERATIONS 500
 
 // main
@@ -79,7 +77,7 @@ int     mouse_hook(int button, int x, int y, t_data *data);
 
 // Utils
 int	ft_strcmp(const char *s1, const char *s2);
-double    ft_atof(char *str);
+double    convert_float(char *str);
 
 // fractals
 int mandelbrot(double cr, double ci, int max_iterations);

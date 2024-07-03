@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:27 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 14:51:36 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 21:24:32 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ int julia(double zr, double zi, double cr, double ci, int max_iterations)
     return max_iterations;
 }
 
-void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+/* void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char *dst;
 
     dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
     *(unsigned int*)dst = color;
 }
-
+ */
 void draw_julia(t_data *data)
 {
     int x, y;
@@ -89,10 +89,10 @@ void draw_julia(t_data *data)
             zi = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
             int iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
             int color = iterations * 0xFFFFFF / MAX_ITERATIONS;
-            my_mlx_pixel_put(data, x, y, color);  // Add this line
+            mlx_pixel_put(data->mlx, data->win, x, y, color);
         }
     }
-    mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+    // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
 
 void draw_julia2(t_data *data)
@@ -108,10 +108,10 @@ void draw_julia2(t_data *data)
             zi = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
             int iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
             int color = iterations * 0xff0000 / MAX_ITERATIONS;
-            my_mlx_pixel_put(data, x, y, color);  // Add this line
+            mlx_pixel_put(data->mlx, data->win, x, y, color);
         }
     }
-    mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+   // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
 
 void draw_julia3(t_data *data)
@@ -127,10 +127,11 @@ void draw_julia3(t_data *data)
             zi = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
             int iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
             int color = iterations * 0x3676af / MAX_ITERATIONS;
-            my_mlx_pixel_put(data, x, y, color);  // Add this line
+           // my_mlx_pixel_put(data, x, y, color);  // Add this line
+            mlx_pixel_put(data->mlx, data->win, x, y, color);
         }
     }
-    mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+   // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
 
 void draw_julia4(t_data *data)
@@ -146,8 +147,9 @@ void draw_julia4(t_data *data)
             zi = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
             int iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
             int color = iterations * 0xc7e400  / MAX_ITERATIONS;
-            my_mlx_pixel_put(data, x, y, color);  // Add this line
+          //  my_mlx_pixel_put(data, x, y, color);  // Add this line
+            mlx_pixel_put(data->mlx, data->win, x, y, color);
         }
     }
-    mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+   // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }

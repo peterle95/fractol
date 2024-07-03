@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/02 18:50:48 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 18:12:55 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void init_fractal(t_data *data)
     data->zoom = 1.0;
     data->julia_ci = 0.27;
     data->julia_cr = -0.7;
+    // julia 0.27 -0.75
+    //julia 0.15 -0.7
 }
 
 int init_data(t_data *data)
