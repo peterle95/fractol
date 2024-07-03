@@ -6,13 +6,45 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/02 19:04:18 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 11:50:47 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 #include <string.h>
+
+int mouse_event(int button, t_data *data)
+{
+    double zoom_factor = 1.1;
+    double center_re, center_im;
+
+    // Calculate the center of the current view
+    center_re = (data->min_re + data->max_re) / 2.0;
+    center_im = (data->min_im + data->max_im) / 2.0;
+
+    if (button == 4) // Scroll up to zoom in
+    {
+        data->zoom *= zoom_factor;
+        data->min_re = center_re - (center_re - data->min_re) / zoom_factor;
+        data->max_re = center_re + (data->max_re - center_re) / zoom_factor;
+        data->min_im = center_im - (center_im - data->min_im) / zoom_factor;
+        data->max_im = center_im + (data->max_im - center_im) / zoom_factor;
+    }
+    else if (button == 5) // Scroll down to zoom out
+    {
+        data->zoom /= zoom_factor;
+        data->min_re = center_re - (center_re - data->min_re) * zoom_factor;
+        data->max_re = center_re + (data->max_re - center_re) * zoom_factor;
+        data->min_im = center_im - (center_im - data->min_im) * zoom_factor;
+        data->max_im = center_im + (data->max_im - center_im) * zoom_factor;
+    }
+
+    // Redraw the fractal after zooming
+    draw_fractal(data);
+
+    return (0);
+}
 
 void draw_fractal(t_data *data)
 {
@@ -96,11 +128,11 @@ int parse_args(int argc, char **argv, t_data *data)
     
     if (ft_strcmp(argv[1], "mandelbrot") == 0)
     {
-        data->fractal_type = 1;
+        data->fractal_type = MANDELBROT;
     }
     else if (ft_strcmp(argv[1], "julia") == 0)
     {
-        data->fractal_type = 2;
+        data->fractal_type = JULIA;
         if (argc == 4)
         {
             data->julia_x = ft_atof(argv[2]);
@@ -130,25 +162,11 @@ int main(int argc, char **argv)
         return (1);
     }
     init_data(&data);
-    data.mlx = mlx_init();
-    if (!data.mlx)
-        return (1);
-
-    data.win = mlx_new_window(data.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
-    if (!data.win)
-    {
-        mlx_destroy_display(data.mlx);
-        free(data.mlx);
-        return (1);
-    }
-
-    data.img = mlx_new_image(data.mlx, WIN_WIDTH, WIN_HEIGHT);
-    data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
     draw_fractal(&data);
 
     mlx_hook(data.win, 17, 0, (int (*)())close_window, &data);
     mlx_key_hook(data.win, key_hook, &data);
-
+    mlx_mouse_hook(data.win, mouse_event, &data);
     mlx_loop(data.mlx);
     return (0);
-} 
+}  
