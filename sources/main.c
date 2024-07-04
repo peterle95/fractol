@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 22:11:37 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/03 22:17:37 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ int main(int argc, char **argv)
     }
     if (!parse_args(argc, argv, &data))
     {
-        printf("Usage: %s [mandelbrot | julia <real value> <imaginary value>]\n", argv[0]);
         printf("Julia set parameters must be between -2.0 and 2.0\n");
+        printf("Usage: %s [mandelbrot | julia <real value> <imaginary value>]\n", argv[0]);
+        printf("Example: ./fractol julia 0.1 -0.7\n");
         return (1);
     }
     draw_fractal(&data);  
