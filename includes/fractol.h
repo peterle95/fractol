@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 22:11:17 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/04 18:06:01 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		mouse_event(int button, int x, int y, t_data *data);
 // Utils
 int			ft_strcmp(const char *s1, const char *s2);
 double					convert_float(char *str);
+void	print_usage();
 
 // fractals
 int		mandelbrot(double cr, double ci, int max_iterations);
@@ -86,6 +87,6 @@ void		draw_julia3(t_data *data);
 void		draw_julia4(t_data *data);
 
 // exit program
-int		close_window(t_data *data);
+int		exit_program(t_data *data);
 
 #endif

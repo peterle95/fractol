@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 22:09:40 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/04 18:06:01 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int key_hook(int keycode, t_data *data)
     double move_y = 0;
 
     if (keycode == 65307) // ESC key
-        close_window(data);
+        exit_program(data);
     else if (keycode == 65361) // Key Left
         move_x = -0.1;
     else if (keycode == 65363) // Key Right

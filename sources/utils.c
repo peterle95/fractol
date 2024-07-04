@@ -6,11 +6,19 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:37 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 21:20:27 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/04 18:17:04 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	print_usage()
+{
+    printf("Julia set parameters must be between -2.0 and 2.0\n");
+    printf("Usage: [mandelbrot | julia <real value> <imaginary value>]\n");
+    printf("Example: ./fractol julia 0.1 -0.7\n");
+    printf("\t ./fractol mandelbrot\n");
+}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

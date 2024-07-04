@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 22:17:37 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/04 18:08:31 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int parse_args(int argc, char **argv, t_data *data)
     
     if (ft_strcmp(argv[1], "mandelbrot") == 0)
     {
-        data->fractal_type = MANDELBROT;
+        if (argc > 2)
+            return (0);
+        else
+            data->fractal_type = MANDELBROT;
     }
     else if (ft_strcmp(argv[1], "julia") == 0)
     {
@@ -68,13 +71,13 @@ int main(int argc, char **argv)
     }
     if (!parse_args(argc, argv, &data))
     {
-        printf("Julia set parameters must be between -2.0 and 2.0\n");
-        printf("Usage: %s [mandelbrot | julia <real value> <imaginary value>]\n", argv[0]);
-        printf("Example: ./fractol julia 0.1 -0.7\n");
+        printf("Error: Invalid arguments\n");
+        print_usage();
+        exit_program(&data);
         return (1);
     }
     draw_fractal(&data);  
-    mlx_hook(data.win, 17, 0, (int (*)())close_window, &data);
+    mlx_hook(data.win, 17, 0, exit_program, &data);
     mlx_key_hook(data.win, key_hook, &data);
     mlx_mouse_hook(data.win, mouse_event, &data);
     mlx_loop(data.mlx);
