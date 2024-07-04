@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/04 18:06:01 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/04 18:38:43 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,25 @@ int mouse_event(int button, int x, int y, t_data *data)
     return (0);
 }
 
+void apply_movement(t_data *data, double move_x, double move_y)
+{
+    double range_re = data->max_re - data->min_re;
+    double range_im = data->max_im - data->min_im;
+
+    data->min_re += move_x * range_re;
+    data->max_re += move_x * range_re;
+    data->min_im += move_y * range_im;
+    data->max_im += move_y * range_im;
+
+    draw_fractal(data);
+}
+
 // think about assigning 0.1 to MOVE_STEP. And the keys as well
 int key_hook(int keycode, t_data *data)
 {
     double move_x = 0;
     double move_y = 0;
+    int fractal_changed = 0;
 
     if (keycode == 65307) // ESC key
         exit_program(data);
@@ -62,27 +76,16 @@ int key_hook(int keycode, t_data *data)
         move_y = -0.1;
     else if (keycode == 65364) // Key Down
         move_y = 0.1;
-    else if (keycode == 49) // '1' key
-        data->fractal_type = MANDELBROT;
-    else if (keycode == 50) // '2' key
-        data->fractal_type = MANDELBROT2;
-    else if (keycode == 51) // '3' key
-        data->fractal_type = MANDELBROT3;
-    else if (keycode == 52) // '4' key
-        data->fractal_type = MANDELBROT4;
-    else if (keycode == 53) // '5' key
-        data->fractal_type = JULIA;
-    else if (keycode == 54) // '6' key
-        data->fractal_type = JULIA2;
-    else if (keycode == 55) // '7' key
-        data->fractal_type = JULIA3;
-    else if (keycode == 56) // '8' key
-        data->fractal_type = JULIA4;  
+    else if(keycode >= 49 && keycode <= 56) // Keys between 1-8
+    {
+        data->fractal_type = keycode - 49;
+        fractal_changed = 1;
+    }
     else
         return (0);
 
     // Apply movement
-    if (move_x != 0 || move_y != 0)
+    /* if (move_x != 0 || move_y != 0)
     {
         double range_re = data->max_re - data->min_re;
         double range_im = data->max_im - data->min_im;
@@ -90,8 +93,11 @@ int key_hook(int keycode, t_data *data)
         data->max_re += move_x * range_re;
         data->min_im += move_y * range_im;
         data->max_im += move_y * range_im;
-    }
-
-    draw_fractal(data);
+        fractal_changed = 1; // set to 1 because we need to redraw after movement
+    } */
+    if (move_x != 0 || move_y != 0)
+        apply_movement(data, move_x, move_y);
+    if(fractal_changed != 0)
+        draw_fractal(data);
     return (0);
 }
