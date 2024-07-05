@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/04 18:06:01 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 16:22:15 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_data
 	double	max_im;
 	double	julia_ci;
 	double	julia_cr;
-	enum	e_fractal_type fractal;
 }	t_data;
 
 # define WIN_WIDTH 800
