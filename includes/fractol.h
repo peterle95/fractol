@@ -75,7 +75,6 @@ double	convert_float(char *str);
 void	print_usage(void);
 
 // fractals
-int		mandelbrot(double cr, double ci, int max_iterations);
 void	draw_mandelbrot(t_data *data);
 void	draw_mandelbrot2(t_data *data);
 void	draw_mandelbrot3(t_data *data);

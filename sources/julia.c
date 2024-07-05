@@ -70,7 +70,7 @@ The same optimization techniques (lookup tables, multi-threading, GPU accelerati
 
 
 // remove max_iterations --> use struct (function has more than 4 arguments)
-int	julia(double zr, double zi, double cr, double ci, int max_iterations)
+int	julia(double zr, double zi, double cr, double ci)
 {
 	double	zr2;
 	double	zi2;
@@ -79,7 +79,7 @@ int	julia(double zr, double zi, double cr, double ci, int max_iterations)
 	zr2 = zr * zr;
 	zi2 = zi * zi;
 	n = 0;
-	while (zr2 + zi2 <= 4.0 && n < max_iterations)
+	while (zr2 + zi2 <= 4.0 && n < MAX_ITERATIONS)
 	{
 		zi = 2 * zr * zi + ci;
 		zr = zr2 - zi2 + cr;
@@ -98,6 +98,19 @@ int	julia(double zr, double zi, double cr, double ci, int max_iterations)
     *(unsigned int*)dst = color;
 }
  */
+void	pixel_width(t_data *data, int x, int zi, int zr)
+{
+	int		iterations;
+	int		color;
+
+	zr = data->min_re + (double)x * 
+		(data->max_re - data->min_re) / WIN_WIDTH;
+	zi = data->min_im + (double)y * 
+		(data->max_im - data->min_im) / WIN_HEIGHT;
+	iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
+	color = iterations * 0xFFFFFF / MAX_ITERATIONS;
+	mlx_pixel_put(data->mlx, data->win, x, y, color);
+}
 
 // too many variable declaration in function
 // break up funciton and declare in another one
@@ -107,8 +120,6 @@ void	draw_julia(t_data *data)
 	int		y;
 	double	zi;
 	double	zr;
-	int		iterations;
-	int		color;
 
 	x = 0;
 	y = 0;
@@ -116,13 +127,7 @@ void	draw_julia(t_data *data)
 	{
 		while (x < WIN_WIDTH)
 		{
-			zr = data->min_re + (double)x * 
-				(data->max_re - data->min_re) / WIN_WIDTH;
-			zi = data->min_im + (double)y * 
-				(data->max_im - data->min_im) / WIN_HEIGHT;
-			iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
-			color = iterations * 0xFFFFFF / MAX_ITERATIONS;
-			mlx_pixel_put(data->mlx, data->win, x, y, color);
+			pixel_width(data, x, zi, zr);
 			x++;
 		}
 	y++;
