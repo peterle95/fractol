@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
 /*   Updated: 2024/07/05 16:22:15 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 11:10:03 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +38,12 @@ typedef struct s_data
 	void	*win;
 	void	*img;
 	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
-	int	width;
-	int	height;
-	int	fractal_type;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+	int		fractal_type;
 	double	zoom;
 	double	move_x;
 	double	move_y;
@@ -59,31 +60,30 @@ typedef struct s_data
 # define MAX_ITERATIONS 500
 
 // initialization
-int	init_data(t_data *data);
-void		init_fractal(t_data *data);
+int		init_data(t_data *data);
+void	init_fractal(t_data *data);
 
 // rendering
 void	draw_fractal(t_data *data);
 
 // events
-int				key_hook(int keycode, t_data *data);
+int		key_hook(int keycode, t_data *data);
 int		mouse_event(int button, int x, int y, t_data *data);
 
 // Utils
-int			ft_strcmp(const char *s1, const char *s2);
-double					convert_float(char *str);
-void	print_usage();
+int		ft_strcmp(const char *s1, const char *s2);
+double	convert_float(char *str);
+void	print_usage(void);
 
 // fractals
-int		mandelbrot(double cr, double ci, int max_iterations);
-void		draw_mandelbrot(t_data *data);
-void		draw_mandelbrot2(t_data *data);
-void		draw_mandelbrot3(t_data *data);
-void		draw_mandelbrot4(t_data *data);
-void		draw_julia(t_data *data);
-void		draw_julia2(t_data *data);
-void		draw_julia3(t_data *data);
-void		draw_julia4(t_data *data);
+void	draw_mandelbrot(t_data *data);
+void	draw_mandelbrot2(t_data *data);
+void	draw_mandelbrot3(t_data *data);
+void	draw_mandelbrot4(t_data *data);
+void	draw_julia(t_data *data);
+void	draw_julia2(t_data *data);
+void	draw_julia3(t_data *data);
+void	draw_julia4(t_data *data);
 
 // exit program
 int		exit_program(t_data *data);
