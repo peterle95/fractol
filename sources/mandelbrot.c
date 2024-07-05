@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:32 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/05 16:37:59 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 16:40:29 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	draw_mandelbrot(t_data *data)
 	y++;
 	}
 }
-
 
 void draw_mandelbrot2(t_data *data)
 {
