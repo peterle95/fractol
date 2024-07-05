@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:32 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/05 16:40:29 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 16:45:00 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,30 +90,22 @@ int	mandelbrot(double cr, double ci, int max_iterations)
 }
 
 // too many varibles declarations in a function --> do the same as in julia
-void	draw_mandelbrot(t_data *data)
+void draw_mandelbrot(t_data *data)
 {
-	int		x;
-	int		y;
-	double	cr;
-	double	ci;
-	int		iterations;
-	int		color;
+    int x, y;
+    double cr, ci;
 
-	y = 0;
-	x = 0;
-	while (y < WIN_HEIGHT)
-	{
-		while (x < WIN_WIDTH)
-		{
-			cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-			ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-			iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
-			color = iterations * 0xFFFFFF / MAX_ITERATIONS;
-			mlx_pixel_put(data->mlx, data->win, x, y, color);
-			x++;
-		}
-	y++;
-	}
+    for (y = 0; y < WIN_HEIGHT; y++)
+    {
+        for (x = 0; x < WIN_WIDTH; x++)
+        {
+            cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
+            ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
+            int iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
+            int color = iterations * 0xFFFFFF / MAX_ITERATIONS;
+            mlx_pixel_put(data->mlx, data->win, x, y, color);
+        }
+    }
 }
 
 void draw_mandelbrot2(t_data *data)
