@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:27 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/03 21:47:09 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 11:42:01 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,26 @@ The same optimization techniques (lookup tables, multi-threading, GPU accelerati
     return max_iterations;
 } */
 
-int julia(double zr, double zi, double cr, double ci, int max_iterations)
-{
-    double zr2 = zr * zr;
-    double zi2 = zi * zi;
-    int n = 0;
 
-    while (zr2 + zi2 <= 4.0 && n < max_iterations)
-    {
-        zi = 2 * zr * zi + ci;
-        zr = zr2 - zi2 + cr;
-        zr2 = zr * zr;
-        zi2 = zi * zi;
-        n++;
-    }
-    return n;
+// remove max_iterations --> use struct (function has more than 4 arguments)
+int	julia(double zr, double zi, double cr, double ci, int max_iterations)
+{
+	double	zr2;
+	double	zi2;
+	int		n;
+
+	zr2 = zr * zr;
+	zi2 = zi * zi;
+	n = 0;
+	while (zr2 + zi2 <= 4.0 && n < max_iterations)
+	{
+		zi = 2 * zr * zi + ci;
+		zr = zr2 - zi2 + cr;
+		zr2 = zr * zr;
+		zi2 = zi * zi;
+		n++;
+	}
+	return (n);
 }
 
 /* void my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -93,25 +98,38 @@ int julia(double zr, double zi, double cr, double ci, int max_iterations)
     *(unsigned int*)dst = color;
 }
  */
-void draw_julia(t_data *data)
-{
-    int x, y;
-    double zr, zi;
 
-    for (y = 0; y < WIN_HEIGHT; y++)
-    {
-        for (x = 0; x < WIN_WIDTH; x++)
-        {
-            zr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-            zi = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-            int iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
-            int color = iterations * 0xFFFFFF / MAX_ITERATIONS;
-            mlx_pixel_put(data->mlx, data->win, x, y, color);
-        }
-    }
+// too many variable declaration in function
+// break up funciton and declare in another one
+void	draw_julia(t_data *data)
+{
+	int		x;
+	int		y;
+	double	zi;
+	double	zr;
+	int		iterations;
+	int		color;
+
+	x = 0;
+	y = 0;
+	while (y < WIN_HEIGHT)
+	{
+		while (x < WIN_WIDTH)
+		{
+			zr = data->min_re + (double)x * 
+				(data->max_re - data->min_re) / WIN_WIDTH;
+			zi = data->min_im + (double)y * 
+				(data->max_im - data->min_im) / WIN_HEIGHT;
+			iterations = julia(zr, zi, data->julia_cr, data->julia_ci, MAX_ITERATIONS);
+			color = iterations * 0xFFFFFF / MAX_ITERATIONS;
+			mlx_pixel_put(data->mlx, data->win, x, y, color);
+			x++;
+		}
+	y++;
+	}
     // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
-
+/*
 void draw_julia2(t_data *data)
 {
     int x, y;
@@ -169,4 +187,4 @@ void draw_julia4(t_data *data)
         }
     }
    // mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-}
+}*/

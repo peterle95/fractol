@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/04 18:08:31 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/05 11:48:10 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,59 +27,59 @@ The fractal type is not recognized.
 The Julia set is selected but the number of arguments is incorrect.
 The Julia set parameters are not valid floats.
 The Julia set parameters are out of the acceptable range.*/
-int parse_args(int argc, char **argv, t_data *data)
+
+// more than 25 lines
+int	parse_args(int argc, char **argv, t_data *data)
 {
-    if (argc < 2)
-        return (0);
-    
-    if (ft_strcmp(argv[1], "mandelbrot") == 0)
-    {
-        if (argc > 2)
-            return (0);
-        else
-            data->fractal_type = MANDELBROT;
-    }
-    else if (ft_strcmp(argv[1], "julia") == 0)
-    {
-        data->fractal_type = JULIA;
-        if (argc == 4)
-        {
-            data->julia_ci = convert_float(argv[2]);
-            data->julia_cr = convert_float(argv[3]);
-            if (data->julia_ci == -42.0 || data->julia_cr == -42.0 ||
-                data->julia_ci < -2.0 || data->julia_ci > 2.0 ||
-                data->julia_cr < -2.0 || data->julia_cr > 2.0)
-                return (0);
-        }
-        else if (argc != 2)
-            return (0);
-    }
-    else
-        return (0);
-    
-    return (1);
+	if (argc < 2)
+		return (0);
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
+	{
+		if (argc > 2)
+			return (0);
+		else
+			data->fractal_type = MANDELBROT;
+	}
+	else if (ft_strcmp(argv[1], "julia") == 0)
+	{
+		data->fractal_type = JULIA;
+		if (argc == 4)
+		{
+			data->julia_ci = convert_float(argv[2]); // create function called something like setting up julia for reducing the lines
+			data->julia_cr = convert_float(argv[3]);
+			if (data->julia_ci == -42.0 || data->julia_cr == -42.0 || 
+					data->julia_ci < -2.0 || data->julia_ci > 2.0 || 
+					data->julia_cr < -2.0 || data->julia_cr > 2.0)
+				return (0);
+		}
+		else if (argc != 2)
+			return (0);
+	}
+	else
+		return (0);
+	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_data data;
+	t_data data;
 
-    if(!init_data(&data))
-    {
-        printf("Error: Failed to initialize\n");
-        return (1);
-    }
-    if (!parse_args(argc, argv, &data))
-    {
-        printf("Error: Invalid arguments\n");
-        print_usage();
-        exit_program(&data);
-        return (1);
-    }
-    draw_fractal(&data);  
-    mlx_hook(data.win, 17, 0, exit_program, &data);
-    mlx_key_hook(data.win, key_hook, &data);
-    mlx_mouse_hook(data.win, mouse_event, &data);
-    mlx_loop(data.mlx);
-    return (0);
+	if (!init_data(&data))
+	{
+		printf("Error: Failed to initialize\n");
+		return (1);
+	}
+	if (!parse_args(argc, argv, &data))
+	{
+		printf("Error: Invalid arguments\n");
+		print_usage();
+		exit_program(&data);
+		return (1);
+	}
+	draw_fractal(&data);  
+	mlx_hook(data.win, 17, 0, exit_program, &data);
+	mlx_key_hook(data.win, key_hook, &data);
+	mlx_mouse_hook(data.win, mouse_event, &data);
+	mlx_loop(data.mlx);
+	return (0);
 }  
