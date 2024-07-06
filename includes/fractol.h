@@ -6,10 +6,10 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/05 16:22:15 by pmolzer          ###   ########.fr       */
-/*   Updated: 2024/07/05 11:10:03 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/06 21:10:33 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
@@ -59,6 +59,7 @@ typedef struct s_data
 # define WIN_HEIGHT 800
 # define MAX_ITERATIONS 500
 
+
 // initialization
 int		init_data(t_data *data);
 void	init_fractal(t_data *data);
@@ -76,6 +77,8 @@ double	convert_float(char *str);
 void	print_usage(void);
 
 // fractals
+int mandelbrot(double cr, double ci);
+int julia(double zr, double zi, double cr, double ci);
 void	draw_mandelbrot(t_data *data);
 void	draw_mandelbrot2(t_data *data);
 void	draw_mandelbrot3(t_data *data);
@@ -87,5 +90,20 @@ void	draw_julia4(t_data *data);
 
 // exit program
 int		exit_program(t_data *data);
+
+// colors
+double calculate_cr(t_data *data, int x);
+double calculate_ci(t_data *data, int y);
+double calculate_zr(t_data *data, int x);
+double calculate_zi(t_data *data, int y);
+void pixel_mandelbrot(t_data *data, int x, int y);
+void pixel_mandelbrot2(t_data *data, int x, int y);
+void pixel_mandelbrot3(t_data *data, int x, int y);
+void pixel_mandelbrot4(t_data *data, int x, int y);
+void pixel_julia(t_data *data, int x, int y);
+void pixel_julia2(t_data *data, int x, int y);
+void pixel_julia3(t_data *data, int x, int y);
+void pixel_julia4(t_data *data, int x, int y);
+
 
 #endif

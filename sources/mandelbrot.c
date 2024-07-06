@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:32 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/05 16:45:00 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:53:19 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,98 +66,104 @@ Optimizations could include using a lookup table for the squared terms, multi-th
     return max_iterations;
 } */
 
-// rimuovi max_iterations e usa lo struct
-int	mandelbrot(double cr, double ci, int max_iterations)
+int mandelbrot(double cr, double ci)
 {
-	double	zr;
-	double	zi;
-	double	zr2;
-	double	zi2;
-	int		n;
+    double zr;
+    double zi;
+    double temp;
+    int n;
 
-	n = 0;
-	zr = 0.0;
-	zi = 0.0;
-	while (zr2 + zi2 <= 4.0 && n < max_iterations)
-	{
-		zi = 2 * zr * zi + ci;
-		zr = zr2 - zi2 + cr;
-		zr2 = zr * zr;
-		zi2 = zi * zi;
-		n++;
-	}
-	return (n);
+    zr = 0.0;
+    zi = 0.0;
+    n = 0;
+    while (zr * zr + zi * zi <= 4.0 && n < MAX_ITERATIONS)
+    {
+        temp = 2 * zr * zi + ci;
+        zr = zr * zr - zi * zi + cr;
+        zi = temp;
+        n++;
+    }
+    return (n);
 }
 
-// too many varibles declarations in a function --> do the same as in julia
+double calculate_cr(t_data *data, int x)
+{
+    return (data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH);
+}
+
+double calculate_ci(t_data *data, int y)
+{
+    return (data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT);
+}
+
 void draw_mandelbrot(t_data *data)
 {
-    int x, y;
-    double cr, ci;
+    int x;
+    int y;
 
-    for (y = 0; y < WIN_HEIGHT; y++)
+    y = 0;
+    while (y < WIN_HEIGHT)
     {
-        for (x = 0; x < WIN_WIDTH; x++)
+        x = 0;
+        while (x < WIN_WIDTH)
         {
-            cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-            ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-            int iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
-            int color = iterations * 0xFFFFFF / MAX_ITERATIONS;
-            mlx_pixel_put(data->mlx, data->win, x, y, color);
+            pixel_mandelbrot(data, x, y);
+            x++;
         }
+        y++;
     }
 }
 
 void draw_mandelbrot2(t_data *data)
 {
-    int x, y;
-    double cr, ci;
+    int x;
+    int y;
 
-    for (y = 0; y < WIN_HEIGHT; y++)
+    y = 0;
+    while (y < WIN_HEIGHT)
     {
-        for (x = 0; x < WIN_WIDTH; x++)
+        x = 0;
+        while (x < WIN_WIDTH)
         {
-            cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-            ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-            int iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
-            int color = iterations * 0x561662 / MAX_ITERATIONS;
-            mlx_pixel_put(data->mlx, data->win, x, y, color);
+            pixel_mandelbrot2(data, x, y);
+            x++;
         }
+        y++;
     }
 }
 
 void draw_mandelbrot3(t_data *data)
 {
-    int x, y;
-    double cr, ci;
+    int x;
+    int y;
 
-    for (y = 0; y < WIN_HEIGHT; y++)
+    y = 0;
+    while (y < WIN_HEIGHT)
     {
-        for (x = 0; x < WIN_WIDTH; x++)
+        x = 0;
+        while (x < WIN_WIDTH)
         {
-            cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-            ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-            int iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
-            int color = iterations * 0xc7e400 / MAX_ITERATIONS;
-            mlx_pixel_put(data->mlx, data->win, x, y, color);
+            pixel_mandelbrot3(data, x, y);
+            x++;
         }
+        y++;
     }
 }
 
 void draw_mandelbrot4(t_data *data)
 {
-    int x, y;
-    double cr, ci;
+    int x;
+    int y;
 
-    for (y = 0; y < WIN_HEIGHT; y++)
+    y = 0;
+    while (y < WIN_HEIGHT)
     {
-        for (x = 0; x < WIN_WIDTH; x++)
+        x = 0;
+        while (x < WIN_WIDTH)
         {
-            cr = data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH;
-            ci = data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT;
-            int iterations = mandelbrot(cr, ci, MAX_ITERATIONS);
-            int color = iterations * 0x0000EE / MAX_ITERATIONS;
-            mlx_pixel_put(data->mlx, data->win, x, y, color);
+            pixel_mandelbrot4(data, x, y);
+            x++;
         }
+        y++;
     }
 }
