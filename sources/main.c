@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/07 18:02:09 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/07 18:03:06 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	julia_checker(t_data *data, char argc, char **argv)
 		return (0);
 }
 
-// more than 25 lines
 int	parse_args(int argc, char **argv, t_data *data)
 {
 	if (argc < 2)
