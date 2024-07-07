@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/05 11:48:10 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/07 18:02:09 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,43 @@ The Julia set is selected but the number of arguments is incorrect.
 The Julia set parameters are not valid floats.
 The Julia set parameters are out of the acceptable range.*/
 
+void	draw_fractal(t_data *data)
+{
+	if (data->fractal_type == MANDELBROT)
+		draw_mandelbrot(data);
+	else if (data->fractal_type == MANDELBROT2)
+		draw_mandelbrot2(data);
+	else if (data->fractal_type == MANDELBROT3)
+		draw_mandelbrot3(data);
+	else if (data->fractal_type == MANDELBROT4)
+		draw_mandelbrot4(data);
+	else if (data->fractal_type == JULIA)
+		draw_julia(data);
+	else if (data->fractal_type == JULIA2)
+		draw_julia2(data);
+	else if (data->fractal_type == JULIA3)
+		draw_julia3(data);
+	else if (data->fractal_type == JULIA4)
+		draw_julia4(data);
+}
+
+int	julia_checker(t_data *data, char argc, char **argv)
+{
+		data->fractal_type = JULIA;
+		if (argc == 4)
+		{
+			data->julia_ci = convert_float(argv[2]);
+			data->julia_cr = convert_float(argv[3]);
+			if (data->julia_ci == -42.0 || data->julia_cr == -42.0 || 
+					data->julia_ci < -2.0 || data->julia_ci > 2.0 || 
+					data->julia_cr < -2.0 || data->julia_cr > 2.0)
+				return (0);
+		}
+		else if (argc != 2)
+			return (0);
+		return (0);
+}
+
 // more than 25 lines
 int	parse_args(int argc, char **argv, t_data *data)
 {
@@ -42,17 +79,7 @@ int	parse_args(int argc, char **argv, t_data *data)
 	}
 	else if (ft_strcmp(argv[1], "julia") == 0)
 	{
-		data->fractal_type = JULIA;
-		if (argc == 4)
-		{
-			data->julia_ci = convert_float(argv[2]); // create function called something like setting up julia for reducing the lines
-			data->julia_cr = convert_float(argv[3]);
-			if (data->julia_ci == -42.0 || data->julia_cr == -42.0 || 
-					data->julia_ci < -2.0 || data->julia_ci > 2.0 || 
-					data->julia_cr < -2.0 || data->julia_cr > 2.0)
-				return (0);
-		}
-		else if (argc != 2)
+		if (julia_checker(data, argc, argv) != 0)
 			return (0);
 	}
 	else

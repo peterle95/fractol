@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:27 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/06 21:13:38 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/07 17:59:52 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,76 +98,4 @@ double calculate_zr(t_data *data, int x)
 double calculate_zi(t_data *data, int y)
 {
     return (data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT);
-}
-
-void draw_julia(t_data *data)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < WIN_HEIGHT)
-    {
-        x = 0;
-        while (x < WIN_WIDTH)
-        {
-            pixel_julia(data, x, y);
-            x++;
-        }
-        y++;
-    }
-}
-
-void draw_julia2(t_data *data)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < WIN_HEIGHT)
-    {
-        x = 0;
-        while (x < WIN_WIDTH)
-        {
-            pixel_julia2(data, x, y);
-            x++;
-        }
-        y++;
-    }
-}
-
-void draw_julia3(t_data *data)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < WIN_HEIGHT)
-    {
-        x = 0;
-        while (x < WIN_WIDTH)
-        {
-            pixel_julia3(data, x, y);
-            x++;
-        }
-        y++;
-    }
-}
-
-void draw_julia4(t_data *data)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < WIN_HEIGHT)
-    {
-        x = 0;
-        while (x < WIN_WIDTH)
-        {
-            pixel_julia4(data, x, y);
-            x++;
-        }
-        y++;
-    }
 }
