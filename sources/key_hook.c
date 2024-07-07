@@ -13,7 +13,8 @@ int	key_pressed(t_data *data, int keycode, double move_x, double move_y)
 		move_y = -0.1;
 	else if (keycode == 65364) // Key Down
 		move_y = 0.1;
-	return (move_x, move_y);
+	return (move_x);
+	return (move_y);
 }
 
 void	apply_movement(t_data *data, double move_x, double move_y)

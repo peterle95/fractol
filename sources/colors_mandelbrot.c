@@ -25,7 +25,7 @@ int	color_mandelbrot2(double cr, double ci)
 	int		iterations;
 
 	iterations = mandelbrot(cr, ci);
-	return (iterations * 0xFFFFFF / MAX_ITERATIONS);
+	return (iterations * 0x85a16a / MAX_ITERATIONS);
 }
 
 int	color_mandelbrot3(double cr, double ci)
@@ -33,7 +33,7 @@ int	color_mandelbrot3(double cr, double ci)
 	int		iterations;
 
 	iterations = mandelbrot(cr, ci);
-	return (iterations * 0xFFFFFF / MAX_ITERATIONS);
+	return (iterations * 0xffe9d7 / MAX_ITERATIONS);
 }
 
 int	color_mandelbrot4(double cr, double ci)
@@ -41,5 +41,5 @@ int	color_mandelbrot4(double cr, double ci)
 	int		iterations;
 
 	iterations = mandelbrot(cr, ci);
-	return (iterations * 0xFFFFFF / MAX_ITERATIONS);
+	return (iterations * 0xf0f8ff / MAX_ITERATIONS);
 }
