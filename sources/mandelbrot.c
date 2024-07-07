@@ -66,6 +66,7 @@ Optimizations could include using a lookup table for the squared terms, multi-th
     return max_iterations;
 } */
 
+// too many functions in file
 int mandelbrot(double cr, double ci)
 {
     double zr;

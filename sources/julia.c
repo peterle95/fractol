@@ -68,21 +68,26 @@ The same optimization techniques (lookup tables, multi-threading, GPU accelerati
     return max_iterations;
 } */
 
-int julia(double zr, double zi, double cr, double ci)
-{
-    double zr2 = zr * zr;
-    double zi2 = zi * zi;
-    int n = 0;
 
-    while (zr2 + zi2 <= 4.0 && n < MAX_ITERATIONS)
-    {
-        zi = 2 * zr * zi + ci;
-        zr = zr2 - zi2 + cr;
-        zr2 = zr * zr;
-        zi2 = zi * zi;
-        n++;
-    }
-    return (n);
+// too many functions in file
+int	julia(double zr, double zi, double cr, double ci)
+{
+	double	zr2;
+	double	zi2;
+	int		n;
+
+	zr2 = zr * zr;
+	zi2 = zi * zi;
+	n = 0;
+	while (zr2 + zi2 <= 4.0 && n < MAX_ITERATIONS)
+	{
+		zi = 2 * zr * zi + ci;
+		zr = zr2 - zi2 + cr;
+		zr2 = zr * zr;
+		zi2 = zi * zi;
+		n++;
+	}
+	return (n);
 }
 
 double calculate_zr(t_data *data, int x)

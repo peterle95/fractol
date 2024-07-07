@@ -17,8 +17,8 @@ void	init_fractal(t_data *data)
 	data->min_re = -2.0;
 	data->max_re = 1.0;
 	data->min_im = -1.5;
-	data->max_im = data->min_im + 
-		(data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
+	data->max_im = data->min_im
+		+ (data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
 	data->zoom = 1.0;
 	data->julia_ci = 0.27;
 	data->julia_cr = -0.7;
