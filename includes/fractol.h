@@ -106,15 +106,15 @@ void	pixel_julia3(t_data *data, int x, int y);
 void	pixel_julia4(t_data *data, int x, int y);
 
 // colors_julia
-int	color_julia(t_data *data, double zr, double zi);
-int	color_julia2(t_data *data, double zr, double zi);
-int	color_julia3(t_data *data, double zr, double zi);
-int	color_julia4(t_data *data, double zr, double zi);
+int		color_julia(t_data *data, double zr, double zi);
+int		color_julia2(t_data *data, double zr, double zi);
+int		color_julia3(t_data *data, double zr, double zi);
+int		color_julia4(t_data *data, double zr, double zi);
 
 // colors_madelbrot
-int	color_mandelbrot(double cr, double ci);
-int	color_mandelbrot2(double cr, double ci);
-int	color_mandelbrot3(double cr, double ci);
-int	color_mandelbrot4(double cr, double ci);
+int		color_mandelbrot(double cr, double ci);
+int		color_mandelbrot2(double cr, double ci);
+int		color_mandelbrot3(double cr, double ci);
+int		color_mandelbrot4(double cr, double ci);
 
 #endif
