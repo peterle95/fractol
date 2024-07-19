@@ -1,20 +1,18 @@
 
 #include "../includes/fractol.h"
 
-int	key_pressed(t_data *data, int keycode, double move_x, double move_y)
+void	key_pressed(t_data *data, int keycode, double *move_x, double *move_y)
 {
 	if (keycode == 65307) // ESC key
 		exit_program(data);
 	else if (keycode == 65361) // Key Left
-		move_x = -0.1;
+		*move_x = -0.1;
 	else if (keycode == 65363) // Key Right
-		move_x = 0.1;
+		*move_x = 0.1;
 	else if (keycode == 65362) // Key UP
-		move_y = -0.1;
+		*move_y = -0.1;
 	else if (keycode == 65364) // Key Down
-		move_y = 0.1;
-	return (move_x);
-	return (move_y);
+		*move_y = 0.1;
 }
 
 void	apply_movement(t_data *data, double move_x, double move_y)
@@ -42,7 +40,7 @@ int	key_hook(int keycode, t_data *data)
 	move_y = 0;
 	fractal_changed = 0;
 	if (keycode == 65307 || (keycode >= 65361 && keycode <= 65364))
-		key_pressed(data, keycode, move_x, move_y);
+		key_pressed(data, keycode, &move_x, &move_y);
 	else if (keycode >= 49 && keycode <= 56) // Keys between 1-8
 	{
 		data->fractal_type = keycode - 49;
