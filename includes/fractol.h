@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/06 21:10:33 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/21 13:10:43 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		mouse_event(int button, int x, int y, t_data *data);
 int		ft_strcmp(const char *s1, const char *s2);
 double	convert_float(char *str);
 void	print_usage(void);
+int 	validate_julia(char *str);
 
 // fractals
 int		mandelbrot(double cr, double ci);
