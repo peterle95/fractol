@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/21 13:37:42 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/22 17:02:24 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int julia_checker(t_data *data, int argc, char **argv)
                     return (1);
                 return (0);
     }
-    else
+    else if (argc == 3 || argc > 4)
         return (1);
+	else
+		return (0);
 }
 
 int	parse_args(int argc, char **argv, t_data *data)
