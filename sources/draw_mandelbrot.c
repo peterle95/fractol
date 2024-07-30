@@ -6,12 +6,18 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:59:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/07 18:00:17 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/22 16:27:02 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+/*This function is responsible for drawing the entire Mandelbrot set:
+
+It uses two nested loops to iterate over EVERY PIXEL in the window.
+The outer loop (y) goes from top to bottom of the window.
+The inner loop (x) goes from left to right for each row.
+For each pixel, it calls pixel_mandelbrot to calculate and draw the color for that pixel.*/
 void	draw_mandelbrot(t_data *data)
 {
 	int		x;

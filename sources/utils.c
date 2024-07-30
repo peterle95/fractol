@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:37 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/21 13:39:53 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/07/21 13:40:22 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,22 @@ static int	skip_space_and_sign(char *str, int *is_neg)
 	return (i);
 }
 
+/* convert_float:
+    Converts a string into a float (decimal number). Used to parse
+    Julia starting values given as program arguments.
+    Returns the converted double, or -42 in case of error (Julia accepts
+    values between 2.0 and -2.0 only)
+*/
 double	convert_float(char *str)
 {
 	int		i;
 	double	nb;
 	int		is_neg;
 	double	div;
+	/*nb: Will hold the converted number
+	div: Used for decimal part, starts at 0.1
+	is_neg: Tracks if the number is negative
+	i: Index for parsing the string*/
 
 	nb = 0;
 	div = 0.1;
@@ -64,6 +74,8 @@ double	convert_float(char *str)
 	{
 		nb = (nb * 10.0) + (str[i] - '0');
 		i++;
+		/*Convert each digit to its numeric value and add to nb
+		Stop at decimal point or non-digit*/
 	}
 	if (str[i] == '.')
 		i++;
