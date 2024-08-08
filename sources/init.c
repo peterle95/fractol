@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/20 14:01:09 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:58:02 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,6 @@ void	init_fractal(t_data *data)
 	//julia 0.15 -0.7
 }
 
-/*This function is crucial for setting up the graphical environment:
-
-- It initializes the MLX system
-- Creates a window
-- Creates an image for drawing
-- Sets up image properties
-- Initializes fractal-specific data*/
 int	init_data(t_data *data)
 {
 	data->mlx = mlx_init();
@@ -63,27 +56,6 @@ int	init_data(t_data *data)
 	if (!data->mlx)
 		return (0);
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
-	/*Creates a new window using mlx_new_window(). It uses the MLX instance, 
-	sets the window size (WIN_WIDTH and WIN_HEIGHT), and gives it the title "Fract'ol".*/
-	if (!data->win)
-	{
-		free(data->mlx);
-		return (0);
-	}
-	data->img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
-	if (!data->img)
-	{
-		mlx_destroy_window(data->mlx, data->win);
-		free(data->mlx);
-		return (0);
-	}
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
-			&data->line_length, &data->endian);
-	/*Gets the memory address of the image using mlx_get_data_addr(). This function also provides information about the image format:
-
-	bits_per_pixel: Number of bits used to represent a pixel color
-	line_length: Number of bytes used to store one line of the image
-	endian: Byte order (little or big endian)*/
 	init_fractal(data);
 	return (1);
 }

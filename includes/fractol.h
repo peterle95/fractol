@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/22 17:10:17 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:59:14 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,32 @@ enum e_fractal_type
 	JULIA4,
 };
 
+/*☆*: .｡. o(≧▽≦)o .｡.:*☆ FRACTAL CREATION ☆*: .｡. o(≧▽≦)o .｡.:*☆
+
+*/
+
 typedef struct s_data
 {
 	void	*mlx;
+	// This is a pointer to the MLX (MiniLibX) instance. It's the main handle for all MLX operations.
 	void	*win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	// Pointer to the window created by MLX. Used for drawing operations and event handling.
 	int		width;
+	// Width of the fractal image or window in pixels.
 	int		height;
 	int		fractal_type;
 	double	zoom;
 	double	move_x;
 	double	move_y;
 	double	min_re;
+	// Minimum real value of the complex plane being displayed.
 	double	max_re;
 	double	min_im;
 	double	max_im;
 	double	julia_ci;
+	// Imaginary part of the constant used in Julia set calculations.
 	double	julia_cr;
+	// Real part of the constant used in Julia set calculations.
 }	t_data;
 
 # define WIN_WIDTH 800
