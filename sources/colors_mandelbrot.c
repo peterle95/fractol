@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:54:25 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/23 13:03:13 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:45:21 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,27 +46,20 @@ else
 	As you move further from the set, the colors become brighter
 	The smooth gradients you see represent how quickly points escape
 	
-	
 	Fractal Structure:
-	
 	The large white shapes are the main body of the Mandelbrot set
 	The intricate patterns around the edges show where the behavior of points becomes chaotic
 	Smaller white circles or bulbs attached to the main set are areas where the behavior stabilizes again
 	
-	
 	Color Gradient:
-	
 	The gradient from dark to light as you move away from the set represents the "speed" at which points escape
 	This creates a 3D-like effect, giving depth to the image
 	
 	
 	Symmetry:
-	
 	The vertical symmetry you see is a fundamental property of the Mandelbrot set, due to the nature of complex number multiplication
 	
-	
 	Detail and Complexity:
-	
 	The infinitely complex border between the set and the outside is what makes the Mandelbrot set a fractal
 	You can zoom into any part of this border and find similar structures repeating at smaller and smaller scales*/
 }

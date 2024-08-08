@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/08 13:58:02 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:35:54 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,80 @@ void	init_fractal(t_data *data)
 	min_im: Minimum imaginary value (-1.5)
 	max_im: Maximum imaginary value is calculated to maintain the aspect ratio of the window. 
 		This ensures that the fractal isn't stretched.*/
+
+	/*^0^ DERIVATION OF MAX_IM:^0^
+	This formula is crucial for maintaining the correct aspect ratio when displaying the fractal. Let's break it down step-by-step to understand its derivation and purpose.
+	The formula:
+		data->max_im = data->min_im + (data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
+		
+	Purpose:
+	This formula calculates the maximum imaginary value (max_im) of the complex plane to be displayed, 
+	ensuring that the aspect ratio of the complex plane matches the aspect ratio of the window.
+	Derivation:
+	
+	Aspect Ratio Concept:
+	
+	Aspect ratio is the ratio of width to height.
+	
+	For the window: 		aspect_ratio_window = WIN_WIDTH / WIN_HEIGHT
+	For the complex plane:  aspect_ratio_plane  = (max_re - min_re) / (max_im - min_im)
+	
+	
+	Matching Aspect Ratios:
+	
+	To avoid distortion, we want these ratios to be equal:
+	(max_re - min_re) / (max_im - min_im) = WIN_WIDTH / WIN_HEIGHT
+	
+	Solving for max_im:
+	(max_im - min_im) = (max_re - min_re) * (WIN_HEIGHT / WIN_WIDTH)
+	max_im = min_im + (max_re - min_re) * (WIN_HEIGHT / WIN_WIDTH)
+	
+	There are several reasons why we solve for max_im rather than other variables:
+
+	Conventional Viewing Window:
+	For many fractals, especially the Mandelbrot set, there's a conventional initial view that 
+	captures the most interesting parts of the fractal.
+	This view typically spans from -2 to 1 on the real axis, centering around -0.5.
+	The imaginary axis is usually centered around 0, with min_im set to a negative value (often -1.5 or -1).
+	
+	
+	Asymmetry of the Mandelbrot Set:
+	The Mandelbrot set is not symmetrical about the real axis. It extends further in the positive imaginary direction than the negative.
+	By fixing min_im and calculating max_im, we ensure we capture the full height of the set while maintaining aspect ratio.
+	
+	
+	Simplicity and Consistency:
+	By fixing three out of four boundaries (min_re, max_re, min_im) and calculating only one (max_im), 
+	we maintain a consistent reference point for zooming and panning operations.
+	
+	
+	Aspect Ratio Control:
+	Solving for max_im allows us to easily adjust the vertical size of the viewing window to match the aspect ratio of the display window.
+	This is particularly important because screen widths often vary more than heights across different devices.
+	
+	
+	Intuitive Zooming:
+	When zooming, it's often more intuitive to keep the bottom-left corner of the viewing window fixed 
+	(defined by min_re and min_im) and adjust the top-right corner.*/
 	data->zoom = 1.0;
 	/*Sets the initial zoom level to 1.0 (no zoom).*/
-	data->julia_ci = 0.27;
-	data->julia_cr = -0.7;
-	/*Sets default Julia set parameters:
-	julia_ci: Imaginary part of the Julia set constant (0.27)
-	julia_cr: Real part of the Julia set constant (-0.7)*/
-	// julia 0.27 -0.75
-	//julia 0.15 -0.7
+	data->julia_ci = 0.15;
+	data->julia_cr = -0.8;
 }
 
 int	init_data(t_data *data)
 {
 	data->mlx = mlx_init();
 	/*The function starts by initializing the MLX (MiniLibX) system using mlx_init(). 
-	This function sets up the connection to the X server and returns a pointer to the MLX instance.*/
+	This function sets up the connection to the X server (the system that manages the display on Unix-like systems)
+	 and returns a pointer to the MLX instance. The returned pointer is stored in data->mlx for future use.*/
 	if (!data->mlx)
 		return (0);
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
+	/*This creates a new window using the MLX library.
+	WIN_WIDTH and WIN_HEIGHT are likely predefined constants for the window dimensions.
+	"Fract'ol" is the title of the window.
+	The window pointer is stored in data->win.*/
 	init_fractal(data);
 	return (1);
 }

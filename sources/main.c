@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/22 17:03:01 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:43:50 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int julia_checker(t_data *data, int argc, char **argv)
         return (1);
 	else
 		return (0);
+	// ???
 }
 
 int	parse_args(int argc, char **argv, t_data *data)
@@ -94,7 +95,7 @@ int	main(int argc, char **argv)
 	mlx_hook(data.win, 17, 0, exit_program, &data);
 	/*This function sets up an event hook for the window close button (event 17).
 	When the user clicks the close button, it calls the exit_program function.
-	This function sets up a specific event hook. It's more flexible than mlx_key_hook or mlx_mouse_hook.
+	This function sets up a specific event hook. 
 
 	17 corresponds to the DestroyNotify event (window close button).
 	0 is the mask (not used in this case).

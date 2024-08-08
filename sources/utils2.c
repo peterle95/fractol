@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 12:37:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/21 13:12:40 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:40:49 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int validate_julia(char *str)
         return (1);
     i++;
 
-    // Check for decimal point
+    // Check if after the first digit there is no decimal point returns 1
     if (str[i] != '.')
         return (1);
     i++;
