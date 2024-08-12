@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/08 14:43:50 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/12 23:04:56 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int julia_checker(t_data *data, int argc, char **argv)
         return (1);
 	else
 		return (0);
-	// ???
 }
 
 int	parse_args(int argc, char **argv, t_data *data)
@@ -92,7 +91,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	draw_fractal(&data);
-	mlx_hook(data.win, 17, 0, exit_program, &data);
+	mlx_hook(data.window, 17, 0, exit_program, &data);
 	/*This function sets up an event hook for the window close button (event 17).
 	When the user clicks the close button, it calls the exit_program function.
 	This function sets up a specific event hook. 
@@ -101,19 +100,19 @@ int	main(int argc, char **argv)
 	0 is the mask (not used in this case).
 	exit_program is the function to be called when this event occurs.
 	&data is passed as a parameter to the exit_program function.*/
-	mlx_key_hook(data.win, key_hook, &data);
+	mlx_key_hook(data.window, key_hook, &data);
 	/*This sets up a hook for keyboard events.
 	Whenever a key is pressed, the key_hook function is called.
 	This is a simplified version of mlx_hook specifically for key release events.
 
 	It sets up the key_hook function to be called when a key is released.
 	Internally, it's equivalent to setting up a hook for the KeyRelease event with KeyReleaseMask.*/
-	mlx_mouse_hook(data.win, mouse_event, &data);
+	mlx_mouse_hook(data.window, mouse_event, &data);
 	/*This sets up a hook for mouse events.
 	When mouse buttons are clicked or scrolled, the mouse_event function is called.
 	It sets up the mouse_event function to be called when a mouse button is pressed.
 	Internally, it's equivalent to setting up a hook for the ButtonPress event with ButtonPressMask.*/
-	mlx_loop(data.mlx);
+	mlx_loop(data.mlx_connect);
 	/*This function starts the main event loop of the program.
 	It keeps the window open and continuously checks for events (key presses, mouse clicks, etc.).
 	The program will stay in this loop until the window is closed.

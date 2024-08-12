@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/08 14:35:54 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/12 23:02:56 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,13 @@ void	init_fractal(t_data *data)
 
 int	init_data(t_data *data)
 {
-	data->mlx = mlx_init();
+	data->mlx_connect = mlx_init();
 	/*The function starts by initializing the MLX (MiniLibX) system using mlx_init(). 
 	This function sets up the connection to the X server (the system that manages the display on Unix-like systems)
 	 and returns a pointer to the MLX instance. The returned pointer is stored in data->mlx for future use.*/
-	if (!data->mlx)
+	if (!data->mlx_connect)
 		return (0);
-	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
+	data->window = mlx_new_window(data->mlx_connect, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
 	/*This creates a new window using the MLX library.
 	WIN_WIDTH and WIN_HEIGHT are likely predefined constants for the window dimensions.
 	"Fract'ol" is the title of the window.

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/08 14:37:07 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/12 23:02:04 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ enum e_fractal_type
 
 typedef struct s_data
 {
-	void	*mlx;
+	void	*mlx_connect;
 	// This is a pointer to the MLX (MiniLibX) instance. It's the main handle for all MLX operations.
-	void	*win;
+	void	*window;
 	// Pointer to the window created by MLX. Used for drawing operations and event handling.
 	int		width;
 	// Width of the fractal image or window in pixels.

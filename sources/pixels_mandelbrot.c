@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:34:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/22 16:32:08 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/12 23:05:49 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,28 @@ void	pixel_mandelbrot(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot(cr, ci);
+	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
+	/*The mlx_pixel_put function is a core part of the MinilibX library, which is used for creating 
+	graphical applications in C, particularly in the context of the 42 school curriculum. Let's break 
+	down this function and explain how it puts pixels on the window:
 	mlx_pixel_put(data->mlx, data->win, x, y, color);
+	
+	data->mlx_connect: This is a pointer to the MLX connection structure. It represents the connection to the 
+	X-server (on Linux) or to the relevant graphical system on other platforms. This connection is essential for any drawing operations.
+	data->win: This is a pointer to the window structure. It represents the specific window where the pixel will be drawn.
+	x and y: These are the coordinates where the pixel will be drawn. The origin (0,0) is typically at 
+	the top-left corner of the window. x increases from left to right, and y increases from top to bottom.
+	color: This is an integer representing the color of the pixel. It's usually in the format 0xRRGGBB, 
+	where RR is red, GG is green, and BB is blue, each represented by two hexadecimal digits.
+	
+	When mlx_pixel_put is called, it performs several operations:
+	
+	It checks if the provided MLX connection and window pointers are valid.
+	It verifies if the (x,y) coordinates are within the bounds of the window.
+	It converts the color from the integer format to the format required by the underlying graphical system.
+	It communicates with the X-server (or equivalent system) to request that a pixel be drawn at the specified location with the specified color.
+	The X-server then updates the window's buffer with this new pixel information.
+	Finally, the change is reflected on the screen when the window is refreshed.*/
 }
 
 /*Key points:
@@ -45,7 +66,7 @@ void	pixel_mandelbrot2(t_data *data, int x, int y)
 	/*Calculates the imaginary part of the complex number corresponding to the y-coordinate of the pixel.*/
 	color = color_mandelbrot2(cr, ci);
 	/*Determines the color of the pixel based on how the point (cr, ci) behaves in the Mandelbrot set iteration*/
-	mlx_pixel_put(data->mlx, data->win, x, y, color);
+	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
 	/*Draws the pixel with the calculated color at the (x, y) coordinate in the window.*/
 }
 
@@ -99,7 +120,7 @@ void	pixel_mandelbrot3(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot3(cr, ci);
-	mlx_pixel_put(data->mlx, data->win, x, y, color);
+	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
 }
 
 void	pixel_mandelbrot4(t_data *data, int x, int y)
@@ -111,5 +132,5 @@ void	pixel_mandelbrot4(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot4(cr, ci);
-	mlx_pixel_put(data->mlx, data->win, x, y, color);
+	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
 }
