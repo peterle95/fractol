@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/12 23:02:56 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/13 14:03:43 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	init_fractal(t_data *data)
 		This ensures that the fractal isn't stretched.*/
 
 	/*^0^ DERIVATION OF MAX_IM:^0^
-	This formula is crucial for maintaining the correct aspect ratio when displaying the fractal. Let's break it down step-by-step to understand its derivation and purpose.
+	This formula is crucial for maintaining the correct aspect ratio when displaying the fractal. 
+	Let's break it down step-by-step to understand its derivation and purpose.
 	The formula:
 		data->max_im = data->min_im + (data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
 		
@@ -73,21 +74,17 @@ void	init_fractal(t_data *data)
 	This view typically spans from -2 to 1 on the real axis, centering around -0.5.
 	The imaginary axis is usually centered around 0, with min_im set to a negative value (often -1.5 or -1).
 	
-	
 	Asymmetry of the Mandelbrot Set:
 	The Mandelbrot set is not symmetrical about the real axis. It extends further in the positive imaginary direction than the negative.
 	By fixing min_im and calculating max_im, we ensure we capture the full height of the set while maintaining aspect ratio.
-	
 	
 	Simplicity and Consistency:
 	By fixing three out of four boundaries (min_re, max_re, min_im) and calculating only one (max_im), 
 	we maintain a consistent reference point for zooming and panning operations.
 	
-	
 	Aspect Ratio Control:
 	Solving for max_im allows us to easily adjust the vertical size of the viewing window to match the aspect ratio of the display window.
 	This is particularly important because screen widths often vary more than heights across different devices.
-	
 	
 	Intuitive Zooming:
 	When zooming, it's often more intuitive to keep the bottom-left corner of the viewing window fixed 

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/12 23:02:04 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:31:03 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,18 @@
 
 enum e_fractal_type
 {
-	MANDELBROT,
-	MANDELBROT2,
-	MANDELBROT3,
-	MANDELBROT4,
+	MANDELBROT, // = 0
+	MANDELBROT2, // = 1
+	MANDELBROT3, // = 2
+	MANDELBROT4, // = 3
 	JULIA,
 	JULIA2,
 	JULIA3,
 	JULIA4,
 };
 
-/*☆*: .｡. o(≧▽≦)o .｡.:*☆ FRACTAL CREATION ☆*: .｡. o(≧▽≦)o .｡.:*☆
-
-*/
+/*In C, when you declare an enum without explicitly assigning values, the compiler 
+automatically assigns integer values to the enum constants, starting from 0 and incrementing by 1 for each subsequent constant.*/
 
 typedef struct s_data
 {

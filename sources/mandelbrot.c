@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:32 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/09 18:57:15 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:22:58 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ double	calculate_cr(t_data *data, int x)
 		   			Let's break it down further and 
 					explain why we use a linear mapping in this context.
 
-					Linear Mapping:
+					Linear Mapping: --> CHECKOUT CLAUDE OF GRAPHS
 					A linear mapping is a way to convert values from one range to another in a straight-line 
 					relationship. It's called "linear" because when graphed, it forms a straight line.
 					
