@@ -29,7 +29,6 @@ void	apply_movement(t_data *data, double move_x, double move_y)
 	draw_fractal(data);
 }
 
-// think about assigning 0.1 to MOVE_STEP. And the keys as well
 int	key_hook(int keycode, t_data *data)
 {
 	double	move_x;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/07 19:38:39 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/12 23:11:16 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	zoom_in(t_data *data, double zoom_factor,
 	data->max_im = center_im + (data->max_im - center_im) / zoom_factor;
 }
 
-// function has more than 25 lines
 int	mouse_event(int button, int x, int y, t_data *data)
 {
 	double	zoom_factor;
