@@ -100,6 +100,23 @@ int	main(int argc, char **argv)
 
 	17 corresponds to the DestroyNotify event (window close button).
 	0 is the mask (not used in this case).
+
+	ᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢ
+
+	In X11, a mask is a bitfield used to filter and specify which types of events
+	an application wants to receive for a particular window or input device.
+	By setting specific bits in the mask, developers can selectively enable or
+	disable certain event types, improving efficiency by reducing the number of
+	events the application needs to process.
+
+	A bitfield is a data structure that uses individual bits to store multiple
+	Boolean values or small integers efficiently. In the context of X11 event
+	masks, each bit in the bitfield represents a different event type. Setting
+	a bit to 1 enables that event, while 0 disables it. This allows for compact
+	representation and efficient manipulation of multiple flags or options.
+	
+	ᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢᓚᘏᗢ
+
 	exit_program is the function to be called when this event occurs.
 	&data is passed as a parameter to the exit_program function.*/
 	mlx_key_hook(data.window, key_hook, &data);
@@ -108,7 +125,8 @@ int	main(int argc, char **argv)
 	This is a simplified version of mlx_hook specifically for key release events.
 
 	It sets up the key_hook function to be called when a key is released.
-	Internally, it's equivalent to setting up a hook for the KeyRelease event with KeyReleaseMask.*/
+	Internally, it's equivalent to setting up a hook for the KeyRelease event with KeyReleaseMask.
+	*/
 	mlx_mouse_hook(data.window, mouse_event, &data);
 	/*This sets up a hook for mouse events.
 	When mouse buttons are clicked or scrolled, the mouse_event function is called.

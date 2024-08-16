@@ -22,10 +22,10 @@ void	apply_movement(t_data *data, double move_x, double move_y)
 
 	range_re = data->max_re - data->min_re;
 	range_im = data->max_im - data->min_im;
-	data->min_re += move_x * range_re;
-	data->max_re += move_x * range_re;
-	data->min_im += move_y * range_im;
-	data->max_im += move_y * range_im;
+	data->min_re = data->min_re + (move_x * range_re);
+	data->max_re = data->max_re + (move_x * range_re);
+	data->min_im = data->min_im + (move_y * range_im);
+	data->max_im = data->max_im + (move_y * range_im);
 	draw_fractal(data);
 	/*This function, `apply_movement`, is responsible for shifting the viewing window of the fractal 
 	based on user input. Let's break it down and then go through an example.
