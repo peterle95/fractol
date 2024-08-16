@@ -29,7 +29,7 @@ void	init_fractal(t_data *data)
 	data->max_re = 1.0;
 	data->min_im = -1.5;
 	data->max_im = data->min_im
-		+ (data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
+		+ (data->max_re - data->min_re) * WINDOW_HEIGHT / WINDOW_WIDTH;
 	/*Sets the initial viewing window for the fractal in the complex plane:
 
 	min_re: Minimum real value (-2.0)
@@ -42,7 +42,7 @@ void	init_fractal(t_data *data)
 	This formula is crucial for maintaining the correct aspect ratio when displaying the fractal. 
 	Let's break it down step-by-step to understand its derivation and purpose.
 	The formula:
-		data->max_im = data->min_im + (data->max_re - data->min_re) * WIN_HEIGHT / WIN_WIDTH;
+		data->max_im = data->min_im + (data->max_re - data->min_re) * WINDOW_HEIGHT / WINDOW_WIDTH;
 		
 	Purpose:
 	This formula calculates the maximum imaginary value (max_im) of the complex plane to be displayed, 
@@ -53,18 +53,18 @@ void	init_fractal(t_data *data)
 	
 	Aspect ratio is the ratio of width to height.
 	
-	For the window: 		aspect_ratio_window = WIN_WIDTH / WIN_HEIGHT
+	For the window: 		aspect_ratio_window = WINDOW_WIDTH / WINDOW_HEIGHT
 	For the complex plane:  aspect_ratio_plane  = (max_re - min_re) / (max_im - min_im)
 	
 	
 	Matching Aspect Ratios:
 	
 	To avoid distortion, we want these ratios to be equal:
-	(max_re - min_re) / (max_im - min_im) = WIN_WIDTH / WIN_HEIGHT
+	(max_re - min_re) / (max_im - min_im) = WINDOW_WIDTH / WINDOW_HEIGHT
 	
 	Solving for max_im:
-	(max_im - min_im) = (max_re - min_re) * (WIN_HEIGHT / WIN_WIDTH)
-	max_im = min_im + (max_re - min_re) * (WIN_HEIGHT / WIN_WIDTH)
+	(max_im - min_im) = (max_re - min_re) * (WINDOW_HEIGHT / WINDOW_WIDTH)
+	max_im = min_im + (max_re - min_re) * (WINDOW_HEIGHT / WINDOW_WIDTH)
 	
 	There are several reasons why we solve for max_im rather than other variables:
 
@@ -103,9 +103,9 @@ int	init_data(t_data *data)
 	 and returns a pointer to the MLX instance. The returned pointer is stored in data->mlx for future use.*/
 	if (!data->mlx_connect)
 		return (0);
-	data->window = mlx_new_window(data->mlx_connect, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
+	data->window = mlx_new_window(data->mlx_connect, WINDOW_WIDTH, WINDOW_HEIGHT, "Fract'ol");
 	/*This creates a new window using the MLX library.
-	WIN_WIDTH and WIN_HEIGHT are likely predefined constants for the window dimensions.
+	WINDOW_WIDTH and WINDOW_HEIGHT are likely predefined constants for the window dimensions.
 	"Fract'ol" is the title of the window.
 	The window pointer is stored in data->win.*/
 	init_fractal(data);

@@ -17,12 +17,12 @@
  then calculate the complex number for the pixel (20, 2), and finally determine its color.
 
 Assumptions:
-- Window size: WIN_WIDTH = 800, WIN_HEIGHT = 600
+- Window size: WINDOW_WIDTH = 800, WINDOW_HEIGHT = 600
 - Fractal view: min_re = -2.0, max_re = 1.0, min_im = -1.5, max_im = 1.5
 
 Step 1: Calculate cr (real part)
 
-cr = min_re + (double)x * (max_re - min_re) / WIN_WIDTH
+cr = min_re + (double)x * (max_re - min_re) / WINDOW_WIDTH
 cr = -2.0 + (double)20 * (1.0 - (-2.0)) / 800
 cr = -2.0 + 20 * 3.0 / 800
 cr = -2.0 + 0.075
@@ -30,7 +30,7 @@ cr = -1.925
 
 Step 2: Calculate ci (imaginary part)
 
-ci = min_im + (double)y * (max_im - min_im) / WIN_HEIGHT
+ci = min_im + (double)y * (max_im - min_im) / WINDOW_HEIGHT
 ci = -1.5 + (double)2 * (1.5 - (-1.5)) / 600
 ci = -1.5 + 2 * 3.0 / 600
 ci = -1.5 + 0.01
@@ -161,7 +161,7 @@ int	mandelbrot(double cr, double ci)
 double	calculate_cr(t_data *data, int x)
 {
 	return (data->min_re + (double)x
-		* (data->max_re - data->min_re) / WIN_WIDTH);
+		* (data->max_re - data->min_re) / WINDOW_WIDTH);
 		/*[]~(￣▽￣)~*[ FORMULA DERIVATION ]~(￣▽￣)~*
 		Let's derive the formula step-by-step to understand how we arrive at this specific calculation.
 
@@ -169,7 +169,7 @@ double	calculate_cr(t_data *data, int x)
 		point on the real axis of the complex plane. Here's the step-by-step process:
 		
 		1. Define the ranges:
-		   - Screen space: 0 to WIN_WIDTH
+		   - Screen space: 0 to WINDOW_WIDTH
 		   - Complex plane (real axis): min_re to max_re
 		
 		2. We want to create a linear mapping between these two ranges. The general form of a linear mapping is:
@@ -214,33 +214,33 @@ double	calculate_cr(t_data *data, int x)
 					determine which point in the complex plane each pixel represents.
 							
 		3. In our case:
-		   - x is the pixel coordinate (0 to WIN_WIDTH)
+		   - x is the pixel coordinate (0 to WINDOW_WIDTH)
 		   - y is the real value in the complex plane (min_re to max_re)
 		
 		4. To find the slope (m), we use the formula:
 		   m = (y2 - y1) / (x2 - x1)
 		
 		   In our context:
-		   m = (max_re - min_re) / (WIN_WIDTH - 0)
-		   m = (max_re - min_re) / WIN_WIDTH
+		   m = (max_re - min_re) / (WINDOW_WIDTH - 0)
+		   m = (max_re - min_re) / WINDOW_WIDTH
 		
 		5. Now we have:
 		   real_value = m * x + b
 		
 		   Where:
-		   m = (max_re - min_re) / WIN_WIDTH
+		   m = (max_re - min_re) / WINDOW_WIDTH
 		   b = min_re (because when x = 0, we want real_value = min_re)
 		
 		6. Substituting these in:
-		   real_value = ((max_re - min_re) / WIN_WIDTH) * x + min_re
+		   real_value = ((max_re - min_re) / WINDOW_WIDTH) * x + min_re
 		
 		7. Rearranging for clarity:
-		   real_value = min_re + (x * (max_re - min_re) / WIN_WIDTH)
+		   real_value = min_re + (x * (max_re - min_re) / WINDOW_WIDTH)
 		
 		And this is exactly the formula we see in the code:
 		
 		```c
-		return (data->min_re + (double)x * (data->max_re - data->min_re) / WIN_WIDTH);
+		return (data->min_re + (double)x * (data->max_re - data->min_re) / WINDOW_WIDTH);
 		```
 		
 		The `(double)` cast ensures that the calculation is done in floating-point arithmetic for precision.
@@ -250,13 +250,13 @@ double	calculate_cr(t_data *data, int x)
 		
 		  data->min_re: The minimum real value in the complex plane you're visualizing.
 		  data->max_re: The maximum real value in the complex plane.
-		  WIN_WIDTH: The width of your window in pixels.
-		  x: The x-coordinate of the pixel (0 at left, WIN_WIDTH-1 at right).
+		  WINDOW_WIDTH: The width of your window in pixels.
+		  x: The x-coordinate of the pixel (0 at left, WINDOW_WIDTH-1 at right).
 		  
 		  The formula performs a linear interpolation:
 		  
-		  It maps the pixel range [0, WIN_WIDTH] to the complex plane range [min_re, max_re].
-		  (double)x / WIN_WIDTH gives the fraction of the way across the window.
+		  It maps the pixel range [0, WINDOW_WIDTH] to the complex plane range [min_re, max_re].
+		  (double)x / WINDOW_WIDTH gives the fraction of the way across the window.
 		  Multiplying this by (max_re - min_re) scales it to the range in the complex plane.
 		  Adding min_re shifts it to the correct starting point.
 		  
@@ -280,7 +280,7 @@ double	calculate_cr(t_data *data, int x)
 double	calculate_ci(t_data *data, int y)
 {
 	return (data->min_im + (double)y
-		* (data->max_im - data->min_im) / WIN_HEIGHT);
+		* (data->max_im - data->min_im) / WINDOW_HEIGHT);
 	/*Let's analyze the `calculate_ci` function, which is very similar to the `calculate_cr` 
 	function we discussed earlier, but it works with the imaginary axis of the complex plane.
 
@@ -289,33 +289,33 @@ double	calculate_ci(t_data *data, int y)
 	
 	2. Formula breakdown:
 	   ```c
-	   return (data->min_im + (double)y * (data->max_im - data->min_im) / WIN_HEIGHT);
+	   return (data->min_im + (double)y * (data->max_im - data->min_im) / WINDOW_HEIGHT);
 	   ```
 	
 	   - `data->min_im`: The minimum imaginary value in the complex plane being viewed.
 	   - `data->max_im`: The maximum imaginary value in the complex plane being viewed.
 	   - `(double)y`: The y-coordinate of the pixel, cast to a double for precise calculation.
-	   - `WIN_HEIGHT`: The height of the window in pixels.
+	   - `WINDOW_HEIGHT`: The height of the window in pixels.
 	
 	3. How it works:
-	   - It maps the y-coordinate (0 to WIN_HEIGHT) to the imaginary axis (min_im to max_im).
+	   - It maps the y-coordinate (0 to WINDOW_HEIGHT) to the imaginary axis (min_im to max_im).
 	   - When y = 0 (top of the screen), it returns `min_im`.
-	   - When y = WIN_HEIGHT (bottom of the screen), it returns `max_im`.
+	   - When y = WINDOW_HEIGHT (bottom of the screen), it returns `max_im`.
 	   				When y = 0 (top of the screen):
-						result = data->min_im + (double)0 * (data->max_im - data->min_im) / WIN_HEIGHT
+						result = data->min_im + (double)0 * (data->max_im - data->min_im) / WINDOW_HEIGHT
 						Substituting y = 0 into the formula:
 						Simplifying:
 						result = data->min_im + 0
 						result = data->min_im
 					So when y = 0, the function returns min_im.
-					When y = WIN_HEIGHT (bottom of the screen):
-						Substituting y = WIN_HEIGHT into the formula:
-						result = data->min_im + (double)WIN_HEIGHT * (data->max_im - data->min_im) / WIN_HEIGHT
-						The WIN_HEIGHT terms cancel out:
+					When y = WINDOW_HEIGHT (bottom of the screen):
+						Substituting y = WINDOW_HEIGHT into the formula:
+						result = data->min_im + (double)WINDOW_HEIGHT * (data->max_im - data->min_im) / WINDOW_HEIGHT
+						The WINDOW_HEIGHT terms cancel out:
 						result = data->min_im + (data->max_im - data->min_im)
 						Simplifying:
 						result = data->max_im
-					So when y = WIN_HEIGHT, the function returns max_im.
+					So when y = WINDOW_HEIGHT, the function returns max_im.
 		- For y values in between, it linearly interpolates between min_im and max_im.
 	
 	4. Comparison with `calculate_cr`:

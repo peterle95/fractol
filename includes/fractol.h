@@ -58,8 +58,8 @@ typedef struct s_data
 	// Real part of the constant used in Julia set calculations.
 }	t_data;
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 800
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 800
 # define MAX_ITERATIONS 500
 
 // initialization

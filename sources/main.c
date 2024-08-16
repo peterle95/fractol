@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/12 23:04:56 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/16 14:28:56 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	draw_fractal(t_data *data)
 		draw_julia3(data);
 	else if (data->fractal_type == JULIA4)
 		draw_julia4(data);
+	else
+		printf("Error: Invalid fractal type\n");
 }
 
 int julia_checker(t_data *data, int argc, char **argv)
@@ -176,4 +178,3 @@ In the context of X11 and MiniLibX:
 In summary, event masks in MiniLibX and X11 allow you to specify which types of events you want your 
 application to receive, providing a way to filter and focus on relevant events for your program's 
 functionality. This system helps in creating more efficient and responsive graphical applications.*/
-

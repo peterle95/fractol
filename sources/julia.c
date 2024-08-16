@@ -133,13 +133,13 @@ int	julia(double zr, double zi, double cr, double ci)
 double	calculate_zr(t_data *data, int x)
 {
 	return (data->min_re + (double)x
-		* (data->max_re - data->min_re) / WIN_WIDTH);
+		* (data->max_re - data->min_re) / WINDOW_WIDTH);
 }
 
 double	calculate_zi(t_data *data, int y)
 {
 	return (data->min_im + (double)y
-		* (data->max_im - data->min_im) / WIN_HEIGHT);
+		* (data->max_im - data->min_im) / WINDOW_HEIGHT);
 }
 
 
