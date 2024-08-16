@@ -39,14 +39,33 @@ int	mouse_event(int button, int x, int y, t_data *data)
 	double	center_im;
 
 	(void)x;
+	/* Cast x to void to suppress unused parameter warning */
+
 	(void)y;
-	zoom_factor = 1.1;
+	/* Cast y to void to suppress unused parameter warning */
+
+	zoom_factor = 2.0;
+	/* Set the zoom factor to 10% (1.1 times). This value provides a smooth zoom experience: 
+	   not too fast, not too slow. It's a common choice in many applications for incremental zooming. */
+
 	center_re = (data->min_re + data->max_re) / 2.0;
+	/* Calculate the center of the real axis */
+
 	center_im = (data->min_im + data->max_im) / 2.0;
-	if (button == 4) // Scroll up to zoom in
+	/* Calculate the center of the imaginary axis */
+
+	if (button == 4)
+	/* Check if scroll wheel moved up (zoom in) */
 		zoom_in(data, zoom_factor, center_re, center_im);
-	else if (button == 5) // Scroll down to zoom out
+		/* Call zoom_in function with calculated parameters */
+	else if (button == 5)
+	/* Check if scroll wheel moved down (zoom out) */
 		zoom_out(data, zoom_factor, center_re, center_im);
+		/* Call zoom_out function with calculated parameters */
+
 	draw_fractal(data);
+	/* Redraw the fractal with the updated zoom level */
+
 	return (0);
+	/* Return 0 to indicate successful execution */
 }

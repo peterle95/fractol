@@ -59,22 +59,22 @@ int julia_checker(t_data *data, int argc, char **argv)
 int	parse_args(int argc, char **argv, t_data *data)
 {
 	if (argc < 2)
-		return (0);
-	if (ft_strcmp(argv[1], "mandelbrot") == 0)
+		return (0);  // Return 0 if there are not enough arguments
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)  // Check if the first argument is "mandelbrot"
 	{
 		if (argc > 2)
-			return (0);
+			return (0);  // Return 0 if there are too many arguments for mandelbrot
 		else
-			data->fractal_type = MANDELBROT;
+			data->fractal_type = MANDELBROT;  // Set fractal type to MANDELBROT
 	}
-	else if (ft_strcmp(argv[1], "julia") == 0)
+	else if (ft_strcmp(argv[1], "julia") == 0)  // Check if the first argument is "julia"
 	{
 		if (julia_checker(data, argc, argv) != 0)
-			return (0);
+			return (0);  // Return 0 if julia_checker fails
 	}
 	else
-		return (0);
-	return (1);
+		return (0);  // Return 0 if the first argument is neither "mandelbrot" nor "julia"
+	return (1);  // Return 1 if parsing was successful
 }
 
 int	main(int argc, char **argv)
