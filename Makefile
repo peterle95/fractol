@@ -6,11 +6,11 @@
 #    By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 16:56:12 by pmolzer           #+#    #+#              #
-#    Updated: 2024/08/16 16:56:14 by pmolzer          ###   ########.fr        #
+#    Updated: 2024/08/17 21:17:26 by pmolzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
+NAME = fractol
 SRCS = $(wildcard sources/*.c)
 
 OBJS = ${SRCS:.c=.o}
