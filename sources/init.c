@@ -24,13 +24,15 @@ void	init_fractal(t_data *data)
 	data->julia_cr = -0.8;
 }
 
-// Initializes the MLX connection, creates a window, and sets up initial fractal data
+// Initializes the MLX connection, creates a window, 
+// and sets up initial fractal data
 int	init_data(t_data *data)
 {
 	data->mlx_connect = mlx_init();
 	if (!data->mlx_connect)
 		return (0);
-	data->window = mlx_new_window(data->mlx_connect, WINDOW_WIDTH, WINDOW_HEIGHT, "Fract'ol");
+	data->window = mlx_new_window(data->mlx_connect,
+			WINDOW_WIDTH, WINDOW_HEIGHT, "Fract'ol");
 	init_fractal(data);
 	return (1);
 }

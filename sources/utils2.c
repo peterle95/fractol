@@ -13,32 +13,29 @@
 #include "../includes/fractol.h"
 
 // Validates if the input string is a valid Julia set parameter
-int validate_julia(char *str)
+int	validate_julia(char *str)
 {
-    int i = 0;
-    int digits_after_point = 0;
+	int		i;
+	int		digits_after_point;
 
-    while (str[i] == '-' || str[i] == '+')
-        i++;
-
-    if (!ft_isdigit(str[i]))
-        return (1);
-    i++;
-
-    if (str[i] != '.')
-        return (1);
-    i++;
-
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (1);
-        digits_after_point++;
-        i++;
-    }
-
-    if (digits_after_point < 1 || digits_after_point > 3)
-        return (1);
-
-    return (0);
+	i = 0;
+	digits_after_point = 0;
+	while (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!ft_isdigit(str[i]))
+		return (1);
+	i++;
+	if (str[i] != '.')
+		return (1);
+	i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (1);
+		digits_after_point++;
+		i++;
+	}
+	if (digits_after_point < 1 || digits_after_point > 3)
+		return (1);
+	return (0);
 }

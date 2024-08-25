@@ -40,7 +40,8 @@ double	calculate_zr(t_data *data, int x)
 		* (data->max_re - data->min_re) / WINDOW_WIDTH);
 }
 
-// Calculates the imaginary component of a complex number based on the y-coordinate
+// Calculates the imaginary component of 
+// a complex number based on the y-coordinate
 double	calculate_zi(t_data *data, int y)
 {
 	return (data->min_im + (double)y

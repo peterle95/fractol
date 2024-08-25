@@ -67,7 +67,7 @@ int		mouse_event(int button, int x, int y, t_data *data);
 int		ft_strcmp(const char *s1, const char *s2);
 double	convert_float(char *str);
 void	print_usage(void);
-int 	validate_julia(char *str);
+int		validate_julia(char *str);
 
 // fractals
 int		mandelbrot(double cr, double ci);

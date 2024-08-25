@@ -24,7 +24,8 @@ void	print_usage(void)
 	printf("\t ./fractol mandelbrot\n");
 }
 
-// Compares two strings and returns the difference between the first non-matching characters
+// Compares two strings and returns the
+// difference between the first non-matching characters
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
@@ -35,7 +36,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-// Skips whitespace and handles sign in a string, returning the index after these
+// Skips whitespace and handles sign in a
+//string, returning the index after these
 static int	skip_space_and_sign(char *str, int *is_neg)
 {
 	int		i;
@@ -52,7 +54,8 @@ static int	skip_space_and_sign(char *str, int *is_neg)
 	return (i);
 }
 
-// Converts a string to a float, handling both integer and decimal parts
+// Converts a string to a float, handling both
+//integer and decimal parts
 double	convert_float(char *str)
 {
 	int		i;

@@ -12,7 +12,8 @@
 
 #include "../includes/fractol.h"
 
-// Calculates the number of iterations for a given point in the Mandelbrot set
+// Calculates the number of iterations for
+// a given point in the Mandelbrot set
 int	mandelbrot(double cr, double ci)
 {
 	double	zr;
@@ -33,14 +34,16 @@ int	mandelbrot(double cr, double ci)
 	return (n);
 }
 
-// Calculates the real component of a complex number based on the x-coordinate
+// Calculates the real component of
+// a complex number based on the x-coordinate
 double	calculate_cr(t_data *data, int x)
 {
 	return (data->min_re + (double)x
 		* (data->max_re - data->min_re) / WINDOW_WIDTH);
 }
 
-// Calculates the imaginary component of a complex number based on the y-coordinate
+// Calculates the imaginary component of
+// a complex number based on the y-coordinate
 double	calculate_ci(t_data *data, int y)
 {
 	return (data->min_im + (double)y

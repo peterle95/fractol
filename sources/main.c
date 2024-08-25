@@ -36,24 +36,24 @@ void	draw_fractal(t_data *data)
 }
 
 // Validates Julia set parameters
-int julia_checker(t_data *data, int argc, char **argv)
+int	julia_checker(t_data *data, int argc, char **argv)
 {
-    data->fractal_type = JULIA;
-    if (argc == 4)
-    {
-        if (validate_julia(argv[2]) || validate_julia(argv[3]))
-                return (1);
-        data->julia_ci = convert_float(argv[2]);
-        data->julia_cr = convert_float(argv[3]);
-        if (data->julia_ci == -42.0 || data->julia_cr == -42.0)
-            return (1);
-        if (data->julia_ci < -2.0 || data->julia_ci > 2.0 || 
-            data->julia_cr < -2.0 || data->julia_cr > 2.0)
-                    return (1);
-                return (0);
-    }
-    else if (argc == 3 || argc > 4)
-        return (1);
+	data->fractal_type = JULIA;
+	if (argc == 4)
+	{
+		if (validate_julia(argv[2]) || validate_julia(argv[3]))
+			return (1);
+		data->julia_ci = convert_float(argv[2]);
+		data->julia_cr = convert_float(argv[3]);
+		if (data->julia_ci == -42.0 || data->julia_cr == -42.0)
+			return (1);
+		if (data->julia_ci < -2.0 || data->julia_ci > 2.0
+			|| data->julia_cr < -2.0 || data->julia_cr > 2.0)
+			return (1);
+		return (0);
+	}
+	else if (argc == 3 || argc > 4)
+		return (1);
 	else
 		return (0);
 }
