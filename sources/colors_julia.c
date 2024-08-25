@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:54:10 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/23 13:02:34 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/18 12:01:14 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	color_julia2(t_data *data, double zr, double zi)
 	if (iterations < MAX_ITERATIONS)
     return ((MAX_ITERATIONS - iterations) * 0x85a16a / MAX_ITERATIONS);
 else
-    return (0x85a16a);
+    return (0xFFFFFF);
 }
 
 int	color_julia3(t_data *data, double zr, double zi)
@@ -42,7 +42,7 @@ int	color_julia3(t_data *data, double zr, double zi)
 	if (iterations < MAX_ITERATIONS)
     return ((MAX_ITERATIONS - iterations) * 0xffe9d7 / MAX_ITERATIONS);
 else
-    return (0xffe9d7);
+    return (0xFFFFFF);
 }
 
 int	color_julia4(t_data *data, double zr, double zi)
@@ -53,5 +53,5 @@ int	color_julia4(t_data *data, double zr, double zi)
 	if (iterations < MAX_ITERATIONS)
     return ((MAX_ITERATIONS - iterations) * 0xf0f8ff / MAX_ITERATIONS);
 else
-    return (0xf0f8ff);
+    return (0xFFFFFF);
 }

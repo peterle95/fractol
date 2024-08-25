@@ -6,12 +6,13 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:37 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/21 13:40:22 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/25 21:58:07 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+// Prints usage instructions for the program
 void	print_usage(void)
 {
 	printf("Error: Invalid arguments\n");
@@ -23,6 +24,7 @@ void	print_usage(void)
 	printf("\t ./fractol mandelbrot\n");
 }
 
+// Compares two strings and returns the difference between the first non-matching characters
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
@@ -33,6 +35,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
+// Skips whitespace and handles sign in a string, returning the index after these
 static int	skip_space_and_sign(char *str, int *is_neg)
 {
 	int		i;
@@ -49,22 +52,13 @@ static int	skip_space_and_sign(char *str, int *is_neg)
 	return (i);
 }
 
-/* convert_float:
-    Converts a string into a float (decimal number). Used to parse
-    Julia starting values given as program arguments.
-    Returns the converted double, or -42 in case of error (Julia accepts
-    values between 2.0 and -2.0 only)
-*/
+// Converts a string to a float, handling both integer and decimal parts
 double	convert_float(char *str)
 {
 	int		i;
 	double	nb;
 	int		is_neg;
 	double	div;
-	/*nb: Will hold the converted number
-	div: Used for decimal part, starts at 0.1
-	is_neg: Tracks if the number is negative
-	i: Index for parsing the string*/
 
 	nb = 0;
 	div = 0.1;
@@ -74,8 +68,6 @@ double	convert_float(char *str)
 	{
 		nb = (nb * 10.0) + (str[i] - '0');
 		i++;
-		/*Convert each digit to its numeric value and add to nb
-		Stop at decimal point or non-digit*/
 	}
 	if (str[i] == '.')
 		i++;

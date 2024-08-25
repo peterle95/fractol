@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/13 15:31:03 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/25 22:02:29 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,31 @@
 
 enum e_fractal_type
 {
-	MANDELBROT, // = 0
-	MANDELBROT2, // = 1
-	MANDELBROT3, // = 2
-	MANDELBROT4, // = 3
+	MANDELBROT,
+	MANDELBROT2,
+	MANDELBROT3,
+	MANDELBROT4,
 	JULIA,
 	JULIA2,
 	JULIA3,
 	JULIA4,
 };
 
-/*In C, when you declare an enum without explicitly assigning values, the compiler 
-automatically assigns integer values to the enum constants, starting from 0 and incrementing by 1 for each subsequent constant.*/
-
 typedef struct s_data
 {
 	void	*mlx_connect;
-	// This is a pointer to the MLX (MiniLibX) instance. It's the main handle for all MLX operations.
 	void	*window;
-	// Pointer to the window created by MLX. Used for drawing operations and event handling.
 	int		width;
-	// Width of the fractal image or window in pixels.
 	int		height;
 	int		fractal_type;
-	double	zoom;
 	double	move_x;
 	double	move_y;
 	double	min_re;
-	// Minimum real value of the complex plane being displayed.
 	double	max_re;
 	double	min_im;
 	double	max_im;
 	double	julia_ci;
-	// Imaginary part of the constant used in Julia set calculations.
 	double	julia_cr;
-	// Real part of the constant used in Julia set calculations.
 }	t_data;
 
 # define WINDOW_WIDTH 800
