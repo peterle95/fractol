@@ -24,12 +24,13 @@ void	init_fractal(t_data *data)
 	data->julia_cr = -0.8;
 }
 
-int create_image(t_data *data)
+int	create_image(t_data *data)
 {
 	data->img = mlx_new_image(data->mlx_connect, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!data->img)
 		return (0);
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);
+	data->addr = mlx_get_data_addr(data->img,
+			&data->bits_per_pixel, &data->line_length, &data->endian);
 	return (1);
 }
 

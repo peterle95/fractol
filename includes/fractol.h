@@ -35,11 +35,11 @@ typedef struct s_data
 {
 	void	*mlx_connect;
 	void	*window;
-	void	*img;        // Add this line
-	char	*addr;       // Add this line
-	int		bits_per_pixel;  // Add this line
-	int		line_length;     // Add this line
-	int		endian;          // Add this line
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 	int		width;
 	int		height;
 	int		fractal_type;
@@ -95,7 +95,7 @@ double	calculate_ci(t_data *data, int y);
 double	calculate_zr(t_data *data, int x);
 double	calculate_zi(t_data *data, int y);
 
-// pixels
+// pixels & img
 void	pixel_mandelbrot(t_data *data, int x, int y);
 void	pixel_mandelbrot2(t_data *data, int x, int y);
 void	pixel_mandelbrot3(t_data *data, int x, int y);
@@ -104,6 +104,8 @@ void	pixel_julia(t_data *data, int x, int y);
 void	pixel_julia2(t_data *data, int x, int y);
 void	pixel_julia3(t_data *data, int x, int y);
 void	pixel_julia4(t_data *data, int x, int y);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		create_image(t_data *data);
 
 // colors_julia
 int		color_julia(t_data *data, double zr, double zi);
@@ -116,9 +118,5 @@ int		color_mandelbrot(double cr, double ci);
 int		color_mandelbrot2(double cr, double ci);
 int		color_mandelbrot3(double cr, double ci);
 int		color_mandelbrot4(double cr, double ci);
-
-// Add these function prototypes at the end of the file
-void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int     create_image(t_data *data);
 
 #endif
