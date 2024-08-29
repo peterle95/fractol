@@ -6,11 +6,19 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 12:37:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 21:57:44 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:02:17 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+    char *dst;
+
+    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+    *(unsigned int*)dst = color;
+}
 
 // Validates if the input string is a valid Julia set parameter
 int	validate_julia(char *str)

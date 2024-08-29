@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:34:30 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 21:58:24 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:04:36 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	pixel_mandelbrot(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot(cr, ci);
-	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
+	my_mlx_pixel_put(data, x, y, color);
 }
 
 // Calculates and draws a pixel for a variation of the Mandelbrot set
@@ -35,7 +35,7 @@ void	pixel_mandelbrot2(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot2(cr, ci);
-	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
+	my_mlx_pixel_put(data, x, y, color);
 }
 
 // Calculates and draws a pixel for another variation of the Mandelbrot set
@@ -48,7 +48,7 @@ void	pixel_mandelbrot3(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot3(cr, ci);
-	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
+	my_mlx_pixel_put(data, x, y, color);
 }
 
 // Calculates and draws a pixel for a fourth variation of the Mandelbrot set
@@ -61,5 +61,5 @@ void	pixel_mandelbrot4(t_data *data, int x, int y)
 	cr = calculate_cr(data, x);
 	ci = calculate_ci(data, y);
 	color = color_mandelbrot4(cr, ci);
-	mlx_pixel_put(data->mlx_connect, data->window, x, y, color);
+	my_mlx_pixel_put(data, x, y, color);
 }

@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:22 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 21:58:55 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:08:55 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	mouse_event(int button, int x, int y, t_data *data)
 
 	(void)x;
 	(void)y;
-	zoom_factor = 2.0;
+	zoom_factor = 1.0;
 	center_re = (data->min_re + data->max_re) / 2.0;
 	center_im = (data->min_im + data->max_im) / 2.0;
 	if (button == 4)

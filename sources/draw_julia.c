@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:59:17 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/07/07 17:59:58 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:06:54 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	draw_julia(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 void	draw_julia2(t_data *data)
@@ -46,6 +47,7 @@ void	draw_julia2(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 void	draw_julia3(t_data *data)
@@ -64,6 +66,7 @@ void	draw_julia3(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 void	draw_julia4(t_data *data)
@@ -82,4 +85,5 @@ void	draw_julia4(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }

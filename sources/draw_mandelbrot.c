@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:59:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 22:01:13 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:07:11 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	draw_mandelbrot(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 // Draws a variation of the Mandelbrot set (Mandelbrot2)
@@ -48,6 +49,7 @@ void	draw_mandelbrot2(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 // Draws another variation of the Mandelbrot set (Mandelbrot3)
@@ -67,6 +69,7 @@ void	draw_mandelbrot3(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }
 
 // Draws a fourth variation of the Mandelbrot set (Mandelbrot4)
@@ -86,4 +89,5 @@ void	draw_mandelbrot4(t_data *data)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(data->mlx_connect, data->window, data->img, 0, 0);
 }

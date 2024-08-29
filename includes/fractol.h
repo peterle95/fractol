@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/25 22:02:29 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/08/29 17:00:51 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ typedef struct s_data
 {
 	void	*mlx_connect;
 	void	*window;
+	void	*img;        // Add this line
+	char	*addr;       // Add this line
+	int		bits_per_pixel;  // Add this line
+	int		line_length;     // Add this line
+	int		endian;          // Add this line
 	int		width;
 	int		height;
 	int		fractal_type;
@@ -111,5 +116,9 @@ int		color_mandelbrot(double cr, double ci);
 int		color_mandelbrot2(double cr, double ci);
 int		color_mandelbrot3(double cr, double ci);
 int		color_mandelbrot4(double cr, double ci);
+
+// Add these function prototypes at the end of the file
+void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int     create_image(t_data *data);
 
 #endif
