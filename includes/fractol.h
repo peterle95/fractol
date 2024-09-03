@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:14:35 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/29 17:00:51 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:06:17 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,12 @@ void	pixel_julia(t_data *data, int x, int y);
 void	pixel_julia2(t_data *data, int x, int y);
 void	pixel_julia3(t_data *data, int x, int y);
 void	pixel_julia4(t_data *data, int x, int y);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		create_image(t_data *data);
+void my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void NewFunction(char *dst, int color);
+int create_image(t_data *data);
 
 // colors_julia
-int		color_julia(t_data *data, double zr, double zi);
+int color_julia(t_data *data, double zr, double zi);
 int		color_julia2(t_data *data, double zr, double zi);
 int		color_julia3(t_data *data, double zr, double zi);
 int		color_julia4(t_data *data, double zr, double zi);

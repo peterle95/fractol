@@ -6,7 +6,7 @@
 /*   By: pmolzer <pmolzer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:31:24 by pmolzer           #+#    #+#             */
-/*   Updated: 2024/08/29 17:01:59 by pmolzer          ###   ########.fr       */
+/*   Updated: 2024/09/03 14:25:58 by pmolzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,19 @@ void	init_fractal(t_data *data)
 
 int	create_image(t_data *data)
 {
+	// This line creates a new image using the MLX library. The parameters are:
+	// - data->mlx_connect: The connection to the MLX library.
+	// - WINDOW_WIDTH and WINDOW_HEIGHT: The dimensions of the image.
+	// The result is stored in data->img.
 	data->img = mlx_new_image(data->mlx_connect, WINDOW_WIDTH, WINDOW_HEIGHT);
+	// This line checks if the image creation was successful. If not, it returns 0.
 	if (!data->img)
 		return (0);
+	// This line retrieves the address of the first pixel of the image and stores it in data->addr.
+	// It also retrieves and stores the bits per pixel, line length, and endianness of the image.
 	data->addr = mlx_get_data_addr(data->img,
 			&data->bits_per_pixel, &data->line_length, &data->endian);
+	// If the function has not returned by now, it means the image creation was successful, so it returns 1.
 	return (1);
 }
 
