@@ -76,15 +76,13 @@ While Fractol is running, the following set of controls are available:
 
 ## Mandelbrot set
 
-![Fract-ol purple and yellow striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-2.png)
-![Fract-ol red blue and green striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-3.png)
-![Fract-ol sun crest purple Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-4.png)
+![Fract-ol orange and yellow striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-2.png)
+![Fract-ol black, blue and green striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-3.png)
 
 ## Julia set
 
-![Fract-ol purple green and yellow Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia.png)
-![Fract-ol red swirl Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-2.png)
-![Fract-ol blue snowflake Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-3.png)
+![Fract-ol purple orange and yellow striped Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia.png)
+![Fract-ol black, blue and green striped Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-2.png)
 
 ---
 Made by pmolzer: pmolzer@student.42.fr | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
