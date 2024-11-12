@@ -35,19 +35,7 @@ Types are :
 For the Julia fractal set (and only this set), two additional parameters can be specified as calculation values. These represent a complex number that will change the shape of the Julia fractal. They must be fractional numbers between 2.0 and -2.0. For example:
 
 ```shell
-./fractol J 0.285 -0.01
-```
-
-Additionally, you may specify a hexadecimal color for the fractal display:
-
-```shell
-./fractol M 00CCFF
-```
-
-Please note that for the Julia set, the color option will only be available after specifying calculation values:
-
-```shell
-./fractol J -0.4 0.6 65CD87
+./fractol julia 0.285 -0.01
 ```
 
 ## Fract-ol Controls
@@ -57,10 +45,8 @@ While Fractol is running, the following set of controls are available:
 <table>
   <tr><td><strong>Controls</strong></td><td><strong>Action</strong></td></tr>
   <tr><td><kbd>&nbsp;▲&nbsp;</kbd><kbd>&nbsp;◄&nbsp;</kbd><kbd>&nbsp;▼&nbsp;</kbd><kbd>&nbsp;►&nbsp;</kbd></td><td>Move</td></tr>
-  <tr><td><kbd>&nbsp;-&nbsp;</kbd>, <kbd>&nbsp;+&nbsp;</kbd> or <kbd>&nbsp;scroll wheel&nbsp;</kbd></td><td>Zoom in and out</td></tr>
-  <tr><td><kbd>&nbsp;space&nbsp;</kbd></td><td>Change color scheme</td></tr>
-  <tr><td><kbd>&nbsp;left click&nbsp;</kbd></td><td>Shift Julia set [Julia only]</td></tr>
-  <tr><td><kbd>&nbsp;1&nbsp;</kbd>, <kbd>&nbsp;2&nbsp;</kbd>, <kbd>&nbsp;3&nbsp;</kbd>, <kbd>&nbsp;4&nbsp;</kbd>, or <kbd>&nbsp;5&nbsp;</kbd></td><td>Switch fractals</td></tr>
+  <tr><td><kbd>&nbsp;scroll wheel&nbsp;</kbd></td><td>Zoom in and out</td></tr>
+  <tr><td><kbd>&nbsp;1&nbsp;</kbd>, <kbd>&nbsp;2&nbsp;</kbd>, <kbd>&nbsp;3&nbsp;</kbd>, <kbd>&nbsp;4&nbsp;</kbd>, <kbd>&nbsp;5&nbsp;</kbd>, <kbd>&nbsp;6&nbsp;</kbd>, <kbd>&nbsp;7&nbsp;</kbd>, <kbd>&nbsp;8&nbsp;</kbd></td><td>Switch fractals</td></tr>
   <tr><td><kbd>&nbsp;esc&nbsp;</kbd> or close window</td><td>Quit fract-ol</td></tr>
 </table>
 
