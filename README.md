@@ -8,13 +8,6 @@ One of the first graphical projects at 42 school, fract-ol generates beautiful f
 
 ![Fract-ol mono-colored Mandelbrot by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot.png)
 
-
-# Status
-
-Finished: 22/04/2022.
-
-Grade: 125%.
-
 # Usage
 
 ---
@@ -30,7 +23,7 @@ Clone the repository, including the embedded MiniLibX repository:
 git clone https://github.com/mcombeau/fract-ol.git && cd fract-ol && git submodule init && git submodule update
 ```
 
-You will now be in the correct directory for compilation. Compile with ```make```. Fract-ol should now be ready!
+You will now be in the correct directory for compilation. Compile with `make`. Fract-ol should now be ready!
 
 ## Executing Fract-ol
 
@@ -83,23 +76,15 @@ While Fractol is running, the following set of controls are available:
 
 ## Mandelbrot set
 
-![Fract-ol purple and yellow striped Mandelbrot by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-2.png)
-![Fract-ol red bllue and green striped Mandelbrot by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-3.png)
-![Fract-ol sun crest purple Mandelbrot by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-4.png)
+![Fract-ol purple and yellow striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-2.png)
+![Fract-ol red blue and green striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-3.png)
+![Fract-ol sun crest purple Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-4.png)
 
 ## Julia set
 
-![Fract-ol purple green and yellow Julia by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia.png)
-![Fract-ol red swirl Julia by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-2.png)
-![Fract-ol blue snowflake Julia by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-3.png)
-
-## Burning ship set
-
-![Fract-ol golden burning ship by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Burning-Ship.png)
-
-## Mandelbox set
-
-![Fract-ol brown tribal Mandelbox by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbox.png)
+![Fract-ol purple green and yellow Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia.png)
+![Fract-ol red swirl Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-2.png)
+![Fract-ol blue snowflake Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-3.png)
 
 ---
 Made by pmolzer: pmolzer@student.42.fr | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
