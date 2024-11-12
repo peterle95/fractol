@@ -62,4 +62,4 @@ While Fractol is running, the following set of controls are available:
 ![Fract-ol black, blue and green striped Julia](https://github.com/peterle95/fractol/blob/main/screenshots/Julia%202.png)
 
 ---
-Made by pmolzer: pmolzer@student.42.fr | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
+Made by pmolzer: pmolzer@student.42berlin.de | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
