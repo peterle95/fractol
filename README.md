@@ -76,13 +76,13 @@ While Fractol is running, the following set of controls are available:
 
 ## Mandelbrot set
 
-![Fract-ol orange and yellow striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-2.png)
-![Fract-ol black, blue and green striped Mandelbrot](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot-3.png)
+![Fract-ol orange and yellow striped Mandelbrot](https://github.com/peterle95/fractol/blob/main/screenshots/Mandelbrot%201.png)
+![Fract-ol black, blue and green striped Mandelbrot](https://github.com/peterle95/fractol/blob/main/screenshots/Mandelbrot%202.png)
 
 ## Julia set
 
-![Fract-ol purple orange and yellow striped Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia.png)
-![Fract-ol black, blue and green striped Julia](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Julia-2.png)
+![Fract-ol purple orange and yellow striped Julia](https://github.com/peterle95/fractol/blob/main/screenshots/Julia%201.png)
+![Fract-ol black, blue and green striped Julia](https://github.com/peterle95/fractol/blob/main/screenshots/Julia%202.png)
 
 ---
 Made by pmolzer: pmolzer@student.42.fr | LinkedIn: [pmolzer](https://www.linkedin.com/in/peter-moelzer//) 
