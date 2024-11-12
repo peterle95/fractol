@@ -6,21 +6,15 @@
 
 One of the first graphical projects at 42 school, fract-ol generates beautiful fractals from the complex numbers of an iterative mathematical construct. A fractal is a fragmented geometrical figure that infinitely repeats itself at smaller scales. This project uses the school's graphical library, MiniLibX.
 
-![Fract-ol mono-colored Mandelbrot by mcombeau](https://github.com/mcombeau/fract-ol/blob/main/screenshots/Fractol-Mandelbrot.png)
+![Fract-ol orange and yellow striped Mandelbrot](https://github.com/peterle95/fractol/blob/main/screenshots/Mandelbrot%201.png)
 
 # Usage
-
----
-
-Note that this project was tested on Linux only. It may run on MacOS with small adjustments to the Makefile, as described in hsmits and jvan-sni's [42 Docs](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html).
-
----
 
 ## Installing and Compiling Fract-ol
 
 Clone the repository, including the embedded MiniLibX repository:
 ```shell
-git clone https://github.com/mcombeau/fract-ol.git && cd fract-ol && git submodule init && git submodule update
+git clone https://github.com/peterle95/fractol.git && cd fract-ol
 ```
 
 You will now be in the correct directory for compilation. Compile with `make`. Fract-ol should now be ready!
@@ -34,11 +28,9 @@ At execution time, you must specify a fractal to display. You may also provide o
 ```
 
 Types are :
-* ```M```, ```m```, or ```1```: Mandelbrot fractal
-* ```J```, ```j```, or ```2```: Julia fractal
-* ```B```, ```b```, or ```3```: Burning Ship fractal
-* ```T```, ```t```, or ```4```: Tricorn fractal
-* ```X```, ```x```, or ```5```: Mandelbox fractal
+* ```1```, ```2```, ```3```, or ```4```: Mandelbrot fractal (Different color schemes)
+* ```5```, ```6```, ```7```, or ```8```: Julia fractal (Different color schemes)
+
 
 For the Julia fractal set (and only this set), two additional parameters can be specified as calculation values. These represent a complex number that will change the shape of the Julia fractal. They must be fractional numbers between 2.0 and -2.0. For example:
 
@@ -64,7 +56,7 @@ While Fractol is running, the following set of controls are available:
 
 <table>
   <tr><td><strong>Controls</strong></td><td><strong>Action</strong></td></tr>
-  <tr><td><kbd>&nbsp;W&nbsp;</kbd><kbd>&nbsp;A&nbsp;</kbd><kbd>&nbsp;S&nbsp;</kbd><kbd>&nbsp;D&nbsp;</kbd> or <kbd>&nbsp;▲&nbsp;</kbd><kbd>&nbsp;◄&nbsp;</kbd><kbd>&nbsp;▼&nbsp;</kbd><kbd>&nbsp;►&nbsp;</kbd></td><td>Move</td></tr>
+  <tr><td><kbd>&nbsp;▲&nbsp;</kbd><kbd>&nbsp;◄&nbsp;</kbd><kbd>&nbsp;▼&nbsp;</kbd><kbd>&nbsp;►&nbsp;</kbd></td><td>Move</td></tr>
   <tr><td><kbd>&nbsp;-&nbsp;</kbd>, <kbd>&nbsp;+&nbsp;</kbd> or <kbd>&nbsp;scroll wheel&nbsp;</kbd></td><td>Zoom in and out</td></tr>
   <tr><td><kbd>&nbsp;space&nbsp;</kbd></td><td>Change color scheme</td></tr>
   <tr><td><kbd>&nbsp;left click&nbsp;</kbd></td><td>Shift Julia set [Julia only]</td></tr>
@@ -76,7 +68,6 @@ While Fractol is running, the following set of controls are available:
 
 ## Mandelbrot set
 
-![Fract-ol orange and yellow striped Mandelbrot](https://github.com/peterle95/fractol/blob/main/screenshots/Mandelbrot%201.png)
 ![Fract-ol black, blue and green striped Mandelbrot](https://github.com/peterle95/fractol/blob/main/screenshots/Mandelbrot%202.png)
 
 ## Julia set
