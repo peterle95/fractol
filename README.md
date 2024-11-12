@@ -12,7 +12,7 @@ One of the first graphical projects at 42 school, fract-ol generates beautiful f
 
 ## Installing and Compiling Fract-ol
 
-Clone the repository, including the embedded MiniLibX repository:
+Clone the repository, including the MiniLibX repository:
 ```shell
 git clone https://github.com/peterle95/fractol.git && cd fract-ol
 ```
